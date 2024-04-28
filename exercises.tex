@@ -1,0 +1,359 @@
+\documentclass[a4paper]{exam}
+\printanswers
+\newif\ifhint
+
+\hinttrue
+
+\input{~/templates/math.tex}
+
+\title{Atiyah-MacDonald Solutions}
+\author{Vincent Tran}
+
+\begin{document}
+\maketitle
+
+\section{Chapter 2}
+
+In Chapter Exercises:
+
+\begin{questions}
+	\question 2.2
+	\begin{parts}
+		\part $\text{Ann}(M + N) = \text{Ann}(M) \cap \text{Ann}(N) $.
+		\part $(N:P) = \text{Ann}((N+P) / N) $.
+	\end{parts}
+
+	\question 2.15: Let $A,B $ be rings, let $M$ be an $A$-module, $P$ a $B$-module and $N$ an $(A, B)$-bimodule (that is, $N$ is simultaneously an $A$-module and a $B$-module and the two structures are compatible in the sense that $a(xb) = (ax)b$ for all $a \in A, b\in B, x \in N)$. Then $M \otimes _A N$ is naturally a $B$-module, $N \otimes _B P$ an $A$-module, and we have
+	\[
+		(M \otimes _A N) \otimes _B P \cong M \otimes _A (N \otimes _B P)
+	.\]
+	\begin{solution}
+		% Fix a $p\in P $.
+		% Then the map
+		% \begin{align*}
+		% 	M \times N &\longrightarrow M \otimes _A (N \otimes _B P)\\
+		% 	(m,n) &\longmapsto m \otimes_A (n \otimes_B p)
+		% \end{align*}
+		% is bilinear in A.
+		% Hence it induces an $A $-linear map $M \otimes _A N \to M \otimes _A(N \otimes _B P) $ that maps $m \otimes _A n $ to $m \otimes _A (n \otimes _B p) $.
+
+		First we construct the $B $ bilinear map
+		\[
+			(M \otimes _A N) \times P \to M \otimes _A (N \otimes _B P)
+		\]
+		that sends $(m \otimes n, p) \to m \otimes (n \otimes p) $.
+		The $B $ bilinearity comes from $(b(m \otimes n),p) = (m \otimes nb,p) \mapsto m \otimes (nb \otimes p) = b(m \otimes (n \otimes p)) = m \otimes (b \otimes bp) $, which is also the image of $(m \otimes n, bp) $.
+		Hence this induces a unique $B $ linear map
+		\[
+			(M \otimes_A N) \otimes_B P \to M \otimes _A (N \otimes _B P)
+		.\]
+
+		By a symmetric argument, we have a unique $A $ linear map from the other direction, giving us an isomorphism for by tracing where $(m \otimes n) \otimes p $ goes, it goes to $m \otimes (n \otimes p) $ and then to $(m \otimes n) \otimes p $.
+	\end{solution}
+
+	\question If $f: A\to B $ is a ring homomorphism and $M $ is a flat $A $-module, then $M_B = B \otimes _A M$ is a flat $B $-module.
+	\begin{solution}
+		The function $f $ makes $B $ an $A $-algebra.
+		Consider $B \otimes_B N \cong N $ by Proposition 2.14.
+		Obiously $B $ has an $(A,B) $ bimodule structure since $B $ is an algebra.
+
+		Then given an exact sequence $E $, $E \otimes_A N = E \otimes_A (B \otimes_B N) = (E \otimes_A B) \otimes_B N $ by Exercise 2.15 in the Chapter.
+		As $B $ is flat as an $A $-module and $N$ is flat as a $B $-module, we are done.
+	\end{solution}
+\end{questions}
+
+\begin{questions}
+	\question Show that $(\Z / m\Z) \otimes _{\Z} (\Z/n\Z) = 0$ if $m,n $ are coprime.
+	\begin{solution}
+		Take a bilinear map $f: (\Z / m\Z) \times (\Z / n\Z) $.
+		Then by bilinearity, we have $f(mx,y) = f(0,y) + mf(x,y) = f(0,y) $ and $f(x,ny) = f(x,0) + nf(x,y) = f(x,0) $, which imply that $mf(x,y) = 0 $ and $nf(x,y) = 0 $.
+		By Bezout's Lemma, we have that there exists $a,b $ s.t. $am+bn = 1 $ as $m,n $ are coprime.
+		Thus $f(x,y) = 0 $.
+	\end{solution}
+
+	\question Let $A $ be a ring, $M $ an $A $-module. Show that $(A / \mathfrak{a}) \otimes_A M$ is isomorphic to $M / \mathfrak{a}M $. [Tensor the exact sequence $0\to \mathfrak{a}\to A\to A / \mathfrak{a} \to 0 $ with $M $]
+	\begin{solution}
+		By tensoring with the exact sequence $\mathfrak{a}\to A \to A / \mathfrak{a} \to 0 $, we get
+		\[
+			0 \to \mathfrak{a}\otimes_A M \to A \otimes_A M \to A / \mathfrak{a} \otimes M \to 0 \tag{Prop 2.8}
+		.\]
+
+		Then by Proposition 2.14, $A \otimes M \to M $ is an isomorphism by $a\otimes  $, we have $\mathfrak{a}\otimes M \cong \mathfrak{a}M $ and $A\otimes M \cong M $.
+		Hence by commutativity of
+		\[
+			\begin{tikzcd}
+				\mathfrak{a}\otimes M & A \otimes M\\
+				\mathfrak{a}M & M
+				\arrow[from=1-1,to=1-2]
+				\arrow["\cong",from=1-1,to=2-1]
+				\arrow[from=2-1,to=2-2]
+				\arrow["\cong",from=1-2,to=2-2]
+			\end{tikzcd}
+		,\]
+		(for the commutativity, the definitions of the maps down make it obvious) we have that $\Im(\mathfrak{a}M\to M)= \ker(M\to M / \mathfrak{a}M) = \ker(A / \mathfrak{a}\otimes M)$.
+
+		So we have this diagram
+		\[
+			\begin{tikzcd}
+				&& M / \mathfrak{a}M &\\
+				\mathfrak{a}M & M &&0\\
+					      && A / \mathfrak{a} \otimes M &
+					      \arrow[from=2-1,to=2-2]
+					      \arrow[from=2-2,to=1-3]
+					      \arrow[from=2-2,to=3-3]
+					      \arrow[from=3-3,to=2-4]
+					      \arrow[from=1-3,to=2-4]
+			\end{tikzcd}
+		\]
+		By some isomorphism theorem and surjectivity of the last maps, we have that $M / \mathfrak{a}M \cong A / \mathfrak{a} \otimes M $.
+	\end{solution}
+
+	\question Let $A $ be a local ring, $M $ and $N $ finitely generated $A $-modules. Prove tha tif $M \otimes_A N = 0 $, then $M = 0 $ or $N = 0 $.
+	[Let $\mathfrak{m} $ be the maximal ideal, $k = A / \mathfrak{m} $ the residue field. Let $M_k = k \otimes _A M \cong M / \mathfrak{m}M $ by Exercise 2. By Nakayama's lemma, $M_k = 0 \implies M = 0$. But $M \otimes_A N = 0 \implies (Mo\times _A N)_k = 0\implies M_k \otimes N_k = 0 \implies M_k = 0 $ or $N_k = 0 $, since $M_k,N_k $ are vector spaces over a field.]
+	\begin{solution}
+		We do as the hint suggests:
+		Let $\mathfrak{m} $ be the maximal ideal, $k = A / \mathfrak{m} $ the residue field and define $M_k = k \otimes _A M \cong M / \mathfrak{m}M $ by Exercise 2.
+
+		By Nakayama's lemma, $M_k = 0 \implies M = 0$ since $k \subseteq $ the Jacobson radical, $M_k = 0\implies M = \mathfrak{m}M$, and $M$ is finitely generated.
+
+		Then we have that $M \otimes_A N = 0 \implies (M\otimes _A N)_k = 0$ because
+
+		As the tensor product of vector spaces is just the direct sum, this implies that $0 = k \otimes k \otimes  (M \otimes _A N) = M_k \otimes_A N_k = 0$ by commuting.
+		As $A $ bilinear maps on $M_k \times N_k$ are $k $ linear maps on $M_k\times N_k $, we have $M_k \otimes _k N_k = 0$.
+		Finally, this implies that $M_k = 0 $ or $N_k = 0 $, since $M_k,N_k $ are vector spaces.
+	\end{solution}
+
+	\question Let $M_i (i\in I $) be any family of $A $-modules, and let $M $ be their direct sum. Prove that $M $ is flat $\iff $ each $M_i $ is flat.
+	\begin{solution}
+		Fix an exact sequence $E $.
+
+		We have that $E \otimes M = E \otimes (\bigoplus M_i) = \bigoplus (E \otimes M_i)$ because each direct sum is finite and hence belongs to a finite direct sum in which we can use Proposition 2.14.
+		Then if $E \otimes M $ is exact, so is each coordinate, which gives us the invidiaul $M_i $ is exact.
+		If each coordinate is exact then so is $E \otimes M $.
+	\end{solution}
+
+	\question Let $A[x] $ be the ring of polynomials in one indeterminate over a ring $A $. Prove that $A[x] $ is a flat $A $-algebra. [Use Exercise 4.]
+	\begin{solution}
+		Clearly $A[x] = \bigoplus_{i=0}^{\infty} Ax^i$.
+		So by the above exercise, it suffices to show that $x^i A $ is flat.
+		Say we have a short exact sequence of $A $-modules
+		\[
+			0 \to B \to C \to D \to 0
+		.\]
+
+		Then
+		\[
+			0 \to B \otimes Ax^i \to C \otimes Ax^i \to D \otimes Ax^i \to 0
+		\]
+		is exact because tensoring with $Ax^i $ is the same as tensoring with $A $ as bilinear maps $B \times Ax^i $ are bilinear on $B \times A $ and likewise for linear maps.
+		So tensoring with $Ax^i $ also induces unique linear maps that make the tensor universal diagram commute, so by uniqueness of the universal property, they are the same.
+
+		Finally tensoring with $A $ is the same as the original module by Proposition 2.14.
+		So $Ax^i $ is flat and so is $A[x] $.
+	\end{solution}
+
+	\question For any $A$-module, let $M[x]$ denote the set of all polynomials in $x$ with coefficients in $M$, that is to say expressions of the form
+	\[
+		m_{0}+m_{1}x+\cdots + m_r x^r \tag{$m_i \in M$}
+	.\]
+	Defining the product of  an element of  $A[x]$ and an element of  $M[x]$ in the obvious  way, show that $M[x]$ is an $A[x]$-module.\\
+	Show that $M[x] \cong A[x] \otimes _A M$.
+	\begin{solution}
+		First, it is an abelian group by commuting and grouping together terms with the same power of $x $.
+		Then for the properties of an $A[x] $ module:
+		Distributivity holds by simply defining it as so.
+		\begin{align*}
+			(r+s)m &= (r_{0}+\cdots+r_jx^j+s_{0}+\cdots+s_kx^k)m \\
+&= (r_{0}+s_{0}+\cdots+(r_{j+k}+s_{j+k})x^{j+k})m \\
+&= (r_{0}+s_{0})m + (r_{1}+s_{1})mx + \cdots \\
+&= rm + sm\\
+			r(sm) &= r(s_{0}m + s_{1}mx + \cdots + s_kmx^k) \\
+&= r(s_{0}m) + \cdots + r(s_kmx^k) \\
+&= rs_{0}m + \cdots + rs_kx^km \\
+&= (rs_{0}+\cdots+rs_kx^k)m \\
+&= (rs)m\\
+			1m = m
+		.\end{align*}
+		Hence $M[x]$ is an $A[x] $ module.
+
+		We use the universal property.
+		Say we have a bilinear map
+		\[
+		\begin{tikzcd}
+			A[x] \times M & M[x]\\
+		 & B
+		\arrow[from=1-1,to=1-2]
+		\arrow["f",from=1-1,to=2-2]
+		\end{tikzcd}
+		\]
+		where the top map takes $(a(x),m) \to a(x)m $.
+		Then we have the unique linear map $\hat{f}: M[x] \to B$ that takes $m_{0}+m_{1}x+\cdots + m_rx^r $ to $f(1,m_{0})+f(x,m_{1})+\cdots+f(x^r,m_r) $.
+		This is linear because of linearity of $f $ in $M $.
+		It is unique because we have a basis that uniquely determines the map by linearity, and the bases have to be mapped to the things that generate this map.
+
+		Hence by the universal property, $M[x] \cong A[x] \otimes M $.
+	\end{solution}
+
+	\question Let $\mathfrak{p} $ be a prime ideal in $A $. Show that $\mathfrak{p}[x] $ is a prime ideal in $A[x] $. If $\mathfrak{m} $ is a maximal ideal in $A $, is $\mathfrak{m}[x] $ a maximal ieal in $A[x] $?
+	\begin{solution}
+		It is clear that $A[x] / \mathfrak{p}[x] \cong (A / \mathfrak{p})[x]$.
+		As $A / \mathfrak{p} $ is an integral domain by primality of $\mathfrak{p} $, $(A / \mathfrak{p})[x] $ is an integral domain (look at leading coefficients) and thus $p[x]$ is prime.
+
+		Similarly with $\mathfrak{m} $, $A[x] / \mathfrak{m}[x] \cong (A / \mathfrak{m})[x]$.
+		Then $A / \mathfrak{m} $ is a field, and clearly $(A / \mathfrak{m})[x] $ is not a field.
+	\end{solution}
+
+	\question
+	\begin{parts}
+		\part If $M $ and $N $ are flat $A $-modules, then so is $M \otimes _A N $.
+		\begin{solution}
+			Let $E $ be an exact sequence.
+			Then $E \otimes_A M $ is exact by $M $ being flat, and hence $(E \otimes_A) \otimes_A N $ is exact.
+			By Proposition 2.14, this sequence equals $E \otimes_A (M \otimes_A N) $, so $M \otimes _A N $ is flat.
+		\end{solution}
+		\part If $B $ is a flat $A $-algebra and $N $ is a flat $B $-module, then $N $ is flat as an $A $-module.
+		\begin{solution}
+			Consider $B \otimes_B N \cong N $ by Proposition 2.14.
+			Then $N $ is flat as an $A $-module by Exercise 2.20 in the Chapter.
+		\end{solution}
+	\end{parts}
+
+	\question Let $0\to M'\to M\to M''\to 0 $ be an exact sequence of $A$-modules. If $M' $ and $M'' $ are finitely generated, then so is $M $.
+	\begin{solution}
+		As the last map is surjective, the preimage of $M'' $ is $M $, so the preimage of the generators of $M'' $ and the kernel generate $M $.
+		But the kernel is finitely generated as it is the image of $M' $, so $M $ is finitely generated.
+	\end{solution}
+
+	\question Let $A $ be a ring, $\mathfrak{a}$ an ideal contained in the Jacobson radical of $A $; let $M $ be an $A $-module and $N $ a finitely generated $A$-module, and let $u: M\to N $ be a homomorphism. If the induced homomorphism $M / \mathfrak{a}M \to N / \mathfrak{a}N $ is surjective, then $u $ is surjective.
+	\begin{solution}
+		It suffices to show that $N = \mathfrak{a}N + u(M) $ by Corollary 2.7.
+		Clearly $\mathfrak{a}N + u(M) \subseteq N$ by definitions.
+
+		Let $\phi_N$ be the quotient map $N\to N / \mathfrak{a}N $ and $\phi_M $ be the map $M \to M / \mathfrak{a}M $.
+		Then because $\hat{u}  $ is induced by $\phi \circ u $, $\phi_N \circ u = \hat{u}\phi_M  $.
+		As both $\hat{u}  $ and $\phi _M $ are surjective, the LHS is too.
+		Hence for every element $n $ of $N $, by the surjectivity of $\phi_N $, there is an element in $u(M) $ s.t. $\phi _N $ of it equals $n $.
+		Thus $u(M) + \ker \phi _N = u(M) + \mathfrak{a}N = N$.
+	\end{solution}
+
+	\question Let $A $ be a ring $\ne 0 $. Show that $A^m \cong A^n \implies m = n $.
+	\ifhint
+		Let $\mathfrak{m} $ be a maximal ideal of $A $ and let $\phi : A^m \to A^n $ be an isomorphism.
+		Then $1 \otimes \phi: A / \mathfrak{m} \otimes A^m \to A / \mathfrak{m} \otimes A^n$ is an ismorphism of vector space of dimensions $m $ and $n $ over the field $k= A / \mathfrak{m} $.
+		Hece $m=n $. [Cf. Chapter 3, Exercise 15]
+	\fi
+	\begin{solution}
+		Let $\mathfrak{m} $ be a maximal ideal of $A $ and let $\phi : A^m \to A^n $ be an isomorphism.
+		Then $1 \otimes \phi: A / \mathfrak{m} \otimes A^m \to A / \mathfrak{m} \otimes A^n$ is an ismorphism of vector space (Exercise 2 for modules over a field).
+		But then these vector spaces have to have the same dimension over $A / \mathfrak{m} $, which are $m $ and $n $ respectively.
+		So $m=n $.
+	\end{solution}
+	\begin{parts}
+		\part If $\phi : A^m \to A^n$ is surjective, then $m\ge n $.
+		\begin{solution}
+			Let $\mathfrak{m} $ be a maximal ideal of $A $ and let $\phi : A^m \to A^n $ be a surjection.
+			Then $1 \otimes \phi: A / \mathfrak{m} \otimes A^m \to A / \mathfrak{m} \otimes A^n$ is a surjection of vector space (Exercise 2) (surjectivity from right exactness of tensoring (Proposition 2.18)).
+			Then note that their dimensions are $m,n $ respectively.
+			As this is a surjective vector space map, $m\ge n $.
+		\end{solution}
+		\part If $\phi : A^m\to A^n $ is injective, is it always the case that $m\le n $?
+		\begin{solution}
+			No.
+			Consider $A = \Z[x_{1}, \ldots ] $.
+			Then consider the map $A \times A \to A $ that maps $(f(x_{1}, \ldots ),g(x_{1}, \ldots )) \to f(x_{1}, x_{3}, \ldots ) + g(x_{2}, x_{4}, \ldots ) $.
+			Obviously they are injective as they are inclusions under relabelling.
+			Clearly $2 \not\le 1 $.
+		\end{solution}
+	\end{parts}
+
+	\question Let $M $ be a finitely generated $A $-module and $\phi :M\to A^n $ a surjective homomorphism. Show that $\ker \phi  $ is finitely generated.
+	\ifhint
+		Let $e_{1}, \ldots , e_n $ be a basis of $A^n $ and choose $u_i \in M $ such that $\phi (u_i) = e_i (1\le i\le n)$. Show that $M $ is the direct sum of $\ker \phi  $ and the submodule generated by $u_1, \ldots , u_n $.
+	\fi
+	\begin{solution}
+		We can see that $M $ is generated by picking a representative in the preimage of the basis of $A^n $ and the kernel since the quotient is surjective, so every element in $M $ is an element in $A^n $ up to the kernel of the map.
+		This then forms a basis because the preimage of the basis is a basis (otherwise push forward a relation), and the kernel and the basis have no relations because otherwise the basis would be in the kernel.
+
+		Hence $M = \ker \phi \oplus A^n $, which implies that $\ker \phi  $ is finitely generated, otherwise $M $ wouldn't be finitely generated.
+	\end{solution}
+
+	\question Let $f: A\to B $ be a ring homomorphism, and let $N$ be a $B$-module. Regarding $N$ as an $A$-module by restriction of scalars, form the $B$-module $N_B = B \otimes _A N$. Show that the homomorphism $g: N \to N_B$ which maps $y$ to $1 \otimes  y$ is injective and that $g(N)$ is a direct summand of $N_B$.
+	\ifhint
+		Define $p: N_B \to N_b$ by $p(b \otimes y) = by$, and show that $N_B = \Im (g) \oplus \ker (p)$.
+	\fi
+	\begin{solution}
+		We can see that $p(g(n)) = n \forall n \in N $, which is injective.
+		Hence $g $ is.
+
+		To show that it is the direct sum, we do as the hint suggests and realize that $g\circ p $ is the identity map on elements not in $\ker p $ because $B $ is generated as a $B $-module by $1 $, so we have generators of $N_B $ being of the form $1 \otimes q$.
+		It easily follows that $gp(1 \otimes q) = 1 \otimes q $, $g$ is $B $ linear.
+
+		Thus every element of $N_B $ is either in the image of $g $ or in the kernel of $p $.
+		Then to show they are independent, suppose we have a non-trivial relation $\sum b_i \otimes y_i + 1 \otimes y \in \ker p + \Im g $ equalling 0.
+		Then $p(\sum b_i \otimes y_i + 1 \otimes y) = 0 + p(1 \otimes y) = y \ne 0$ otherwise it would be a trivial relation.
+	\end{solution}
+
+	\question A partially ordered set $I$ is said to be a directed set if for each pair $i, j$ in $I$ there exists $k \in I$ such that $i\le k $ and $j\le k $.\\
+	Let $A$ be a ring, let $I$ be a directed set and let $(M_i)'_{i\in I}$ be a family of $A$-modules indexed by·$I$. For each pair $i,j$ in $I$ such that $i \le j$, let $\mu _{ij}: M_i \to M_j $ be an $A$-homomorphism, and suppose that the following axioms are satisfied:
+	\begin{enumerate}
+		\item $\mu_{ii} $ is the identity mapping of $M_i$ for all $i\in I $;
+		\item $\mu _{ik} = \mu _{jk}\circ \mu _{ij}$ whenever $i\le j \le k $.
+	\end{enumerate}
+	Then the modules $M_i$ and homomorphisms $\mu_{ij} $ are said to form a direct system $M = (M_i, \mu _{ij})$ over the directed set $I$.
+
+	We shall construct an $A$-module $M$ called the \texttt{direct limit} of the direct system $M$. Let $C$ be the direct sum of the $M_i$, and identify each module $M_i$ with its canonical image in $C$. Let $D$ be the submodule of $C$ generated by all elements of the form $x_i - \mu _{ij}(x_i) $ where $i\le j $ and $x_i\in M_i $. Let $M = C / D $, let $\mu :C\to M $ be the projection and let $\mu _i $ be the restriction of $M_i $.
+
+	The module $M$, or more correctly the pair consisting of $M$ and the family of homomorphisms $\mu _i:M_i \to M $, is called the direct limit of the direct system $M$, and is written $\lim_{\rightarrow} M_i $ From the construction it is clear that $\mu _i = \mu _j \circ \mu _{ij} $ whenever $i\le j $.
+	\begin{solution}
+		Let $Q = \{X_i - \mu _{ij}(X_i), X_i \in M_i, i\le j\}$
+		We can see that from definition, for $x_i \in M_i $, $\mu _i(x_i) = x_i + Q = x_i - (x_i - \mu_{ij}(x_i)) + Q = \mu_j(\mu_{ij}(x_i))$.
+	\end{solution}
+
+	\question In the situation of Exercise 14, show that every element of $M$ can be written in the form $\mu _i(x_i) $ for some $i\in I $ and some $x_i\in M_i $.\\
+	Show also that if $\mu _i(x_i) = 0 $ then there exists $j \ge i $ such that $\mu _{ij}(x_i) = 0 $ in $M_j $.
+	\begin{solution}
+		It suffices to show that $x_j + x_k + Q$ for $x_j\in M_j, x_k\in M_k $ is of the desired form since $M $ are quotient classes of a finite sum.
+		We can see that $x_j + x_k + Q = \mu_{j\ell}(x_i) + \mu_{k\ell}(x_k) + Q $ for $j \le \ell $ and $k\le \ell $.
+		Then because $\mu_{j\ell}(x_i) + \mu_{k\ell}(x_k)\in M_k $, $\mu_{j\ell}(x_i) + \mu_{k\ell}(x_k) + Q = \mu_k(\mu_{j\ell}(x_i) + \mu_{k\ell}(x_k)) $.
+
+		Since $Q = \mu_i(x_i) = x_i + Q$, there is some finite set of $j_\ell \ge i$ s.t. $x_i = \sum (x_{j_\ell} - \mu_{ij_\ell}(x_{j_\ell})), x_{j\ell} \in M_{i} $.
+		Since the $M_i,M_{j\ell} $ are distinct, $\sum \mu _{ij_\ell}(x_{j_\ell}) = 0$.
+		% We have that $\mu_i(x_i) = x_i + Q = \mu_{ij}(x_i) + Q $ because, by the definition of directed system, there is a $j $ s.t. $i \le j $.
+	\end{solution}
+
+	\question Show that the direct limit is characterized (up to isomorphism) by the following property. Let $N $ be an $A $-module and for each $i\in I $, let $\alpha _i: M_i \to N $ be an $A $-module homomorphism such that $\alpha _i = \alpha _j \circ \mu_{ij} $ whenever $i\le j $. Then there exists a unique homomorphism $\alpha :M\to N $ such that $\alpha _i = \alpha \circ \mu _i $ for all $i\in I $.
+	\begin{solution}
+		Simply define $\alpha  $ to be $\left(\bigoplus x_i\right) + Q \mapsto \bigoplus \alpha_i(x_i)$.
+		This is well-defined because for any $m_i - \mu_{ij}(m_i) \in Q$, this gets mapped to $\alpha _i(m_i) - \alpha_j(\mu _{ij}(m_i)) = \alpha _i(m_i) - \alpha _i(m_i) = 0 $.
+
+		Then this commutes properly because $\alpha (\mu _i(m_i)) = \alpha (m_i+Q) = \alpha _i(m_i)$.
+
+		Finally, this is unique because given another $\alpha' $ with these properties and arbitrary $\bigoplus x_i +Q \in M $, $\alpha' (\bigoplus x_i+Q) = \alpha'(\mu _I(x_I))$ given by Exercise 15.
+		Then by definition of $\alpha ' $, $\alpha '(\mu _I(x_I)) = \alpha_I(x_I) = \alpha(\mu _I(x_I)) = \alpha (\bigoplus x_i + Q)$.
+		Hence $\alpha '= \alpha  $ for all elements of $M $, and we are done.
+
+		The characterizing up to isomorphism is just a classic universal property argument.
+	\end{solution}
+
+	\question Let $(M_i)_{i\in I} $ be a family of submodules of an $A $-module, such that for each pair of indices $i,j $ in $I $, there exists $k\in I $ s.t. $M_i + M_j \subseteq M_k $. Define $i\le j $ to mean $M_i \subseteq M_j $ and let $\mu _{ij}: M_i\to M_j $ be the embedding of $M_i $ in $M_j $. Show that
+	\[
+		\lim_{\rightarrow} M_i = \sum M_i = \cup M_i
+	.\]
+	In particular, any $A $-module is the direct limit of its finitely generated submodules.
+	\begin{solution}
+		Obviously this satisfies the conditions for the direct limit as the maps are just embeddings.
+		To show the equality, we can realize $\cup M_i $ as having the properties of the direct limit:
+		Say we have a family of maps $\alpha _i $ into an $A $-module $N $ that respect the directed system's maps.
+
+		Then we have a map $\alpha :\cup M_i \to N$ defined by taking an element $m $, finding a $ M_i$ it is in, and mapping it to $\alpha _i(m) $.
+		This is well-defined because $\alpha _i $ respects the directed system's maps, those being inclusions.
+		Hence it is isomorphic to the direct limit by Exercise 16.
+
+		Since $\{M_i\}   $ is a poset and we have that for every increasing chain, there is a maximal element (namely the union of all the modules in the chain), there is a maximal element $M $ in this set.
+		This equals $\cup M_i $, and hence $M \subseteq \sum M_i \subseteq M $.
+	\end{solution}
+
+	\question Let $\bm{M} = (M_i, \mu_{ij}), \bm{N}=(N_i,\nu_{ij}) $ be direct systems of $A $-modules over the same directed set. Let $M,N $ be the direct limits
+\end{questions}
+
+\end{document}
