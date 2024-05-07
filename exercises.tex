@@ -1321,7 +1321,7 @@ $\Spec(k(\mathfrak{p}) \otimes_A B) $ is called the fiber of $f^\ast $ over $\ma
 	.\end{align*}
 	Hence $g\in \sqrt{f}  \implies \exists n$ s.t. $g^n \in (f) \implies g^n = fu $.
 
-	This is a homomorphism because $\rho((1:1)) = (1 u^0: g^0) = (1:1) $, $(au^m:g^{mn})(bu^{n'}:g^{n'n}) = g^\rho((a:f^m)(b:f^{n'})) = \rho((ab:f^{m+n'})) = (abu^{m+n'}:g^{mn+nn'}) = (au^m:g^{mn})(bu^{n'}:g^{nn'})$, and $\rho((a:f^m)+(b:f^{n'})) = \rho((af^{n'}+bf^m:f^{m+n'}) = ((af^{n'}+bf^m)u^{m+n'}:g^{(m+n')n}) = (af^{n'}u^{m+n'}:g^{mn+nn'}) + (bf^{m} ^{m+n'}:g^{mn+nn'}) = (ag^{n'n}u^m:g^{mn+nn'}) + (bg^{mn}u^{n'}:g^{mn+nn'}) = (au^m:g^{mn}) + (bu^{n'}:g^{nn'}) = \rho(a:f^m) + \rho(b:f^{n'})$.
+	This is a homomorphism because $\rho((1:1)) = (1 u^0: g^0) = (1:1) $, $(au^m:g^{mn})(bu^{n'}:g^{n'n}) = g^\rho((a:f^m)(b:f^{n'})) = \rho((ab:f^{m+n'})) = (abu^{m+n'}:g^{mn+nn'}) = (au^m:g^{mn})(bu^{n'}:g^{nn'})$, and $\rho((a:f^m)+(b:f^{n'})) = \rho((af^{n'}+bf^m:f^{m+n'})= ((af^{n'}+bf^m)u^{m+n'}:g^{(m+n')n}) = (af^{n'}u^{m+n'}:g^{mn+nn'}) + (bf^{m}u^{m+n'}:g^{mn+nn'}) = (ag^{n'n}u^m:g^{mn+nn'}) + (bg^{mn}u^{n'}:g^{mn+nn'}) = (au^m:g^{mn}) + (bu^{n'}:g^{nn'}) = \rho(a:f^m) + \rho(b:f^{n'})$.
 
 	Suppose we had other choices of $f,g $ being $f',g' $ respectively.
 	Then we have $a,b $ s.t. $f = f'b $ and $gc = g' $.
@@ -1408,10 +1408,126 @@ The assignment of the ring $A(U) $ to each basic open set $U $ of $X $ and the r
 \end{solution}
 
 \question Let $f:A\to B $, $g:A\to C $ be ring homomorphisms and let $h: A \to B \otimes _A C $ be defined by $h(x) = f(x) \otimes g(x) $. Let $X,Y,Z,T $ be the prime spectra of $A,B,C,B \otimes _A C $ respectively. Then $h^\ast(T) = f^\ast Y \cap g^\ast(Z) $.
+\ifhint
+	Let $\mathfrak{p} \in X $, and let $k = k(\mathfrak{p}) $ be the residue field at $\mathfrak{p} $.
+	By Exercise 21, the fiber $h^\ast\ ^{-1}(\mathfrak{p}) $ is the spectrum of $(B \otimes _A C) \otimes _A k \cong (B \otimes _A k) \otimes _k (C \otimes _A k) $.
+	Hence $\mathfrak{p} \in h^\ast(T) \iff (B \otimes _A k) \otimes _k (C \otimes _A k) \ne 0 \iff B \otimes _A k \ne 0 $ and $C \otimes _A k \ne 0 \iff \mathfrak{p}\in f^\ast(Y) \cap g^\ast(Z)$.
+\fi
+\begin{solution}
+	Consider $h^\ast\ ^{-1}(\mathfrak{p}) $ for $\mathfrak{p} \in X $.
+	Let $k = k(\mathfrak{p}) $.
+	By Exercise 21 iv, this is $\Spec(k \otimes _A (B \otimes _A C))$.
+	By Proposition 2.14, this is $\Spec(k \otimes _k k \otimes _A (B \otimes _A C))$.
+	Further use of this Proposition gives us that this is equal to $\Spec((B \otimes _A k) \otimes _k (C \otimes _A k)$.
+
+	Finally, if we have $\mathfrak{p}\in h^\ast(T) $, then $h^\ast\ ^{-1}(\mathfrak{p}) $ is non-empty.
+	As such (in an iff), $(B \otimes _A k) \otimes _k (C \otimes _A k) \ne 0 \iff B \otimes _A k \ne 0 $ and $C \otimes _A k \ne 0 $.
+	As these are $f^\ast\ ^{-1}(\mathfrak{p}) $ and $g^\ast\ ^{-1}(\mathfrak{p})$ respectively, $\mathfrak{p} \in f^\ast(Y) \cap g^\ast(Z) $.
+	The reverse direction holds.
+\end{solution}
 
 \question Let $(B_{\alpha }, g_{\alpha \beta}) $ be a direct system of rings and $B $ the direct limit. For each $\alpha $, let $f_{\alpha}: A\to B_{\alpha} $ be a ring homomorphism such that $g_{\alpha \beta} \circ f_{\alpha} = f_{\beta}$ whenever $\alpha\le \beta $ (i.e. the $B_{\alpha} $ form a direct system of $A $-algebras). The $f_{\alpha} $ induce $f:A\to B $. Show that
 \[
 	f^\ast(\Spec(B)) = \bigcap_{\alpha} f^\ast_ \alpha (\Spec(B_ \alpha))
 .\] 
+\begin{solution}
+	Take $\mathfrak{p} \in f^\ast(\Spec(B)) $.
+	Then $f^\ast\ ^{-1}(\mathfrak{p}) \ne \emptyset \iff \Spec(k(\mathfrak{p}) \otimes _A B)$ by Exercise 21 iv).
+	This happens iff $k(\mathfrak{p}) \otimes _A B \ne 0 \iff B \ne 0 \iff B_ \alpha \ne 0 \forall \alpha$ by Chapter 2 Exercise 21.
+	This happens iff $\Spec(k(\mathfrak{p}) \otimes _A B_ \alpha) \ne 0 \iff f_ \alpha^\ast\ ^{-1}(\mathfrak{p}) \ne 0 \forall \alpha $.
+	Thus $\mathfrak{p} \in f^\ast(\Spec(B)) \iff \mathfrak{p} \in f^\ast(\Spec(B_ \alpha)) \forall \alpha$.
+\end{solution}
+
+\question
+~
+\begin{enumerate}
+\item Let $f_ \alpha: A \to B_ \alpha $ be any family of $A $-algebras and let $f: A\to B $ be their tensor product over $A $ (Chapter 2, Exercise 23). Then
+\[
+	f^\ast(\Spec(B)) = \bigcap_{\alpha} f^\ast_{\alpha} (\Spec(B_{\alpha}))
+.\] 
+\ifhint
+	Use Examples 25 and 26.
+\fi
+\begin{solution}
+	The tensor product over $A $ forms a directed system of rings (let the indexing set be $\mathcal{A}$), so we can use Exercise 26 to get that
+	\[
+		f^\ast(\Spec(B)) = \bigcap_{a \in \mathcal{A}} f^\ast_{a}(\Spec(B_{a}))
+	\] 
+	where $A $ is the indexing set of the tensor product over $A $.
+	For any $a\in A $ s.t. $f_a = \bigotimes_{i \in I \subseteq \{\alpha\}} f_i$ with $I $ finite (this is the form of a map $A \to B_a $ in the tensor product over $A $).
+	By Exercise 25, we have that $f_a^\ast(\Spec(B_a)) = \bigcap f_i^\ast(\Spec(B_i))$.
+	As each of these composite ones are already present in the basic intersection of $\bigcap_{a \in \{\alpha\} } f^\ast_a(\Spec(B_a))$, we have that
+	\[
+		f^\ast(\Spec(B)) = \bigcap_{a \in \{\alpha\}  } f^\ast_{a}(\Spec(B_{a}))
+	.\] 
+	This is what we wanted.
+\end{solution}
+\item Let $f_ \alpha: A\to B $ be any finite family of $A $-algebras and let $B = \sqcup_ \alpha B_ \alpha $. Define $f: A\to B $ by $f(x) = (f_ \alpha(x)) $. Then $f^\ast(\Spec(B)) = \prod_ \alpha f_ \alpha^\ast (\Spec(B_ \alpha)) $.
+\begin{solution}
+	I think there is a categorical proof of this, but I don't know enough about the category that $\Spec(-) $ would live in for us to pushout.
+
+	For any $\mathfrak{p} \in f^\ast(\Spec(B)) $, $f^\ast\ ^{-1}(\mathfrak{p}) \ne \emptyset \iff \Spec(k(\mathfrak{p}) \otimes _A B) \ne \emptyset \iff B \ne 0 \iff $ one of $B_ \alpha \ne 0$ (Exercise 21 spam).
+	This is iff $\Spec(k(\mathfrak{p}) \otimes _A B_ \alpha) \ne \emptyset \iff f_ \alpha^\ast\ ^{-1}(\mathfrak{p}) \ne \emptyset \implies \mathfrak{p} \in f_ \alpha^\ast(\Spec(B_ \alpha)) \iff \mathfrak{p} \in \bigcup_{\alpha} f_ \alpha^\ast(\Spec(B_ \alpha))$.
+\end{solution}
+\item Hence the subsets of $X = \Spec(A) $ of the form $f^\ast(\Spec(B)) $, where $f:A\to B $ if a ring homomorphism, satisfy the axioms for closed sets in a topological space. The associated topology is the constructible topology on $X $. It is finer than the Zariski topology (i.e., there are more open sets, or equivalently more closed sets).
+\begin{solution}
+	We can see the basis for the Zariski topology are closed in the constructible topology because for any $V(I) $ with $I $ an ideal (suffices by Chapter 1 Exercise 15), we have a map $A \to A / I $, who's spectrum contract to primes that contain $I $.
+\end{solution}
+\item Let $X_C $ denote the set $X $ endowed with the constructible topology. Show that $X_C $ is quasi-compact.
+\begin{solution}
+	Take an open cover of $X_C $ $\mathcal{U} = \{U_k\}$ with $U_k^C = f_k^\ast(\Spec B_k) $.
+	The ideal ideal formed by the union of all ideals in $U_k^C $, call it $I $.
+	If $1 \not\in I$, then $I\subseteq M $ a prime ideal and this prime ideal is not in $\bigcup U_k $ because it contains 
+\end{solution}
+\end{enumerate}
+
+\question (Continuation of Exercise 27.)
+\begin{enumerate}
+\item For each $g \in A $, the set $X_g $ (Chapter 1, Exercise 17) is both open and closed in the constructible topology.
+\begin{solution}
+	The openness of $X_g $ is inherited from the Zariski topology.
+	It being closed is because $X_g \cong \Spec(A_g) $, as the preimage of $\Spec(A_g) $ are the prime ideals that don't meet $(g) $ (Proposition 3.11), which is what $X_g$ is.
+\end{solution}
+\item Let $C' $ denote the smallest topology on $X $ for which the set $X_g $ are both open and closed, and let $X_{C'} $ denote the set $X $ endowed with this topology. Show that $X_{C'} $ is Hausdorff.
+\begin{solution}
+	We can see that $\forall \mathfrak{p} \in X_{C'} $, $\mathfrak{p} \cong \Spec(k(\mathfrak{p})) $ because $k(\mathfrak{p}) $ is a field and hence only has the prime $(0) $, which preimages to $\mathfrak{p} $ (Proposition 3.11 needed).
+	Thus $\mathfrak{p} $ is closed.
+\end{solution}
+\item Deduce that the identity mapping $X_C \to X_{C'} $ is homeomorphism. Hence a subset $E $ of $X $ is of the form $f^\ast(\Spec(B)) $ for some $f: A\to B $ if and only if it is closed in the topology $C' $.
+\begin{solution}
+	
+\end{solution}
+\item The topological space $X_C $ is compact, Hausdorff and totally disconnected.
+\begin{solution}
+	$X_C $ is compact by 27iv.
+	It is Hausdorff by 28ii,iii.
+	It is totally disconnected because any non-trivial subset has a disconnection by taking a point $p $ in it and intersecting $X_p $ with the subset.
+	$X_p $ is clopen, so we are done.
+\end{solution}
+\end{enumerate}
+
+\question Let $f: A\to B $ be a ring homomorphism. Show that $f^\ast: \Spec(B) \to \Spec(A) $ is a continuous closed mapping (i.e., maps closed sets to closed sets) for the constructible topology.
+\begin{solution}
+	The image of closed sets is closed because a subset $S $ of $\Spec(B) $ that is the contraction of $\Spec(C) $ along a map $c: B \to C $ makes $f^\ast(S) = f^{-1}c^{-1}(\Spec(C)) = (c\circ f)^{-1}(\Spec(C)$ and $c\circ f $ is a map $A\to C $, making this closed in the constructible topology.
+
+	To show continuity, it suffices to show that the preimage of $X_g$ is open, as it is a basis of $C'=C$ by 28ii,iii.
+	As $f^\ast $ is continuous on these sets by Chapter 1 Exercise 21, we are done.
+\end{solution}
+
+\question Show that the Zariski topology and the constructible topology on $\Spec(A) $ are the same if and only if $A / \mathfrak{R} $ is absolutely flat (where $\mathfrak{R} $ is the nilradical of $A $).
+\ifhint
+	Use Exercise 11.
+\fi
+\begin{solution}
+	If they are the same, then the Zariski topology is Hausdorff.
+	This implies that $A / \mathfrak{R} $ is absolutely flat by Exercise 11.
+
+	If $A / \mathfrak{R} $ is absolutely flat, then by Exercise 11 the Zariski topology totally disconnected, and Hausdorff.
+	By total disconnectedness and Hausdorffness, we have that every set of two points is disconnected.
+	But the only disconnection of it has to be by singletons, which are both closed, implying the other is open.
+	Thus the basic open sets are open and closed, and because $X_C $ is homeomorphic to $X_{C'} $, which is the smallest topology generated by the basic sets being open and closed, the Zariski topology contains $C' $ (Exercise 28).
+	But as $X_C $ is finer than the Zariski topology, the Zariski topology is contained by $C'$.
+	Hence the two are the same, and hence the topologies are the same.
+\end{solution}
 \end{questions}
 \end{document}
