@@ -19,66 +19,77 @@ In Chapter Exercises:
 \begin{questions}
 	\question 2.2
 	\begin{parts}
-		\part $\text{Ann}(M + N) = \text{Ann}(M) \cap \text{Ann}(N) $.
-		\part $(N:P) = \text{Ann}((N+P) / N) $.
+		\part $\text{Ann}(M + N) = \text{Ann}(M) \cap \text{Ann}(N)$.
+		\begin{solution}
+			$\subseteq)$ If $x(M+N) = 0 $, then $xM + xN = 0$.
+			This can only happen if $xM$ and $xN$ are 0.
+
+			$\supseteq)$ If $xM,xN = 0 $, then $xM + xN = x(M+N) = 0$.
+		\end{solution}
+		\part $(N:P) = \text{Ann}((N+P) / N)$.
+		\begin{solution}
+			$\subseteq)$ If $xP \subseteq N $, then $x((N+P) / N) = ([x]N+[x]P) / N = 0$ because $x\equiv 0 \pmod{N}$.
+
+			$\supseteq)$ If $x((N+P) / N) = 0$, then $([x]N + [x]P) / N =0 \implies [x]P \subseteq N \implies xP \subseteq N$.
+		\end{solution}
 	\end{parts}
 
-	\question 2.15: Let $A,B $ be rings, let $M$ be an $A$-module, $P$ a $B$-module and $N$ an $(A, B)$-bimodule (that is, $N$ is simultaneously an $A$-module and a $B$-module and the two structures are compatible in the sense that $a(xb) = (ax)b$ for all $a \in A, b\in B, x \in N)$. Then $M \otimes _A N$ is naturally a $B$-module, $N \otimes _B P$ an $A$-module, and we have
+	\question 2.15: Let $A,B$ be rings, let $M$ be an $A$-module, $P$ a $B$-module and $N$ an $(A, B)$-bimodule (that is, $N$ is simultaneously an $A$-module and a $B$-module and the two structures are compatible in the sense that $a(xb) = (ax)b$ for all $a \in A, b\in B, x \in N)$. Then $M \otimes _A N$ is naturally a $B$-module, $N \otimes _B P$ an $A$-module, and we have
 	\[
 		(M \otimes _A N) \otimes _B P \cong M \otimes _A (N \otimes _B P)
 	.\]
 	\begin{solution}
-		% Fix a $p\in P $.
+		% Fix a $p\in P$.
 		% Then the map
 		% \begin{align*}
 		% 	M \times N &\longrightarrow M \otimes _A (N \otimes _B P)\\
 		% 	(m,n) &\longmapsto m \otimes_A (n \otimes_B p)
 		% \end{align*}
 		% is bilinear in A.
-		% Hence it induces an $A $-linear map $M \otimes _A N \to M \otimes _A(N \otimes _B P) $ that maps $m \otimes _A n $ to $m \otimes _A (n \otimes _B p) $.
+		% Hence it induces an $A$-linear map $M \otimes _A N \to M \otimes _A(N \otimes _B P)$ that maps $m \otimes _A n$ to $m \otimes _A (n \otimes _B p)$.
 
-		First we construct the $B $ bilinear map
+		First we construct the $B$ bilinear map
 		\[
 			(M \otimes _A N) \times P \to M \otimes _A (N \otimes _B P)
 		\]
-		that sends $(m \otimes n, p) \to m \otimes (n \otimes p) $.
-		The $B $ bilinearity comes from $(b(m \otimes n),p) = (m \otimes nb,p) \mapsto m \otimes (nb \otimes p) = b(m \otimes (n \otimes p)) = m \otimes (b \otimes bp) $, which is also the image of $(m \otimes n, bp) $.
-		Hence this induces a unique $B $ linear map
+		that sends $(m \otimes n, p) \to m \otimes (n \otimes p)$.
+		The $B$ bilinearity comes from $(b(m \otimes n),p) = (m \otimes nb,p) \mapsto m \otimes (nb \otimes p) = b(m \otimes (n \otimes p)) = m \otimes (b \otimes bp) $, which is also the image of $(m \otimes n, bp)$.
+		Hence this induces a unique $B$ linear map
 		\[
 			(M \otimes_A N) \otimes_B P \to M \otimes _A (N \otimes _B P)
 		.\]
 
-		By a symmetric argument, we have a unique $A $ linear map from the other direction, giving us an isomorphism for by tracing where $(m \otimes n) \otimes p $ goes, it goes to $m \otimes (n \otimes p) $ and then to $(m \otimes n) \otimes p $.
+		By a symmetric argument, we have a unique $A$ linear map from the other direction, giving us an isomorphism for by tracing where $(m \otimes n) \otimes p$ goes, it goes to $m \otimes (n \otimes p)$ and then to $(m \otimes n) \otimes p$.
 	\end{solution}
 
-	\question If $f: A\to B $ is a ring homomorphism and $M $ is a flat $A $-module, then $M_B = B \otimes _A M$ is a flat $B $-module.
+	\question If $f: A\to B$ is a ring homomorphism and $M$ is a flat $A$-module, then $M_B = B \otimes _A M$ is a flat $B$-module.
 	\begin{solution}
-		The function $f $ makes $B $ an $A $-algebra.
-		Consider $B \otimes_B N \cong N $ by Proposition 2.14.
-		Obiously $B $ has an $(A,B) $ bimodule structure since $B $ is an algebra.
+		The function $f$ makes $B$ an $A$-algebra.
+		Consider $B \otimes_B N \cong N$ by Proposition 2.14.
+		Obviously $B$ has an $(A,B)$ bimodule structure since $B$ is an algebra.
 
-		Then given an exact sequence $E $, $E \otimes_A N = E \otimes_A (B \otimes_B N) = (E \otimes_A B) \otimes_B N $ by Exercise 2.15 in the Chapter.
-		As $B $ is flat as an $A $-module and $N$ is flat as a $B $-module, we are done.
+		Then given an exact sequence $E $, $E \otimes_A N = E \otimes_A (B \otimes_B N) = (E \otimes_A B) \otimes_B N$ by Exercise 2.15 in the Chapter.
+		As $B$ is flat as an $A$-module and $N$ is flat as a $B$-module, we are done.
 	\end{solution}
 \end{questions}
 
 \begin{questions}
-	\question Show that $(\Z / m\Z) \otimes _{\Z} (\Z/n\Z) = 0$ if $m,n $ are coprime.
+	\question Show that $(\Z / m\Z) \otimes _{\Z} (\Z/n\Z) = 0$ if $m,n$ are coprime.
 	\begin{solution}
-		Take a bilinear map $f: (\Z / m\Z) \times (\Z / n\Z) $.
-		Then by bilinearity, we have $f(mx,y) = f(0,y) + mf(x,y) = f(0,y) $ and $f(x,ny) = f(x,0) + nf(x,y) = f(x,0) $, which imply that $mf(x,y) = 0 $ and $nf(x,y) = 0 $.
-		By Bezout's Lemma, we have that there exists $a,b $ s.t. $am+bn = 1 $ as $m,n $ are coprime.
-		Thus $f(x,y) = 0 $.
+		Take a bilinear map $f: (\Z / m\Z) \times (\Z / n\Z)$.
+		Then by bilinearity, we have $f(mx,y) = f(0,y) + mf(x,y) = f(0,y)$ and $f(x,ny) = f(x,0) + nf(x,y) = f(x,0) $, which imply that $mf(x,y) = 0$ and $nf(x,y) = 0$.
+		By Bezout's Lemma, we have that there exists $a,b$ s.t. $am+bn = 1$ as $m,n$ are coprime.
+		Thus $f(x,y) = 0$.
 	\end{solution}
 
-	\question Let $A $ be a ring, $M $ an $A $-module. Show that $(A / \mathfrak{a}) \otimes_A M$ is isomorphic to $M / \mathfrak{a}M $. [Tensor the exact sequence $0\to \mathfrak{a}\to A\to A / \mathfrak{a} \to 0 $ with $M $]
+	\question Let $A$ be a ring, $M$ an $A$-module. Show that $(A / \mathfrak{a}) \otimes_A M$ is isomorphic to $M / \mathfrak{a}M$. [Tensor the exact sequence $0\to \mathfrak{a}\to A\to A / \mathfrak{a} \to 0$ with $M $]
 	\begin{solution}
 		By tensoring with the exact sequence $\mathfrak{a}\to A \to A / \mathfrak{a} \to 0 $, we get
 		\[
 			0 \to \mathfrak{a}\otimes_A M \to A \otimes_A M \to A / \mathfrak{a} \otimes M \to 0 \tag{Prop 2.8}
 		.\]
 
-		Then by Proposition 2.14, $A \otimes M \to M $ is an isomorphism by $a\otimes  $, we have $\mathfrak{a}\otimes M \cong \mathfrak{a}M $ and $A\otimes M \cong M $.
+		Then by Proposition 2.14,$A \otimes M \to M$ is an isomorphism by $a\otimes  $, we have $\mathfrak{a}\otimes M \cong \mathfrak{a}M$ and $A\otimes M \cong M$.
 		Hence by commutativity of
 		\[
 			\begin{tikzcd}
@@ -105,38 +116,38 @@ In Chapter Exercises:
 					      \arrow[from=1-3,to=2-4]
 			\end{tikzcd}
 		\]
-		By some isomorphism theorem and surjectivity of the last maps, we have that $M / \mathfrak{a}M \cong A / \mathfrak{a} \otimes M $.
+		By some isomorphism theorem and surjectivity of the last maps, we have that $M / \mathfrak{a}M \cong A / \mathfrak{a} \otimes M$.
 	\end{solution}
 
-	\question Let $A $ be a local ring, $M $ and $N $ finitely generated $A $-modules. Prove tha tif $M \otimes_A N = 0 $, then $M = 0 $ or $N = 0 $.
-	[Let $\mathfrak{m} $ be the maximal ideal, $k = A / \mathfrak{m} $ the residue field. Let $M_k = k \otimes _A M \cong M / \mathfrak{m}M $ by Exercise 2. By Nakayama's lemma, $M_k = 0 \implies M = 0$. But $M \otimes_A N = 0 \implies (Mo\times _A N)_k = 0\implies M_k \otimes N_k = 0 \implies M_k = 0 $ or $N_k = 0 $, since $M_k,N_k $ are vector spaces over a field.]
+	\question Let $A$ be a local ring, $M$ and $N$ finitely generated $A$-modules. Prove tha tif $M \otimes_A N = 0 $, then $M = 0$ or $N = 0$.
+	[Let $\mathfrak{m}$ be the maximal ideal, $k = A / \mathfrak{m}$ the residue field. Let $M_k = k \otimes _A M \cong M / \mathfrak{m}M$ by Exercise 2. By Nakayama's lemma, $M_k = 0 \implies M = 0$. But $M \otimes_A N = 0 \implies (Mo\times _A N)_k = 0\implies M_k \otimes N_k = 0 \implies M_k = 0$ or $N_k = 0 $, since $M_k,N_k$ are vector spaces over a field.]
 	\begin{solution}
 		We do as the hint suggests:
-		Let $\mathfrak{m} $ be the maximal ideal, $k = A / \mathfrak{m} $ the residue field and define $M_k = k \otimes _A M \cong M / \mathfrak{m}M $ by Exercise 2.
+		Let $\mathfrak{m}$ be the maximal ideal, $k = A / \mathfrak{m}$ the residue field and define $M_k = k \otimes _A M \cong M / \mathfrak{m}M$ by Exercise 2.
 
-		By Nakayama's lemma, $M_k = 0 \implies M = 0$ since $k \subseteq $ the Jacobson radical, $M_k = 0\implies M = \mathfrak{m}M$, and $M$ is finitely generated.
+		By Nakayama's lemma,$M_k = 0 \implies M = 0$ since $k \subseteq$ the Jacobson radical, $M_k = 0\implies M = \mathfrak{m}M $, and $M$ is finitely generated.
 
 		Then we have that $M \otimes_A N = 0 \implies (M\otimes _A N)_k = 0$ because
 
 		As the tensor product of vector spaces is just the direct sum, this implies that $0 = k \otimes k \otimes  (M \otimes _A N) = M_k \otimes_A N_k = 0$ by commuting.
-		As $A $ bilinear maps on $M_k \times N_k$ are $k $ linear maps on $M_k\times N_k $, we have $M_k \otimes _k N_k = 0$.
-		Finally, this implies that $M_k = 0 $ or $N_k = 0 $, since $M_k,N_k $ are vector spaces.
+		As $A$ bilinear maps on $M_k \times N_k$ are $k$ linear maps on $M_k\times N_k $, we have $M_k \otimes _k N_k = 0$.
+		Finally, this implies that $M_k = 0$ or $N_k = 0 $, since $M_k,N_k$ are vector spaces.
 	\end{solution}
 
-	\question Let $M_i (i\in I $) be any family of $A $-modules, and let $M $ be their direct sum. Prove that $M $ is flat $\iff $ each $M_i $ is flat.
+	\question Let $M_i (i\in I $) be any family of $A$-modules, and let $M$ be their direct sum. Prove that $M$ is flat $\iff$ each $M_i$ is flat.
 	\begin{solution}
-		Fix an exact sequence $E $.
+		Fix an exact sequence $E$.
 
 		We have that $E \otimes M = E \otimes (\bigoplus M_i) = \bigoplus (E \otimes M_i)$ because each direct sum is finite and hence belongs to a finite direct sum in which we can use Proposition 2.14.
-		Then if $E \otimes M $ is exact, so is each coordinate, which gives us the invidiaul $M_i $ is exact.
-		If each coordinate is exact then so is $E \otimes M $.
+		Then if $E \otimes M$ is exact, so is each coordinate, which gives us the invidiaul $M_i$ is exact.
+		If each coordinate is exact then so is $E \otimes M$.
 	\end{solution}
 
-	\question Let $A[x] $ be the ring of polynomials in one indeterminate over a ring $A $. Prove that $A[x] $ is a flat $A $-algebra. [Use Exercise 4.]
+	\question Let $A[x]$ be the ring of polynomials in one indeterminate over a ring $A$. Prove that $A[x]$ is a flat $A$-algebra. [Use Exercise 4.]
 	\begin{solution}
 		Clearly $A[x] = \bigoplus_{i=0}^{\infty} Ax^i$.
-		So by the above exercise, it suffices to show that $x^i A $ is flat.
-		Say we have a short exact sequence of $A $-modules
+		So by the above exercise, it suffices to show that $x^i A$ is flat.
+		Say we have a short exact sequence of $A$-modules
 		\[
 			0 \to B \to C \to D \to 0
 		.\]
@@ -145,22 +156,22 @@ In Chapter Exercises:
 		\[
 			0 \to B \otimes Ax^i \to C \otimes Ax^i \to D \otimes Ax^i \to 0
 		\]
-		is exact because tensoring with $Ax^i $ is the same as tensoring with $A $ as bilinear maps $B \times Ax^i $ are bilinear on $B \times A $ and likewise for linear maps.
-		So tensoring with $Ax^i $ also induces unique linear maps that make the tensor universal diagram commute, so by uniqueness of the universal property, they are the same.
+		is exact because tensoring with $Ax^i$ is the same as tensoring with $A$ as bilinear maps $B \times Ax^i$ are bilinear on $B \times A$ and likewise for linear maps.
+		So tensoring with $Ax^i$ also induces unique linear maps that make the tensor universal diagram commute, so by uniqueness of the universal property, they are the same.
 
-		Finally tensoring with $A $ is the same as the original module by Proposition 2.14.
-		So $Ax^i $ is flat and so is $A[x] $.
+		Finally tensoring with $A$ is the same as the original module by Proposition 2.14.
+		So $Ax^i$ is flat and so is $A[x]$.
 	\end{solution}
 
-	\question For any $A$-module, let $M[x]$ denote the set of all polynomials in $x$ with coefficients in $M$, that is to say expressions of the form
+	\question For any $A$-module, let $M[x]$ denote the set of all polynomials in $x$ with coefficients in $M $, that is to say expressions of the form
 	\[
-		m_{0}+m_{1}x+\cdots + m_r x^r \tag{$m_i \in M$}
+		m_{0}+m_{1}x+\cdots + m_r x^r \tag{$m_i \in M $}
 	.\]
-	Defining the product of  an element of  $A[x]$ and an element of  $M[x]$ in the obvious  way, show that $M[x]$ is an $A[x]$-module.\\
+	Defining the product of  an element of $A[x]$ and an element of  $M[x]$ in the obvious  way, show that $M[x]$ is an $A[x]$-module.\\
 	Show that $M[x] \cong A[x] \otimes _A M$.
 	\begin{solution}
-		First, it is an abelian group by commuting and grouping together terms with the same power of $x $.
-		Then for the properties of an $A[x] $ module:
+		First, it is an abelian group by commuting and grouping together terms with the same power of $x$.
+		Then for the properties of an $A[x]$ module:
 		Distributivity holds by simply defining it as so.
 		\begin{align*}
 			(r+s)m &= (r_{0}+\cdots+r_jx^j+s_{0}+\cdots+s_kx^k)m \\
@@ -174,7 +185,7 @@ In Chapter Exercises:
 &= (rs)m\\
 			1m = m
 		.\end{align*}
-		Hence $M[x]$ is an $A[x] $ module.
+		Hence $M[x]$ is an $A[x]$ module.
 
 		We use the universal property.
 		Say we have a bilinear map
@@ -186,236 +197,236 @@ In Chapter Exercises:
 		\arrow["f",from=1-1,to=2-2]
 		\end{tikzcd}
 		\]
-		where the top map takes $(a(x),m) \to a(x)m $.
-		Then we have the unique linear map $\hat{f}: M[x] \to B$ that takes $m_{0}+m_{1}x+\cdots + m_rx^r $ to $f(1,m_{0})+f(x,m_{1})+\cdots+f(x^r,m_r) $.
-		This is linear because of linearity of $f $ in $M $.
+		where the top map takes $(a(x),m) \to a(x)m$.
+		Then we have the unique linear map $\hat{f}: M[x] \to B$ that takes $m_{0}+m_{1}x+\cdots + m_rx^r$ to $f(1,m_{0})+f(x,m_{1})+\cdots+f(x^r,m_r)$.
+		This is linear because of linearity of $f$ in $M$.
 		It is unique because we have a basis that uniquely determines the map by linearity, and the bases have to be mapped to the things that generate this map.
 
-		Hence by the universal property, $M[x] \cong A[x] \otimes M $.
+		Hence by the universal property,$M[x] \cong A[x] \otimes M$.
 	\end{solution}
 
-	\question Let $\mathfrak{p} $ be a prime ideal in $A $. Show that $\mathfrak{p}[x] $ is a prime ideal in $A[x] $. If $\mathfrak{m} $ is a maximal ideal in $A $, is $\mathfrak{m}[x] $ a maximal ieal in $A[x] $?
+	\question Let $\mathfrak{p}$ be a prime ideal in $A$. Show that $\mathfrak{p}[x]$ is a prime ideal in $A[x]$. If $\mathfrak{m}$ is a maximal ideal in $A $, is $\mathfrak{m}[x]$ a maximal ieal in $A[x] $?
 	\begin{solution}
 		It is clear that $A[x] / \mathfrak{p}[x] \cong (A / \mathfrak{p})[x]$.
-		As $A / \mathfrak{p} $ is an integral domain by primality of $\mathfrak{p} $, $(A / \mathfrak{p})[x] $ is an integral domain (look at leading coefficients) and thus $p[x]$ is prime.
+		As $A / \mathfrak{p}$ is an integral domain by primality of $\mathfrak{p} $, $(A / \mathfrak{p})[x]$ is an integral domain (look at leading coefficients) and thus $p[x]$ is prime.
 
 		Similarly with $\mathfrak{m} $, $A[x] / \mathfrak{m}[x] \cong (A / \mathfrak{m})[x]$.
-		Then $A / \mathfrak{m} $ is a field, and clearly $(A / \mathfrak{m})[x] $ is not a field.
+		Then $A / \mathfrak{m}$ is a field, and clearly $(A / \mathfrak{m})[x]$ is not a field.
 	\end{solution}
 
 	\question
 	\begin{parts}
-		\part If $M $ and $N $ are flat $A $-modules, then so is $M \otimes _A N $.
+		\part If $M$ and $N$ are flat $A$-modules, then so is $M \otimes _A N$.
 		\begin{solution}
-			Let $E $ be an exact sequence.
-			Then $E \otimes_A M $ is exact by $M $ being flat, and hence $(E \otimes_A) \otimes_A N $ is exact.
-			By Proposition 2.14, this sequence equals $E \otimes_A (M \otimes_A N) $, so $M \otimes _A N $ is flat.
+			Let $E$ be an exact sequence.
+			Then $E \otimes_A M$ is exact by $M$ being flat, and hence $(E \otimes_A) \otimes_A N$ is exact.
+			By Proposition 2.14, this sequence equals $E \otimes_A (M \otimes_A N) $, so $M \otimes _A N$ is flat.
 		\end{solution}
-		\part If $B $ is a flat $A $-algebra and $N $ is a flat $B $-module, then $N $ is flat as an $A $-module.
+		\part If $B$ is a flat $A$-algebra and $N$ is a flat $B$-module, then $N$ is flat as an $A$-module.
 		\begin{solution}
-			Consider $B \otimes_B N \cong N $ by Proposition 2.14.
-			Then $N $ is flat as an $A $-module by Exercise 2.20 in the Chapter.
+			Consider $B \otimes_B N \cong N$ by Proposition 2.14.
+			Then $N$ is flat as an $A$-module by Exercise 2.20 in the Chapter.
 		\end{solution}
 	\end{parts}
 
-	\question Let $0\to M'\to M\to M''\to 0 $ be an exact sequence of $A$-modules. If $M' $ and $M'' $ are finitely generated, then so is $M $.
+	\question Let $0\to M'\to M\to M''\to 0$ be an exact sequence of $A$-modules. If $M'$ and $M''$ are finitely generated, then so is $M$.
 	\begin{solution}
-		As the last map is surjective, the preimage of $M'' $ is $M $, so the preimage of the generators of $M'' $ and the kernel generate $M $.
-		But the kernel is finitely generated as it is the image of $M' $, so $M $ is finitely generated.
+		As the last map is surjective, the preimage of $M''$ is $M $, so the preimage of the generators of $M''$ and the kernel generate $M$.
+		But the kernel is finitely generated as it is the image of $M' $, so $M$ is finitely generated.
 	\end{solution}
 
-	\question Let $A $ be a ring, $\mathfrak{a}$ an ideal contained in the Jacobson radical of $A $; let $M $ be an $A $-module and $N $ a finitely generated $A$-module, and let $u: M\to N $ be a homomorphism. If the induced homomorphism $M / \mathfrak{a}M \to N / \mathfrak{a}N $ is surjective, then $u $ is surjective.
+	\question Let $A$ be a ring, $\mathfrak{a}$ an ideal contained in the Jacobson radical of $A $; let $M$ be an $A$-module and $N$ a finitely generated $A$-module, and let $u: M\to N$ be a homomorphism. If the induced homomorphism $M / \mathfrak{a}M \to N / \mathfrak{a}N$ is surjective, then $u$ is surjective.
 	\begin{solution}
-		It suffices to show that $N = \mathfrak{a}N + u(M) $ by Corollary 2.7.
+		It suffices to show that $N = \mathfrak{a}N + u(M)$ by Corollary 2.7.
 		Clearly $\mathfrak{a}N + u(M) \subseteq N$ by definitions.
 
-		Let $\phi_N$ be the quotient map $N\to N / \mathfrak{a}N $ and $\phi_M $ be the map $M \to M / \mathfrak{a}M $.
-		Then because $\hat{u}  $ is induced by $\phi \circ u $, $\phi_N \circ u = \hat{u}\phi_M  $.
-		As both $\hat{u}  $ and $\phi _M $ are surjective, the LHS is too.
-		Hence for every element $n $ of $N $, by the surjectivity of $\phi_N $, there is an element in $u(M) $ s.t. $\phi _N $ of it equals $n $.
+		Let $\phi_N$ be the quotient map $N\to N / \mathfrak{a}N$ and $\phi_M$ be the map $M \to M / \mathfrak{a}M$.
+		Then because $\hat{u}$ is induced by $\phi \circ u $, $\phi_N \circ u = \hat{u}\phi_M$.
+		As both $\hat{u}$ and $\phi _M$ are surjective, the LHS is too.
+		Hence for every element $n$ of $N $, by the surjectivity of $\phi_N $, there is an element in $u(M)$ s.t. $\phi _N$ of it equals $n$.
 		Thus $u(M) + \ker \phi _N = u(M) + \mathfrak{a}N = N$.
 	\end{solution}
 
-	\question Let $A $ be a ring $\ne 0 $. Show that $A^m \cong A^n \implies m = n $.
+	\question Let $A$ be a ring $\ne 0$. Show that $A^m \cong A^n \implies m = n$.
 	\ifhint
-		Let $\mathfrak{m} $ be a maximal ideal of $A $ and let $\phi : A^m \to A^n $ be an isomorphism.
-		Then $1 \otimes \phi: A / \mathfrak{m} \otimes A^m \to A / \mathfrak{m} \otimes A^n$ is an ismorphism of vector space of dimensions $m $ and $n $ over the field $k= A / \mathfrak{m} $.
-		Hece $m=n $. [Cf. Chapter 3, Exercise 15]
+		Let $\mathfrak{m}$ be a maximal ideal of $A$ and let $\phi : A^m \to A^n$ be an isomorphism.
+		Then $1 \otimes \phi: A / \mathfrak{m} \otimes A^m \to A / \mathfrak{m} \otimes A^n$ is an ismorphism of vector space of dimensions $m$ and $n$ over the field $k= A / \mathfrak{m}$.
+		Hece $m=n$. [Cf. Chapter 3, Exercise 15]
 	\fi
 	\begin{solution}
-		Let $\mathfrak{m} $ be a maximal ideal of $A $ and let $\phi : A^m \to A^n $ be an isomorphism.
+		Let $\mathfrak{m}$ be a maximal ideal of $A$ and let $\phi : A^m \to A^n$ be an isomorphism.
 		Then $1 \otimes \phi: A / \mathfrak{m} \otimes A^m \to A / \mathfrak{m} \otimes A^n$ is an ismorphism of vector space (Exercise 2 for modules over a field).
-		But then these vector spaces have to have the same dimension over $A / \mathfrak{m} $, which are $m $ and $n $ respectively.
-		So $m=n $.
+		But then these vector spaces have to have the same dimension over $A / \mathfrak{m} $, which are $m$ and $n$ respectively.
+		So $m=n$.
 	\end{solution}
 	\begin{parts}
-		\part If $\phi : A^m \to A^n$ is surjective, then $m\ge n $.
+		\part If $\phi : A^m \to A^n$ is surjective, then $m\ge n$.
 		\begin{solution}
-			Let $\mathfrak{m} $ be a maximal ideal of $A $ and let $\phi : A^m \to A^n $ be a surjection.
+			Let $\mathfrak{m}$ be a maximal ideal of $A$ and let $\phi : A^m \to A^n$ be a surjection.
 			Then $1 \otimes \phi: A / \mathfrak{m} \otimes A^m \to A / \mathfrak{m} \otimes A^n$ is a surjection of vector space (Exercise 2) (surjectivity from right exactness of tensoring (Proposition 2.18)).
-			Then note that their dimensions are $m,n $ respectively.
-			As this is a surjective vector space map, $m\ge n $.
+			Then note that their dimensions are $m,n$ respectively.
+			As this is a surjective vector space map,$m\ge n$.
 		\end{solution}
-		\part If $\phi : A^m\to A^n $ is injective, is it always the case that $m\le n $?
+		\part If $\phi : A^m\to A^n$ is injective, is it always the case that $m\le n $?
 		\begin{solution}
 			No.
-			Consider $A = \Z[x_{1}, \ldots ] $.
-			Then consider the map $A \times A \to A $ that maps $(f(x_{1}, \ldots ),g(x_{1}, \ldots )) \to f(x_{1}, x_{3}, \ldots ) + g(x_{2}, x_{4}, \ldots ) $.
+			Consider $A = \Z[x_{1}, \ldots ]$.
+			Then consider the map $A \times A \to A$ that maps $(f(x_{1}, \ldots ),g(x_{1}, \ldots )) \to f(x_{1}, x_{3}, \ldots ) + g(x_{2}, x_{4}, \ldots )$.
 			Obviously they are injective as they are inclusions under relabelling.
-			Clearly $2 \not\le 1 $.
+			Clearly $2 \not\le 1$.
 		\end{solution}
 	\end{parts}
 
-	\question Let $M $ be a finitely generated $A $-module and $\phi :M\to A^n $ a surjective homomorphism. Show that $\ker \phi  $ is finitely generated.
+	\question Let $M$ be a finitely generated $A$-module and $\phi :M\to A^n$ a surjective homomorphism. Show that $\ker \phi$ is finitely generated.
 	\ifhint
-		Let $e_{1}, \ldots , e_n $ be a basis of $A^n $ and choose $u_i \in M $ such that $\phi (u_i) = e_i (1\le i\le n)$. Show that $M $ is the direct sum of $\ker \phi  $ and the submodule generated by $u_1, \ldots , u_n $.
+		Let $e_{1}, \ldots , e_n$ be a basis of $A^n$ and choose $u_i \in M$ such that $\phi (u_i) = e_i (1\le i\le n)$. Show that $M$ is the direct sum of $\ker \phi$ and the submodule generated by $u_1, \ldots , u_n$.
 	\fi
 	\begin{solution}
-		We can see that $M $ is generated by picking a representative in the preimage of the basis of $A^n $ and the kernel since the quotient is surjective, so every element in $M $ is an element in $A^n $ up to the kernel of the map.
+		We can see that $M$ is generated by picking a representative in the preimage of the basis of $A^n$ and the kernel since the quotient is surjective, so every element in $M$ is an element in $A^n$ up to the kernel of the map.
 		This then forms a basis because the preimage of the basis is a basis (otherwise push forward a relation), and the kernel and the basis have no relations because otherwise the basis would be in the kernel.
 
-		Hence $M = \ker \phi \oplus A^n $, which implies that $\ker \phi  $ is finitely generated, otherwise $M $ wouldn't be finitely generated.
+		Hence $M = \ker \phi \oplus A^n $, which implies that $\ker \phi$ is finitely generated, otherwise $M$ wouldn't be finitely generated.
 	\end{solution}
 
-	\question Let $f: A\to B $ be a ring homomorphism, and let $N$ be a $B$-module. Regarding $N$ as an $A$-module by restriction of scalars, form the $B$-module $N_B = B \otimes _A N$. Show that the homomorphism $g: N \to N_B$ which maps $y$ to $1 \otimes  y$ is injective and that $g(N)$ is a direct summand of $N_B$.
+	\question Let $f: A\to B$ be a ring homomorphism, and let $N$ be a $B$-module. Regarding $N$ as an $A$-module by restriction of scalars, form the $B$-module $N_B = B \otimes _A N$. Show that the homomorphism $g: N \to N_B$ which maps $y$ to $1 \otimes  y$ is injective and that $g(N)$ is a direct summand of $N_B$.
 	\ifhint
-		Define $p: N_B \to N_b$ by $p(b \otimes y) = by$, and show that $N_B = \Im (g) \oplus \ker (p)$.
+		Define $p: N_B \to N_b$ by $p(b \otimes y) = by $, and show that $N_B = \Im (g) \oplus \ker (p)$.
 	\fi
 	\begin{solution}
 		We can see that $p(g(n)) = n \forall n \in N $, which is injective.
-		Hence $g $ is.
+		Hence $g$ is.
 
-		To show that it is the direct sum, we do as the hint suggests and realize that $g\circ p $ is the identity map on elements not in $\ker p $ because $B $ is generated as a $B $-module by $1 $, so we have generators of $N_B $ being of the form $1 \otimes q$.
-		It easily follows that $gp(1 \otimes q) = 1 \otimes q $, $g$ is $B $ linear.
+		To show that it is the direct sum, we do as the hint suggests and realize that $g\circ p$ is the identity map on elements not in $\ker p$ because $B$ is generated as a $B$-module by $1 $, so we have generators of $N_B$ being of the form $1 \otimes q$.
+		It easily follows that $gp(1 \otimes q) = 1 \otimes q $, $g$ is $B$ linear.
 
-		Thus every element of $N_B $ is either in the image of $g $ or in the kernel of $p $.
-		Then to show they are independent, suppose we have a non-trivial relation $\sum b_i \otimes y_i + 1 \otimes y \in \ker p + \Im g $ equalling 0.
+		Thus every element of $N_B$ is either in the image of $g$ or in the kernel of $p$.
+		Then to show they are independent, suppose we have a non-trivial relation $\sum b_i \otimes y_i + 1 \otimes y \in \ker p + \Im g$ equalling 0.
 		Then $p(\sum b_i \otimes y_i + 1 \otimes y) = 0 + p(1 \otimes y) = y \ne 0$ otherwise it would be a trivial relation.
 	\end{solution}
 
-	\question A partially ordered set $I$ is said to be a directed set if for each pair $i, j$ in $I$ there exists $k \in I$ such that $i\le k $ and $j\le k $.\\
-	Let $A$ be a ring, let $I$ be a directed set and let $(M_i)'_{i\in I}$ be a family of $A$-modules indexed by·$I$. For each pair $i,j$ in $I$ such that $i \le j$, let $\mu _{ij}: M_i \to M_j $ be an $A$-homomorphism, and suppose that the following axioms are satisfied:
+	\question A partially ordered set $I$ is said to be a directed set if for each pair $i, j$ in $I$ there exists $k \in I$ such that $i\le k$ and $j\le k$.\\
+	Let $A$ be a ring, let $I$ be a directed set and let $(M_i)'_{i\in I}$ be a family of $A$-modules indexed by·$I$. For each pair $i,j$ in $I$ such that $i \le j $, let $\mu _{ij}: M_i \to M_j$ be an $A$-homomorphism, and suppose that the following axioms are satisfied:
 	\begin{enumerate}
-		\item $\mu_{ii} $ is the identity mapping of $M_i$ for all $i\in I $;
-		\item $\mu _{ik} = \mu _{jk}\circ \mu _{ij}$ whenever $i\le j \le k $.
+		\item $\mu_{ii}$ is the identity mapping of $M_i$ for all $i\in I $;
+		\item $\mu _{ik} = \mu _{jk}\circ \mu _{ij}$ whenever $i\le j \le k$.
 	\end{enumerate}
-	Then the modules $M_i$ and homomorphisms $\mu_{ij} $ are said to form a direct system $M = (M_i, \mu _{ij})$ over the directed set $I$.
+	Then the modules $M_i$ and homomorphisms $\mu_{ij}$ are said to form a direct system $M = (M_i, \mu _{ij})$ over the directed set $I$.
 
-	We shall construct an $A$-module $M$ called the \texttt{direct limit} of the direct system $M$. Let $C$ be the direct sum of the $M_i$, and identify each module $M_i$ with its canonical image in $C$. Let $D$ be the submodule of $C$ generated by all elements of the form $x_i - \mu _{ij}(x_i) $ where $i\le j $ and $x_i\in M_i $. Let $M = C / D $, let $\mu :C\to M $ be the projection and let $\mu _i $ be the restriction of $M_i $.
+	We shall construct an $A$-module $M$ called the \texttt{direct limit} of the direct system $M$. Let $C$ be the direct sum of the $M_i $, and identify each module $M_i$ with its canonical image in $C$. Let $D$ be the submodule of $C$ generated by all elements of the form $x_i - \mu _{ij}(x_i)$ where $i\le j$ and $x_i\in M_i$. Let $M = C / D $, let $\mu :C\to M$ be the projection and let $\mu _i$ be the restriction of $M_i$.
 
-	The module $M$, or more correctly the pair consisting of $M$ and the family of homomorphisms $\mu _i:M_i \to M $, is called the direct limit of the direct system $M$, and is written $\lim_{\rightarrow} M_i $ From the construction it is clear that $\mu _i = \mu _j \circ \mu _{ij} $ whenever $i\le j $.
+	The module $M $, or more correctly the pair consisting of $M$ and the family of homomorphisms $\mu _i:M_i \to M $, is called the direct limit of the direct system $M $, and is written $\lim_{\rightarrow} M_i$ From the construction it is clear that $\mu _i = \mu _j \circ \mu _{ij}$ whenever $i\le j$.
 	\begin{solution}
 		Let $Q = \{X_i - \mu _{ij}(X_i), X_i \in M_i, i\le j\}$
 		We can see that from definition, for $x_i \in M_i $, $\mu _i(x_i) = x_i + Q = x_i - (x_i - \mu_{ij}(x_i)) + Q = \mu_j(\mu_{ij}(x_i))$.
 	\end{solution}
 
-	\question In the situation of Exercise 14, show that every element of $M$ can be written in the form $\mu _i(x_i) $ for some $i\in I $ and some $x_i\in M_i $.\\
-	Show also that if $\mu _i(x_i) = 0 $ then there exists $j \ge i $ such that $\mu _{ij}(x_i) = 0 $ in $M_j $.
+	\question In the situation of Exercise 14, show that every element of $M$ can be written in the form $\mu _i(x_i)$ for some $i\in I$ and some $x_i\in M_i$.\\
+	Show also that if $\mu _i(x_i) = 0$ then there exists $j \ge i$ such that $\mu _{ij}(x_i) = 0$ in $M_j$.
 	\begin{solution}
-		It suffices to show that $x_j + x_k + Q$ for $x_j\in M_j, x_k\in M_k $ is of the desired form since $M $ are quotient classes of a finite sum.
-		We can see that $x_j + x_k + Q = \mu_{j\ell}(x_i) + \mu_{k\ell}(x_k) + Q $ for $j \le \ell $ and $k\le \ell $.
-		Then because $\mu_{j\ell}(x_i) + \mu_{k\ell}(x_k)\in M_k $, $\mu_{j\ell}(x_i) + \mu_{k\ell}(x_k) + Q = \mu_k(\mu_{j\ell}(x_i) + \mu_{k\ell}(x_k)) $.
+		It suffices to show that $x_j + x_k + Q$ for $x_j\in M_j, x_k\in M_k$ is of the desired form since $M$ are quotient classes of a finite sum.
+		We can see that $x_j + x_k + Q = \mu_{j\ell}(x_i) + \mu_{k\ell}(x_k) + Q$ for $j \le \ell$ and $k\le \ell$.
+		Then because $\mu_{j\ell}(x_i) + \mu_{k\ell}(x_k)\in M_k $, $\mu_{j\ell}(x_i) + \mu_{k\ell}(x_k) + Q = \mu_k(\mu_{j\ell}(x_i) + \mu_{k\ell}(x_k))$.
 
-		Since $Q = \mu_i(x_i) = x_i + Q$, there is some finite set of $j_\ell \ge i$ s.t. $x_i = \sum (x_{j_\ell} - \mu_{ij_\ell}(x_{j_\ell})), x_{j\ell} \in M_{i} $.
-		Since the $M_i,M_{j\ell} $ are distinct, $\sum \mu _{ij_\ell}(x_{j_\ell}) = 0$.
-		% We have that $\mu_i(x_i) = x_i + Q = \mu_{ij}(x_i) + Q $ because, by the definition of directed system, there is a $j $ s.t. $i \le j $.
+		Since $Q = \mu_i(x_i) = x_i + Q $, there is some finite set of $j_\ell \ge i$ s.t. $x_i = \sum (x_{j_\ell} - \mu_{ij_\ell}(x_{j_\ell})), x_{j\ell} \in M_{i}$.
+		Since the $M_i,M_{j\ell}$ are distinct, $\sum \mu _{ij_\ell}(x_{j_\ell}) = 0$.
+		% We have that $\mu_i(x_i) = x_i + Q = \mu_{ij}(x_i) + Q$ because, by the definition of directed system, there is a $j$ s.t. $i \le j$.
 	\end{solution}
 
-	\question Show that the direct limit is characterized (up to isomorphism) by the following property. Let $N $ be an $A $-module and for each $i\in I $, let $\alpha _i: M_i \to N $ be an $A $-module homomorphism such that $\alpha _i = \alpha _j \circ \mu_{ij} $ whenever $i\le j $. Then there exists a unique homomorphism $\alpha :M\to N $ such that $\alpha _i = \alpha \circ \mu _i $ for all $i\in I $.
+	\question Show that the direct limit is characterized (up to isomorphism) by the following property. Let $N$ be an $A$-module and for each $i\in I $, let $\alpha _i: M_i \to N$ be an $A$-module homomorphism such that $\alpha _i = \alpha _j \circ \mu_{ij}$ whenever $i\le j$. Then there exists a unique homomorphism $\alpha :M\to N$ such that $\alpha _i = \alpha \circ \mu _i$ for all $i\in I$.
 	\begin{solution}
-		Simply define $\alpha  $ to be $\left(\bigoplus x_i\right) + Q \mapsto \bigoplus \alpha_i(x_i)$.
-		This is well-defined because for any $m_i - \mu_{ij}(m_i) \in Q$, this gets mapped to $\alpha _i(m_i) - \alpha_j(\mu _{ij}(m_i)) = \alpha _i(m_i) - \alpha _i(m_i) = 0 $.
+		Simply define $\alpha$ to be $\left(\bigoplus x_i\right) + Q \mapsto \bigoplus \alpha_i(x_i)$.
+		This is well-defined because for any $m_i - \mu_{ij}(m_i) \in Q $, this gets mapped to $\alpha _i(m_i) - \alpha_j(\mu _{ij}(m_i)) = \alpha _i(m_i) - \alpha _i(m_i) = 0$.
 
 		Then this commutes properly because $\alpha (\mu _i(m_i)) = \alpha (m_i+Q) = \alpha _i(m_i)$.
 
-		Finally, this is unique because given another $\alpha' $ with these properties and arbitrary $\bigoplus x_i +Q \in M $, $\alpha' (\bigoplus x_i+Q) = \alpha'(\mu _I(x_I))$ given by Exercise 15.
+		Finally, this is unique because given another $\alpha'$ with these properties and arbitrary $\bigoplus x_i +Q \in M $, $\alpha' (\bigoplus x_i+Q) = \alpha'(\mu _I(x_I))$ given by Exercise 15.
 		Then by definition of $\alpha ' $, $\alpha '(\mu _I(x_I)) = \alpha_I(x_I) = \alpha(\mu _I(x_I)) = \alpha (\bigoplus x_i + Q)$.
-		Hence $\alpha '= \alpha  $ for all elements of $M $, and we are done.
+		Hence $\alpha '= \alpha$ for all elements of $M $, and we are done.
 
 		The characterizing up to isomorphism is just a classic universal property argument.
 	\end{solution}
 
-	\question Let $(M_i)_{i\in I} $ be a family of submodules of an $A $-module, such that for each pair of indices $i,j $ in $I $, there exists $k\in I $ s.t. $M_i + M_j \subseteq M_k $. Define $i\le j $ to mean $M_i \subseteq M_j $ and let $\mu _{ij}: M_i\to M_j $ be the embedding of $M_i $ in $M_j $. Show that
+	\question Let $(M_i)_{i\in I}$ be a family of submodules of an $A$-module, such that for each pair of indices $i,j$ in $I $, there exists $k\in I$ s.t. $M_i + M_j \subseteq M_k$. Define $i\le j$ to mean $M_i \subseteq M_j$ and let $\mu _{ij}: M_i\to M_j$ be the embedding of $M_i$ in $M_j$. Show that
 	\[
 		\lim_{\rightarrow} M_i = \sum M_i = \cup M_i
 	.\]
-	In particular, any $A $-module is the direct limit of its finitely generated submodules.
+	In particular, any $A$-module is the direct limit of its finitely generated submodules.
 	\begin{solution}
 		Obviously this satisfies the conditions for the direct limit as the maps are just embeddings.
-		To show the equality, we can realize $\cup M_i $ as having the properties of the direct limit:
-		Say we have a family of maps $\alpha _i $ into an $A $-module $N $ that respect the directed system's maps.
+		To show the equality, we can realize $\cup M_i$ as having the properties of the direct limit:
+		Say we have a family of maps $\alpha _i$ into an $A$-module $N$ that respect the directed system's maps.
 
-		Then we have a map $\alpha :\cup M_i \to N$ defined by taking an element $m $, finding a $ M_i$ it is in, and mapping it to $\alpha _i(m) $.
-		This is well-defined because $\alpha _i $ respects the directed system's maps, those being inclusions.
+		Then we have a map $\alpha :\cup M_i \to N$ defined by taking an element $m $, finding a$ M_i$ it is in, and mapping it to $\alpha _i(m)$.
+		This is well-defined because $\alpha _i$ respects the directed system's maps, those being inclusions.
 		Hence it is isomorphic to the direct limit by Exercise 16.
 
-		Since $\{M_i\}   $ is a poset and we have that for every increasing chain, there is a maximal element (namely the union of all the modules in the chain), there is a maximal element $M $ in this set.
-		This equals $\cup M_i $, and hence $M \subseteq \sum M_i \subseteq M $.
+		Since $\{M_i\}$ is a poset and we have that for every increasing chain, there is a maximal element (namely the union of all the modules in the chain), there is a maximal element $M$ in this set.
+		This equals $\cup M_i $, and hence $M \subseteq \sum M_i \subseteq M$.
 	\end{solution}
 
-	\question Let $\bm{M} = (M_i, \mu_{ij}), \bm{N}=(N_i,\nu_{ij}) $ be direct systems of $A $-modules over the same directed set. Let $M,N $ be the direct limits and $\mu _i: M_i\to M , \nu_i: N_i \to N$ the associated homomorphisms.\\
-	A homomorphism $\bm{\phi}:\bm{M}\to \bm{N} $ is by definition a family of $A $-module homomorphisms $\phi_i:M_i\to N_i $ such that $\phi _j \circ \mu_{ij}=\nu_{ij}\circ \phi_i $ whenever $i\le j $. Show that $\bm{\phi} $ defines a unique homomorphism $\phi = \lim_{\rightarrow} \phi_i: M\to N $ such that $\phi\circ \mu_i = \nu_i\circ \phi_i $ for all $i\in I $.
+	\question Let $\bm{M} = (M_i, \mu_{ij}), \bm{N}=(N_i,\nu_{ij})$ be direct systems of $A$-modules over the same directed set. Let $M,N$ be the direct limits and $\mu _i: M_i\to M , \nu_i: N_i \to N$ the associated homomorphisms.\\
+	A homomorphism $\bm{\phi}:\bm{M}\to \bm{N}$ is by definition a family of $A$-module homomorphisms $\phi_i:M_i\to N_i$ such that $\phi _j \circ \mu_{ij}=\nu_{ij}\circ \phi_i$ whenever $i\le j$. Show that $\bm{\phi}$ defines a unique homomorphism $\phi = \lim_{\rightarrow} \phi_i: M\to N$ such that $\phi\circ \mu_i = \nu_i\circ \phi_i$ for all $i\in I$.
 	\begin{solution}
-		We have maps $\psi_i: M_i\to N $ by doing the composition $\nu_i\circ \phi_i $, which commute with the system because $\psi_j(\mu_{ij}) = \nu_j\circ \nu_{ij}\circ \phi_i = \nu_i\circ \phi_i$.
-		Hence there is a unique map $M\to N $ that commutes with the system by the characterizing property of the direct limit.
-		Since this map commutes with the system, $\phi\circ \mu_i = \psi_i = \nu_i \circ \phi_i $.
+		We have maps $\psi_i: M_i\to N$ by doing the composition $\nu_i\circ \phi_i $, which commute with the system because $\psi_j(\mu_{ij}) = \nu_j\circ \nu_{ij}\circ \phi_i = \nu_i\circ \phi_i$.
+		Hence there is a unique map $M\to N$ that commutes with the system by the characterizing property of the direct limit.
+		Since this map commutes with the system,$\phi\circ \mu_i = \psi_i = \nu_i \circ \phi_i$.
 	\end{solution}
 
 	\question A sequence of direct systems and homomorphisms
 	\[
 		\bm{M} \to \bm{N} \to \bm{P}
 	\]
-	is exact if the corresponding sequence of modules and module homomorphisms is exact for each $i\in I $. Show that the sequence $M\to N\to P $ of direct limits is then exact.
+	is exact if the corresponding sequence of modules and module homomorphisms is exact for each $i\in I$. Show that the sequence $M\to N\to P$ of direct limits is then exact.
 	\begin{solution}
-		Let $\mu_{ij},\nu_{ij},\rho_{ij} $ be the maps in the systems, $a_i,b_i $ be the maps $M_i\to N_i $ and $N_i\to P_i $, and let $\mu_{M\cdot}, \nu_{N\cdot}$ be the maps from $M\to \cdot, N\to\cdot $ that are induced by the direct limit property ($\cdot $ will be $N $ or $P $).
+		Let $\mu_{ij},\nu_{ij},\rho_{ij}$ be the maps in the systems, $a_i,b_i$ be the maps $M_i\to N_i$ and $N_i\to P_i $, and let $\mu_{M\cdot}, \nu_{N\cdot}$ be the maps from $M\to \cdot, N\to\cdot$ that are induced by the direct limit property ($\cdot$ will be $N$ or $P $).
 
-		Fix an element $x \in M $.
-		By Exercise 15, $x = \mu_i(x_i) $ for some $i $.
-		Then we can see that $\mu_{MP} \mu_i = \rho _i b_ia_i $ for all $i $ by commuting properties of the direct limit.
-		In particular, $\mu _{MP}(x) = \mu _{MP}\mu_i(x) = \rho_i b_ia_i = 0$ since $a_i,b_i $ are in an exact sequence.
+		Fix an element $x \in M$.
+		By Exercise 15,$x = \mu_i(x_i)$ for some $i$.
+		Then we can see that $\mu_{MP} \mu_i = \rho _i b_ia_i$ for all $i$ by commuting properties of the direct limit.
+		In particular,$\mu _{MP}(x) = \mu _{MP}\mu_i(x) = \rho_i b_ia_i = 0$ since $a_i,b_i$ are in an exact sequence.
 
-		Finally, we can show that $\ker \nu_{NP} \subseteq \Im \mu_{MN} $ by supposing $\nu_{NP}(x) = 0 $ for $x\in N $.
-		Then by Exercise 15, $x = \nu_i(x_i) $ for some $i $.
-		By commuting properties, $\nu_{NP}\nu_i = \rho_ib_i $, so $\nu_{NP}(x) = \nu_{NP}\nu_i(x_i) = \rho_ib_i(x_i) = 0 $.
-		By exercise 15, if $\rho_i(b_i(x_i)) = 0, $ there exists $j\ge i $ s.t. $\rho_{ij}(b_i(x_i)) = 0 $.
-		By commutativity of the diagram, this equals $b_j(\nu_{ij}(x_i)) = 0 $, which by exactness gives us that $\nu_{ij}(x_i) \in \Im a_j $.
-		By applying $\nu_j $ to both sides, we can see that $\nu_i(x_i) \in \Im(M_j\to N) $.
-		Being in the image of $M_j\to N $ is in the image of $\mu_{MN} $ since, by being the direct limit, $\mu_{MN} $ factors through this map.
+		Finally, we can show that $\ker \nu_{NP} \subseteq \Im \mu_{MN}$ by supposing $\nu_{NP}(x) = 0$ for $x\in N$.
+		Then by Exercise 15,$x = \nu_i(x_i)$ for some $i$.
+		By commuting properties,$\nu_{NP}\nu_i = \rho_ib_i $, so $\nu_{NP}(x) = \nu_{NP}\nu_i(x_i) = \rho_ib_i(x_i) = 0$.
+		By exercise 15, if $\rho_i(b_i(x_i)) = 0,$ there exists $j\ge i$ s.t. $\rho_{ij}(b_i(x_i)) = 0$.
+		By commutativity of the diagram, this equals $b_j(\nu_{ij}(x_i)) = 0 $, which by exactness gives us that $\nu_{ij}(x_i) \in \Im a_j$.
+		By applying $\nu_j$ to both sides, we can see that $\nu_i(x_i) \in \Im(M_j\to N)$.
+		Being in the image of $M_j\to N$ is in the image of $\mu_{MN}$ since, by being the direct limit, $\mu_{MN}$ factors through this map.
 
-		Hence $\ker \nu_{NP} = \Im_{MN} $.
+		Hence $\ker \nu_{NP} = \Im_{MN}$.
 
-		To understand this proof clearly, let $I $ just be the naturals and draw the commutative diagrams out.
+		To understand this proof clearly, let $I$ just be the naturals and draw the commutative diagrams out.
 	\end{solution}
 
-	\question Keeping the same notation as in Exercise 14, let $N $ be any $A $-module. Then $(M_i \otimes N, \mu_{ij} \otimes 1) $ is a direct system; let $P = \lim_{\rightarrow}(M_i \otimes N) $ be its direct limit.
-	For each $i\in I $, we have a homomorphism $\mu_{i} \otimes 1: M_i \otimes N\to M \otimes N $, hence by Exercise 16 a homomorphism $\psi: P\to M \otimes N $. Show that $\psi $ is an isomorphism, so that
+	\question Keeping the same notation as in Exercise 14, let $N$ be any $A$-module. Then $(M_i \otimes N, \mu_{ij} \otimes 1)$ is a direct system; let $P = \lim_{\rightarrow}(M_i \otimes N)$ be its direct limit.
+	For each $i\in I $, we have a homomorphism $\mu_{i} \otimes 1: M_i \otimes N\to M \otimes N $, hence by Exercise 16 a homomorphism $\psi: P\to M \otimes N$. Show that $\psi$ is an isomorphism, so that
 	\[
-		\Dlim(M_i \otimes N) \cong (\Dlim M_i) \otimes N
+		\varinjlim (M_i \otimes N) \cong (\varinjlim M_i) \otimes N
 	.\]
 	\ifhint
-		For each $i\in I $, let $g_i: M_i \times N\to M_i \otimes N $ be the canonical bilinear mapping. Passing to the limit, we obtain a mapping $g: M\times N\to P $. Show that $g $ is $A $-bilinear and hence define a homomorphism $\phi :M \otimes N\to P $. Verify that $\phi \circ \psi $ and $\psi\circ \phi $ are identity mappings.
+		For each $i\in I $, let $g_i: M_i \times N\to M_i \otimes N$ be the canonical bilinear mapping. Passing to the limit, we obtain a mapping $g: M\times N\to P$. Show that $g$ is $A$-bilinear and hence define a homomorphism $\phi :M \otimes N\to P$. Verify that $\phi \circ \psi$ and $\psi\circ \phi$ are identity mappings.
 	\fi
 	\begin{solution}
-		We show that $M \otimes N $ satisfies the universal property for direct limits.
+		We show that $M \otimes N$ satisfies the universal property for direct limits.
 		Suppose we have maps $\{f_i: M_i \otimes N\to Q\}$.
 		Then these lead to bilinear maps $\hat{f_i}: M_i \times N \to Q $
-		By direct limit properties, we then have a map $M \times N \to Q $.
+		By direct limit properties, we then have a map $M \times N \to Q$.
 		This is bilinear because it commutes with bilinear maps.
-		This bilinear map then induces a unique linear map $M \otimes N \to Q $.
-		This is the universal property of direct limits, so $M \otimes N \cong \Dlim (M_i \otimes N) $.
+		This bilinear map then induces a unique linear map $M \otimes N \to Q$.
+		This is the universal property of direct limits, so $M \otimes N \cong \varinjlim (M_i \otimes N)$.
 	\end{solution}
 
-	\question Let $(A_i)_{i\in I}$ be a family of rings indexed by a directed set $I $, and for each pair $i\le j $ in $I $, let $\alpha _{ij}: A_i\to A_j $ be a ring homomorphism, satisfying conditions (1) and (2) of Exercise 14. Regarding each $A_i $ as a $\Z $-module, we can then form the direct $\text{limit } A = \Dlim A_i $. Show that $A $ inherits a ring structure from the $A_i $ so that the mappings $A_i \to A $ are ring homomorphisms. The ring $A $ is the direct limit of the system $(A_i, \alpha _{ij}) $.\\
-	If $A= 0 $ prove that $A_i = 0 $ for some $i\in I $.
+	\question Let $(A_i)_{i\in I}$ be a family of rings indexed by a directed set $I $, and for each pair $i\le j$ in $I $, let $\alpha _{ij}: A_i\to A_j$ be a ring homomorphism, satisfying conditions (1) and (2) of Exercise 14. Regarding each $A_i$ as a $\Z$-module, we can then form the direct $\text{limit } A = \varinjlim A_i$. Show that $A$ inherits a ring structure from the $A_i$ so that the mappings $A_i \to A$ are ring homomorphisms. The ring $A$ is the direct limit of the system $(A_i, \alpha _{ij})$.\\
+	If $A= 0$ prove that $A_i = 0$ for some $i\in I$.
 	\ifhint
 		Remember that all rings have identity elements!
 	\fi
 	\begin{solution}
-		For $a,a' \in \text{limit }A $, define $a\cdot a' $ as $\mu _k(\mu _{ik}(a_i)\mu _{jk}(a_j)) $ where $a = \mu _i(a_i), a' = \mu _j(a_j) $ and $k \ge i,j $, which is well-defined because for other $k' \ge i,j $, we can find a $k'' $ s.t. $\mu _{k'}(\mu _{ik'}(a_i)\mu_{jk'}(a_j)) = \mu_{k''}(\mu_{k'k''}(\mu_{ik'}(a_i)\mu_{jk'}(a_j))) = \mu_{k''}(\mu_{k'k''}(\mu_{ik'}(a_i))\mu_{k'k''}(\mu_{jk'}(a_j))) =\mu _{k''}(\mu_{ik''}(a_i)\mu_{jk''}(a_j)) =\mu _{k''}(\mu_{kk''}(\mu_{ik}(a_i)\mu_{jk}(a_j))) = \mu_k(\mu_{ik}(a_i)\mu_{jk}(a_j)) $.
-		This is obviously commutative and has identity over multiplication because it has the domain of a commutative ring and $\mu_{\cdot,\cdot} $ are homomorphisms.
+		For $a,a' \in \text{limit }A $, define $a\cdot a'$ as $\mu _k(\mu _{ik}(a_i)\mu _{jk}(a_j))$ where $a = \mu _i(a_i), a' = \mu _j(a_j)$ and $k \ge i,j $, which is well-defined because for other $k' \ge i,j $, we can find a $k''$ s.t. $\mu _{k'}(\mu _{ik'}(a_i)\mu_{jk'}(a_j)) = \mu_{k''}(\mu_{k'k''}(\mu_{ik'}(a_i)\mu_{jk'}(a_j))) = \mu_{k''}(\mu_{k'k''}(\mu_{ik'}(a_i))\mu_{k'k''}(\mu_{jk'}(a_j))) =\mu _{k''}(\mu_{ik''}(a_i)\mu_{jk''}(a_j)) =\mu _{k''}(\mu_{kk''}(\mu_{ik}(a_i)\mu_{jk}(a_j))) = \mu_k(\mu_{ik}(a_i)\mu_{jk}(a_j))$.
+		This is obviously commutative and has identity over multiplication because it has the domain of a commutative ring and $\mu_{\cdot,\cdot}$ are homomorphisms.
 
 		Next is associativity:
-		Let $a = \mu_i(a_i),b=\mu_j(b_j),c=\mu_k(c_k) $ and $\ell\ge i,j,k $.
+		Let $a = \mu_i(a_i),b=\mu_j(b_j),c=\mu_k(c_k)$ and $\ell\ge i,j,k$.
 		\begin{align*}
 			(a\cdot b) \cdot c &= (\mu _\ell(\mu _{i\ell}(a_i)\mu_{j\ell}(b_j)))\cdot \mu_{k}(c_k) \\
 			\iff\\
@@ -423,75 +434,75 @@ In Chapter Exercises:
 		.\end{align*}
 
 		Finally, distributivity:
-		Let $a = \mu_i(a_i),b=\mu_j(b_j),c=\mu_k(c_k) $ and $\ell\ge i,j,k $.
+		Let $a = \mu_i(a_i),b=\mu_j(b_j),c=\mu_k(c_k)$ and $\ell\ge i,j,k$.
 		\begin{align*}
 			a (b+c) = \mu _i(a_i)(\mu _j(b_j) + \mu _k(c_k)) = \mu _i(a_i)(\mu_{\ell}\mu_{j\ell}(b_j) + \mu_{\ell}\mu _{k\ell}(c_k)) = \mu _{\ell}(\mu _{i\ell}(a_i)(\mu _{j\ell}(b_j) + \mu _{k\ell}(c_k))) = \mu _{\ell}(\mu _{i\ell}(a_i)\mu _{j\ell}(b_j) + \mu _{i\ell}(a_i)\mu _{k\ell}(c_k)) = \mu _i(a_i)\mu _j(b_j) + \mu _i(a_i)\mu _k(c_k) = ab + ac
 		.\end{align*}
 
-		If $A = 0 $, then $\mu _i(1) = 0\implies \mu _{ij}(1) =0 $ by Exercise 15.
-		But a ring homomorphism that sends 1 to 0 implies that the ring is 0, so $A_j = 0 $.
+		If $A = 0 $, then $\mu _i(1) = 0\implies \mu _{ij}(1) =0$ by Exercise 15.
+		But a ring homomorphism that sends 1 to 0 implies that the ring is 0, so $A_j = 0$.
 	\end{solution}
 
-	\question Let $(A_i, \alpha _{ij}) $ be a direct system of rings and let $\mathfrak{R}_i $ be the nilradical of $A_i $. Show that $\lim_{\rightarrow} \mathfrak{R}_i $ is the nilradical of $\lim_{\rightarrow}A_i $.\\
-	If each $A_i $ is an integral domain, then $\lim_{\rightarrow}A_i $ is an integral domain.
+	\question Let $(A_i, \alpha _{ij})$ be a direct system of rings and let $\mathfrak{R}_i$ be the nilradical of $A_i$. Show that $\lim_{\rightarrow} \mathfrak{R}_i$ is the nilradical of $\lim_{\rightarrow}A_i$.\\
+	If each $A_i$ is an integral domain, then $\lim_{\rightarrow}A_i$ is an integral domain.
 	\begin{solution}
-		We have the obvious inclusions $\mathfrak{R}_i \to \mathfrak{R}(\Dlim A_i) $ since $A_i\to \text{limit }A $ is a ring homomorphism ($a^n = 0 $ in $A_i $ gets mapped to $a^n = 0 $ in $\text{limit }A $).
+		We have the obvious inclusions $\mathfrak{R}_i \to \mathfrak{R}(\varinjlim A_i)$ since $A_i\to \text{limit }A$ is a ring homomorphism ($a^n = 0$ in $A_i$ gets mapped to $a^n = 0$ in $\text{limit }A $).
 
-		Next we can map $\mathfrak{R}(\Dlim A_i) $ to $\Dlim \mathfrak{R}_i $ as so:
-		For any $a^n = 0 \in \text{limit }A $, $a =\mu_i(a_i) $ by Exercise 15, which then gives us $\mu_i(a_i^n) = 0 $.
-		By Exercise 15, we then have $\mu _{ij}(a_i^n) = 0 $ in $A_j $.
-		Then $\mu _{ij}(a_i)^n = 0 $, giving us an element $\mu_{ij}(a_i) $, which we then map into $\Dlim \mathfrak{R}_i $.
+		Next we can map $\mathfrak{R}(\varinjlim A_i)$ to $\varinjlim \mathfrak{R}_i$ as so:
+		For any $a^n = 0 \in \text{limit }A $, $a =\mu_i(a_i)$ by Exercise 15, which then gives us $\mu_i(a_i^n) = 0$.
+		By Exercise 15, we then have $\mu _{ij}(a_i^n) = 0$ in $A_j$.
+		Then $\mu _{ij}(a_i)^n = 0 $, giving us an element $\mu_{ij}(a_i) $, which we then map into $\varinjlim \mathfrak{R}_i$.
 
 		This is well-defined because we can always commute any choices to the same, largest index ring.
-		Next this is a homomorphism because given $a = \mu _k(\mu _{ik}(a_i)), b = \mu _k(\mu _{jk}(b_j))$, $a+b = \mu_k(\mu_{ik}(a_i)+\mu_{jk}(a_j)) \rightarrow \mu_{k\ell}(\mu_{ik}(a_i)+\mu_{jk}(a_j)) \rightarrow \mu_k(\mu_{ik}(a_i) + \mu _{jk}(b_j)) = \mu_i(a_i) + \mu_j(b_j)$, which is what $a,b $ would be mapped to.
+		Next this is a homomorphism because given $a = \mu _k(\mu _{ik}(a_i)), b = \mu _k(\mu _{jk}(b_j))$, $a+b = \mu_k(\mu_{ik}(a_i)+\mu_{jk}(a_j)) \rightarrow \mu_{k\ell}(\mu_{ik}(a_i)+\mu_{jk}(a_j)) \rightarrow \mu_k(\mu_{ik}(a_i) + \mu _{jk}(b_j)) = \mu_i(a_i) + \mu_j(b_j)$, which is what $a,b$ would be mapped to.
 		This is just the identity.
 
 		Since there is a homomorphism and an inverse, it is an isomorphism.
 
-		If each $A_i $ is an integral domain, then suppose FTSOC that there is $ab = 0 $ in $\Dlim A_i $, $a,b\ne 0 $.
+		If each $A_i$ is an integral domain, then suppose FTSOC that there is $ab = 0$ in $\varinjlim A_i $, $a,b\ne 0$.
 		Then by Exercise 15, we have $a = \mu_i(a_i),b=\mu_j(b_j)$.
-		Hence $\mu _i(a_i)\mu _j(b_j) = 0 = \mu _k(\mu _{ik}(a_i)\mu _{jk}(b_j)) $ for $k\ge i,j $.
-		Then by Exercise 15, there is $\ell\ge k $ s.t. $\mu _{k\ell}(\mu _{ik}(a_i)\mu _{jk}(b_j)) = 0 = \mu _{i\ell}(a_i)\mu _{j\ell}(b_j) $.
-		But then $A_j $ wouldn't be an integral domain (note that $\mu _{\cdot \ell}(\cdot) \ne 0 $ because if otherwise, then $\mu _\ell(\mu _{\cdot \ell}(\cdot)) = \mu_{\cdot}(\cdot) = 0$, contradicting $a,b $ being non-zero).
+		Hence $\mu _i(a_i)\mu _j(b_j) = 0 = \mu _k(\mu _{ik}(a_i)\mu _{jk}(b_j))$ for $k\ge i,j$.
+		Then by Exercise 15, there is $\ell\ge k$ s.t. $\mu _{k\ell}(\mu _{ik}(a_i)\mu _{jk}(b_j)) = 0 = \mu _{i\ell}(a_i)\mu _{j\ell}(b_j)$.
+		But then $A_j$ wouldn't be an integral domain (note that $\mu _{\cdot \ell}(\cdot) \ne 0$ because if otherwise, then $\mu _\ell(\mu _{\cdot \ell}(\cdot)) = \mu_{\cdot}(\cdot) = 0$, contradicting $a,b$ being non-zero).
 	\end{solution}
 
-	\question Let $(B_{\lambda })_{\lambda \in \Lambda} $ be a family of $A $-algebras. For each finite subset of $\Lambda $, let $B_J $ denote the tensor product (over $A $) of the $B_{\lambda} $ for each $\lambda \in J $. If $J' $ is another finite subset of $\Lambda $ and $J\subseteq J' $, there is a canonical $A $-algebra homomorphism $B_J\to B_{J'} $. Let $B $ denote the direct limit of the rings $B_J $ as $J $ runs through all finite subsets of $\Lambda $. The ring $B $ has a natural $A $-algebra structure for which the homomoprhisms $B_J\to B $ are $A$-algebra homomorphisms. The $A $-algebra $B $ is the tensor product of the family $(B_{\lambda})_{\lambda\in \Lambda} $.
+	\question Let $(B_{\lambda })_{\lambda \in \Lambda}$ be a family of $A$-algebras. For each finite subset of $\Lambda $, let $B_J$ denote the tensor product (over $A $) of the $B_{\lambda}$ for each $\lambda \in J$. If $J'$ is another finite subset of $\Lambda$ and $J\subseteq J' $, there is a canonical $A$-algebra homomorphism $B_J\to B_{J'}$. Let $B$ denote the direct limit of the rings $B_J$ as $J$ runs through all finite subsets of $\Lambda$. The ring $B$ has a natural $A$-algebra structure for which the homomoprhisms $B_J\to B$ are $A$-algebra homomorphisms. The $A$-algebra $B$ is the tensor product of the family $(B_{\lambda})_{\lambda\in \Lambda}$.
 	\begin{solution}
-		The canonical $A $-algebra homomorphism sends $b\in B_J $ to $b \otimes 1 \otimes 1 \otimes \cdots $ ($|J'| - |J| $ times).
-		As $A $-algebras are also rings, the ring $B $ exists by Exercise 21.
-		Ring homomorphisms that preserve $A $-module structure are $A $-algebra homomorphisms.
+		The canonical $A$-algebra homomorphism sends $b\in B_J$ to $b \otimes 1 \otimes 1 \otimes \cdots$ ($|J'| - |J|$ times).
+		As $A$-algebras are also rings, the ring $B$ exists by Exercise 21.
+		Ring homomorphisms that preserve $A$-module structure are $A$-algebra homomorphisms.
 	\end{solution}
 
 	\question In these Exercises it will be assumed that the reader is familiar with the definitio nand basic properties of the Tor functor.
 
-	If $M $ is an $A $-module, the following are equivalent:
+	If $M$ is an $A$-module, the following are equivalent:
 	\begin{enumerate}
-		\item $M $ is flat;
-		\item $\Tor^A_n(M,N) = 0 $ for all $n > 0 $ and all $A $-modules $N $;
-		\item $\Tor_1^A(M,N) = 0 $ for all $A $-modules $N $.
+		\item $M$ is flat;
+		\item $\Tor^A_n(M,N) = 0$ for all $n > 0$ and all $A$-modules $N $;
+		\item $\Tor_1^A(M,N) = 0$ for all $A$-modules $N$.
 	\end{enumerate}
 	\ifhint
-		To show that (i) $\implies $ (ii), take a free resolution of $N $ and tensor it with $M $. Since $M $ is flat, the resulting sequence is exact and therefore its homology groups, which are the $\Tor^A_n(M,N) $ are zero for $n > 0 $. To show that (iii) $\implies $ (i), let $0\to N' \to N \to N''\to 0 $ be an exact sequence. Then from the $\Tor $ exact sequence,
+		To show that (i)$\implies$ (ii), take a free resolution of $N$ and tensor it with $M$. Since $M$ is flat, the resulting sequence is exact and therefore its homology groups, which are the $\Tor^A_n(M,N)$ are zero for $n > 0$. To show that (iii) $\implies$ (i), let $0\to N' \to N \to N''\to 0$ be an exact sequence. Then from the $\Tor$ exact sequence,
 		\[
 			\Tor_1(M,N'') \to M \otimes N' \to M \otimes N \to M \otimes N'' \to 0
 		\]
-		is exact. Since $\Tor_1(M,N'') = 0 $, it follows that $M $ is flat.
+		is exact. Since $\Tor_1(M,N'') = 0 $, it follows that $M$ is flat.
 	\fi
 	\begin{solution}
-		(i) $\implies $ (ii):
-		We do as the hint suggests: take a free resolution of $N $.
-		Tensor this with $M $.
-		As $M $ is flat, this sequence is then exact, so the homology groups are 0.
+		(i)$\implies$ (ii):
+		We do as the hint suggests: take a free resolution of $N$.
+		Tensor this with $M$.
+		As $M$ is flat, this sequence is then exact, so the homology groups are 0.
 
-		Obviously (ii) $\implies $ (iii).
+		Obviously (ii)$\implies$ (iii).
 
-		(iii) $\implies $ (i):
-		Take an exact sequence $0\to N' \to N \to N'' \to 0 $.
-		Then $\Tor_1^A(M,N'') \to M \otimes N' \to M \otimes N \to M \otimes N'' \to 0 $ is exact.
-		As $\Tor_1^A(M,N'') = 0 $, $M $ is flat.
+		(iii)$\implies$ (i):
+		Take an exact sequence $0\to N' \to N \to N'' \to 0$.
+		Then $\Tor_1^A(M,N'') \to M \otimes N' \to M \otimes N \to M \otimes N'' \to 0$ is exact.
+		As $\Tor_1^A(M,N'') = 0 $, $M$ is flat.
 	\end{solution}
 
-	\question Let $0\to N'\to N\to N''\to 0 $ be an exact sequence with $N'' $ flat. Then $N' $ is flat $\iff N $ is flat.
+	\question Let $0\to N'\to N\to N''\to 0$ be an exact sequence with $N''$ flat. Then $N'$ is flat $\iff N$ is flat.
 	\ifhint
 		Use Exercise 24 and the Tor exact sequence.
 	\fi
@@ -500,60 +511,60 @@ In Chapter Exercises:
 		\[
 			\Tor_2^A(M,N'') \to \Tor_1^A(M,N') \to \Tor_1^A(M,N) \to \Tor_1^A(M,N'') \to M \otimes  N' \to M \otimes N \to M \otimes N'' \to 0
 		.\]
-		As $\Tor_2^A(M,N'') = \Tor_1^A(M,N'') = 0 $ by flatness of $N'' $ and Exercise 24, $\Tor_1^A(M,N') = \Tor_1^A(M, N) $.
-		By Exercise 24, this means that $N $ is flat iff $N' $ is flat.
+		As $\Tor_2^A(M,N'') = \Tor_1^A(M,N'') = 0$ by flatness of $N''$ and Exercise 24, $\Tor_1^A(M,N') = \Tor_1^A(M, N)$.
+		By Exercise 24, this means that $N$ is flat iff $N'$ is flat.
 	\end{solution}
 
-	\question Let $N $ be an $A $-module. Then $N $ is flat $\iff \Tor_1(A / \mathfrak{a}, N) = 0 $ for all finitely generated ideals $\mathfrak{a}$ in $A $
+	\question Let $N$ be an $A$-module. Then $N$ is flat $\iff \Tor_1(A / \mathfrak{a}, N) = 0$ for all finitely generated ideals $\mathfrak{a}$ in $A $
 	\ifhint
-		Show first that $N$ is flat if $\Tor_1(M, N) = 0$ for all finitely generated $A$-modules $M$, by using (2.19). If $M$ is finitely generated, let $x_1, \cdots , x_n$ be a set of generators of $M$, and let $M$, be the submodule generated by $x_{1}, \ldots ,x_i$. By considering the successive quotients $M_i/M_{i-1}$ and using Exercise 25, deduce that $N$ is fiat if $\Tor_l(M, N) = 0$ for all cyclic $A$-modules $M$, i.e., all $M$ generated by a single element, and therefore of the form $A/\mathfrak{a}$ for some ideal $\mathfrak{a} $. Finally use (2.19) again to reduce to the case where $\mathfrak{a} $ is a finitely generated ideal.
+		Show first that $N$ is flat if $\Tor_1(M, N) = 0$ for all finitely generated $A$-modules $M $, by using (2.19). If $M$ is finitely generated, let $x_1, \cdots , x_n$ be a set of generators of $M $, and let $M $, be the submodule generated by $x_{1}, \ldots ,x_i$. By considering the successive quotients $M_i/M_{i-1}$ and using Exercise 25, deduce that $N$ is fiat if $\Tor_l(M, N) = 0$ for all cyclic $A$-modules $M $, i.e., all $M$ generated by a single element, and therefore of the form $A/\mathfrak{a}$ for some ideal $\mathfrak{a}$. Finally use (2.19) again to reduce to the case where $\mathfrak{a}$ is a finitely generated ideal.
 		\fi
 	\begin{solution}
 		$\implies)$ is obvious by Exercise 24.
 
-		$\Leftarrow) $:
+		$\Leftarrow)$:
 		\begin{lem}
-			Assuming the RHS, then $\Tor(A / \mathfrak{b},N) = 0 $ for \textbf{all} $\mathfrak{b} $.
+			Assuming the RHS, then $\Tor(A / \mathfrak{b},N) = 0$ for \textbf{all} $\mathfrak{b}$.
 		\end{lem}
 		\begin{proof}
-			Take the system of finitely generated submodules of $\mathfrak{b} $ call it $F $, the system associated to that index of just $A $ call it $\bm{A} $, and the system $A / \mathfrak{b}_i $ for $b_i \in F$ call it $Q $.
-			As each of these has an exact sequence $0\to\mathfrak{b} \to A \to A / \mathfrak{b}\to 0$, we have an exact sequence of systems by Exercise 19, giving us an exact sequence $0\to \Dlim F \to \Dlim \bm{A} \to \Dlim Q \to 0$.
-			As tensors commute with direct limits (Exercise 20), we have $0\to \Dlim F \otimes N \to \Dlim \bm{A} \otimes N \to \Dlim Q \otimes N \to 0 $.
+			Take the system of finitely generated submodules of $\mathfrak{b}$ call it $F $, the system associated to that index of just $A$ call it $\bm{A} $, and the system $A / \mathfrak{b}_i$ for $b_i \in F$ call it $Q$.
+			As each of these has an exact sequence $0\to\mathfrak{b} \to A \to A / \mathfrak{b}\to 0$, we have an exact sequence of systems by Exercise 19, giving us an exact sequence $0\to \varinjlim F \to \varinjlim \bm{A} \to \varinjlim Q \to 0$.
+			As tensors commute with direct limits (Exercise 20), we have $0\to \varinjlim F \otimes N \to \varinjlim \bm{A} \otimes N \to \varinjlim Q \otimes N \to 0$.
 
-			By Exercise 17, $\Dlim F = \mathfrak{b} $.
-			We also have that $\Dlim Q = A / \mathfrak{b} $ because all the maps in the system $Q $ have kernels contained in $B $, so by the universal property of the quotient it induces a unique map from $A / \mathfrak{b} $that commutes with the system, so by the universal property of the direct limit, it is the direct limit.
+			By Exercise 17,$\varinjlim F = \mathfrak{b}$.
+			We also have that $\varinjlim Q = A / \mathfrak{b}$ because all the maps in the system $Q$ have kernels contained in $B $, so by the universal property of the quotient it induces a unique map from $A / \mathfrak{b} $that commutes with the system, so by the universal property of the direct limit, it is the direct limit.
 			So we have the exact sequence
 			\[
 				0 \to \mathfrak{b} \otimes N \to A \otimes N \to A / \mathfrak{b} \otimes N\to 0
 			.\]
 		\end{proof}
 
-		First we can note that $N $ is flat if $\Tor_1(M,N) = 0 $ for all finitely generated $A $-modules $M $ by Proposition 2.19.
-		Then fix a finitely generated $M $ generated by $x_i $ and define $M_i = \{x_{1},\ldots, x_i\}   $.
-		Also define the map $f_i: A \to M_i / M_{i-1} $ by sending $a \in A $ to $ax_i + M_{i-1} $.
-		This is surjective as $M_i $ is generated by $x_{1}, \ldots , x_i $.
-		As such, $\ker f_i $ is an ideal of $A $.
-		Hence $M_i / M_{i-1} \cong A / \ker f_i$
+		First we can note that $N$ is flat if $\Tor_1(M,N) = 0$ for all finitely generated $A$-modules $M$ by Proposition 2.19.
+		Then fix a finitely generated $M$ generated by $x_i$ and define $M_i = \{x_{1},\ldots, x_i\}$.
+		Also define the map $f_i: A \to M_i / M_{i-1}$ by sending $a \in A$ to $ax_i + M_{i-1}$.
+		This is surjective as $M_i$ is generated by $x_{1}, \ldots , x_i$.
+		As such,$\ker f_i$ is an ideal of $A$.
+		Hence $M_i / M_{i-1} \cong A / \ker f_i $
 		So by considering the exact sequence $0 \to M_{i-1} \to M_{i}\to M_i / M_{i-1} \cong A / \ker f_i \to 0$, we can see that we get the Tor sequence
 		\[
 			\Tor_1(M_{i-1},N) \to \Tor_1(M_i,N) \to \Tor_1(A / \ker f_i, N)
 		.\]
 
-		Assume for induction that $\Tor_1(M_{i-1},N) = 0 $.
-		Then by the lemma above, $\Tor_1(A / \ker f_i,N) = 0 $.
-		Thus $\Tor_{1}(M_i,N) = 0 $.
-		Obviously $\Tor_{1}(M_{0},N) = 0 $.
-		Thus $\Tor_{1}(M,N) = 0 $ for all finitely generated $M $, allowing us to use Proposition 2.19 to finish.
+		Assume for induction that $\Tor_1(M_{i-1},N) = 0$.
+		Then by the lemma above,$\Tor_1(A / \ker f_i,N) = 0$.
+		Thus $\Tor_{1}(M_i,N) = 0$.
+		Obviously $\Tor_{1}(M_{0},N) = 0$.
+		Thus $\Tor_{1}(M,N) = 0$ for all finitely generated $M $, allowing us to use Proposition 2.19 to finish.
 	\end{solution}
 
-	\question A ring $A $ is absolutely flat if every $A $-module is flat. Prove that the following are equivalent:
+	\question A ring $A$ is absolutely flat if every $A$-module is flat. Prove that the following are equivalent:
 	\begin{enumerate}
-		\item $A $ is absolutely flat.
+		\item $A$ is absolutely flat.
 		\item Every principal ideal is idempotent.
-		\item Every finitely generated ideal is a direct summand of $A $.
+		\item Every finitely generated ideal is a direct summand of $A$.
 	\end{enumerate}
 	\ifhint
-		Let $x\in A $. Then $A / (x) $ is a flat $A $-module, hence in the diagram
+		Let $x\in A$. Then $A / (x)$ is a flat $A$-module, hence in the diagram
 		\[
 		\begin{tikzcd}
 			(x) \otimes A & (x) \otimes A / (x)\ \
@@ -564,57 +575,843 @@ In Chapter Exercises:
 		\arrow[from=1-2,to=2-2]
 		\end{tikzcd}
 		\]
-		the mapping $\alpha  $ is injective. Hence $\Im(\beta ) = 0 $, hence $(x) = (x)^2 $. (ii) $\implies $ (iii): Let $x\in A $. Then $x = ax^2 $ for some $a\in A $, hence $e = ax $ is idempotent and we have $(e) = (x) $. Now if $e,f $ are idempotents, then $(e,f) = (e+f-ef) $. Hence every finitely generated ideal is principal, and generated by an idempotent $e $, hence is a direct summand because $A = (e) \oplus (e-e) $. (iii) $\implies $ (i): Use the criterion of Exercise 26.
+		the mapping $\alpha$ is injective. Hence $\Im(\beta ) = 0 $, hence $(x) = (x)^2$. (ii) $\implies$ (iii): Let $x\in A$. Then $x = ax^2$ for some $a\in A $, hence $e = ax$ is idempotent and we have $(e) = (x)$. Now if $e,f$ are idempotents, then $(e,f) = (e+f-ef)$. Hence every finitely generated ideal is principal, and generated by an idempotent $e $, hence is a direct summand because $A = (e) \oplus (e-e)$. (iii) $\implies$ (i): Use the criterion of Exercise 26.
 	\fi
 	\begin{solution}
-		(i) $\implies $ (ii): Since $A / (x) $ is an $A $-module, it is flat.
-		Thus the injectivity of $(x) \to A $ makes the map $(x) \otimes A / (x) \to A \otimes A / (x) \cong A / (x) $ injective.
+		(i)$\implies$ (ii): Since $A / (x)$ is an $A$-module, it is flat.
+		Thus the injectivity of $(x) \to A$ makes the map $(x) \otimes A / (x) \to A \otimes A / (x) \cong A / (x)$ injective.
 		This map takes $x \otimes [a] \mapsto x \otimes [a] \mapsto [xa] = 0$ (middle map is due to Proposition 2.19).
-		As it is an injective zero map, $(x) \otimes A / (x) = 0$, and by Exercise 2, $(x) \otimes A / (x) \cong (x) / (x)^2 $.
-		Thus $(x) = (x)^2 $.
+		As it is an injective zero map,$(x) \otimes A / (x) = 0$, and by Exercise 2, $(x) \otimes A / (x) \cong (x) / (x)^2$.
+		Thus $(x) = (x)^2$.
 
-		(ii) $\implies $ (iii):
+		(ii)$\implies$ (iii):
 		As the hint does:
-		Let $x\in A $.
-		Then $x = ax^2 $ for some $a\in A $, hence $e = ax $ is idempotent and we have $(e) = (x) $.
-		For idempotents $e,f $, $(e,f) = (e+f -ef) $ because $e(e+f-ef) = e + ef - ef = e $ and $f(e+f-ef) = ef + f - ef = f $.
+		Let $x\in A$.
+		Then $x = ax^2$ for some $a\in A $, hence $e = ax$ is idempotent and we have $(e) = (x)$.
+		For idempotents $e,f $, $(e,f) = (e+f -ef)$ because $e(e+f-ef) = e + ef - ef = e$ and $f(e+f-ef) = ef + f - ef = f$.
 		Thus every finitely generated ideal is principal by finding idempotents for every generator in the ideal and then reducing them pairwise as so.
-		As such, $A = (e) \oplus (1-e) $ (note that $(1-e)^2 = (1-e) $, so they are independent).
+		As such,$A = (e) \oplus (1-e)$ (note that $(1-e)^2 = (1-e) $, so they are independent).
 
-		(iii) $\implies $ (i):
-		It suffices to satisfy the conditions in Exercise 26 for all $N $.
+		(iii)$\implies$ (i):
+		It suffices to satisfy the conditions in Exercise 26 for all $N$.
 		Take an exact sequence $0\to N' \to N \to N'' \to 0$.
 		Then we have the sequence
 		\[
 			\Tor_1(A / \mathfrak{a},N'') \to N' \otimes A / \mathfrak{a} \to N \otimes A / \mathfrak{a} \to N'' \otimes A / \mathfrak{a}\to 0
 		.\]
-		By Exercise 2, $N' \otimes A / \mathfrak{a} \cong N' / \mathfrak{a}N' \cong \mathfrak{b}N' $ as we assume that $A $ is a direct sum of f.g. ideals (namely let $A = \mathfrak{a}\oplus \mathfrak{b} $).
-		Then the map $N' \otimes A / \mathfrak{a} \to N \otimes A / \mathfrak{a} $ is the map $\mathfrak{b}N' \to \mathfrak{b}N $, which is injective as they are simply restrictions of the injective map $N' \to N $.
-		Thus $\Tor_1(A / \mathfrak{a}, N'') = 0 $.
-		As we can always realize $N $ as the tail of an exact sequence (simply take $0\to 0 \to N \to N \to 0$, we are done.
+		By Exercise 2,$N' \otimes A / \mathfrak{a} \cong N' / \mathfrak{a}N' \cong \mathfrak{b}N'$ as we assume that $A$ is a direct sum of f.g. ideals (namely let $A = \mathfrak{a}\oplus \mathfrak{b} $).
+		Then the map $N' \otimes A / \mathfrak{a} \to N \otimes A / \mathfrak{a}$ is the map $\mathfrak{b}N' \to \mathfrak{b}N $, which is injective as they are simply restrictions of the injective map $N' \to N$.
+		Thus $\Tor_1(A / \mathfrak{a}, N'') = 0$.
+		As we can always realize $N$ as the tail of an exact sequence (simply take $0\to 0 \to N \to N \to 0$, we are done.
 	\end{solution}
 
 	\question A Boolean ring is absolutely flat. The ring of Chapter 1, Exercise 7 is absolutely flat. Every homomorphic image of an absolutely fiat ring is absolutely flat. If a local ring is absolutely flat, then it is a field. If $A$ is absolutely flat, every non-unit in $A$ is a zero-divisor.
 	\begin{solution}
 		By definition, all principal ideals are idempotent in a Boolean ring, so by Exercise 27 we are done.
 
-		The ring in Chapter 1 Exercise 7 is absolutely flat because all principal ideals are idempotent: $(x)^2= (x^2) = (x) $ because $x^{2n} = x \in (x^2) $.
+		The ring in Chapter 1 Exercise 7 is absolutely flat because all principal ideals are idempotent:$(x)^2= (x^2) = (x)$ because $x^{2n} = x \in (x^2)$.
 
-		Say we have $f $ a homomorphism from an absolutely flat ring $R $.
+		Say we have $f$ a homomorphism from an absolutely flat ring $R$.
 		Then every principal ideal in the image is generated by $f(a) $, and $(a^2) = (a)$ by Exercise 27.
-		Hence $(f(a))^2 = (f(a)^2) = (f(a^2)) = (f(a)) $.
+		Hence $(f(a))^2 = (f(a)^2) = (f(a^2)) = (f(a))$.
 
-		Fix an absolutely flat local ring $R $.
-		By Exercise 27, every principal ideal of $R $ is idempotent, so $(x^2) = (x) \forall x \in R $.
-		Hence $x = rx^2, r \in R $.
-		Thus $rx = r^2x^2 = (rx)^2 \implies rx $ is idempotent.
-		But by Exercise 12 of Chapter 1, $rx = 0 $ or $1 $.
-		Thus $(x) = 0 $ or $1 $, which implies that it is a field.
+		Fix an absolutely flat local ring $R$.
+		By Exercise 27, every principal ideal of $R$ is idempotent, so $(x^2) = (x) \forall x \in R$.
+		Hence $x = rx^2, r \in R$.
+		Thus $rx = r^2x^2 = (rx)^2 \implies rx$ is idempotent.
+		But by Exercise 12 of Chapter 1,$rx = 0$ or $1$.
+		Thus $(x) = 0$ or $1 $, which implies that it is a field.
 
-		If $A $ is absolutely flat, then take a non-unit $x $.
-		We have that $(x)^2 = (x) $, so $x \in (x^2) \implies rx^2 = x $ for some $r $.
-		Thus $x(rx-1) = 0 \implies $ $x $ is a zero-divisor.
+		If $A$ is absolutely flat, then take a non-unit $x$.
+		We have that $(x)^2 = (x) $, so $x \in (x^2) \implies rx^2 = x$ for some $r$.
+		Thus $x(rx-1) = 0 \implies$ $x$ is a zero-divisor.
 	\end{solution}
 \end{questions}
 
+\section{Chapter 3}
+
+\begin{questions}
+\question Let $S$ be a multiplicatively closed subset of a ring $A $, and let $M$ be a finitely generated $A$-module. Prove that $S^{-1} M = 0$ if and only if there exists $s \in S$ such that $sM = 0$.
+\begin{solution}
+	If there is such an $s $, then $\forall (m:n) \in S^{-1}M $, $s(m-n) = 0$.
+
+	If $S^{-1}M = 0 $, then $\forall m \in M $, $(m:1) = 0 \implies \exists s_m$ s.t. $s_m m = 0$.
+	As $M$ is finitely generated, it suffices to multiply the $s_m$ of all the generators to get a universal annihilator.
+\end{solution}
+
+\question Let $\mathfrak{a}$ be an ideal of a ring $A $, and let $S = 1 + \mathfrak{a}$. Show that $S^{-1}\mathfrak{a}$ is contained in the Jacobson radical of $S^{-1}A$.
+
+Use this result and Nakayama's lemma to give a proof of (2.5) which does not depend on determinants.
+\ifhint
+	If $M = \mathfrak{a}M $, then $S^{-1}M = (S^{-1}\mathfrak{a})(S^{-1}M) $, hence by Nakayama we have $S^{-1}M = 0 $. Now use Exercise 1
+\fi
+\begin{solution}
+	For every element $(a:1+a') \in S^{-1}\mathfrak{a} $, we can show that $1 - (a:1+a')y $ is a unit for all $y\in S^{-1}A $ and then use Proposition 1.9 to conclude.
+	Let $y = (\alpha :1+a'') $ with $\alpha  \in A $ and $a'' \in \mathfrak{a} $.
+	Then $1 - (a:1+a')y = 1 - (a\alpha :1+a''+a'+a'a'') = (1+a''+a'+a'a'' - a\alpha :1+a''+a'+a'a'') $.
+	By closure properties, $a''+a'+a'a''-a\alpha  \in \mathfrak{a} $, so the numerator is in $1+\mathfrak{a} $ and thus invertible.
+
+	If $\mathfrak{a}M = M $, then $S^{-1}\mathfrak{a}S^{-1}M = S^{-1}M $ with $S = 1 + \mathfrak{a} $, so Nakayama's lemma can be applied to conclude that $S^{-1}M = 0 $.
+	Then by the above exercise, there is $s \in S $ s.t. $sM = 0 $.
+	As $s \in S $, $s \equiv 1\pmod {\mathfrak{a}} $.
+\end{solution}
+
+\question Let $A$ be a ring, let $S$ and $T$ be two multiplicatively closed subsets of $A $, and let $U$ be the image of $T$ in $S^{-1}A$. Show that the rings $(ST)^{-1}A$ and $U^{-1}(S^{-1}A)$ are isomorphic.
+\begin{solution}
+	We do this by way of universal property.
+	Suppose we have a homomorphism $f:A \to B$ s.t. $f(s)$ is a unit in $B$ for all $s \in ST$.
+	Then $\hat{f}: U^{-1}(S^{-1}A) \to B$ defined by $\hat{f}((a:b):(c:1)) = f(a)f(bc)^{-1}$ is a well-defined homormophism.
+	The inverse in the formula exists because $b\in S, c\in T \implies bc \in ST$.
+	It is annoying to see that it satisfies the homomorphism properties of a well-defined homomorphism, and this then gives well-defined because if
+	It is well-defined because any equivalence $((a:b):(c:1)) \equiv ((a':b'):(c':1)) \implies \exists (u:1)\in U, (u:1)((a:b)(c':1)-(a':b')(c:1)) = 0 \in S^{-1}A$.
+	ac':b - a'c:b' = u(ac'b'-a'cb):b'b
+	By computing this out, we have that $(u(ac'b'-a'cb):b'b) =0 \in S^{-1}A \implies \exists s, su(ac'b'-ac b) = 0$.
+	Apply $f$ to see that $f(su)f(ac'b'-ac b) = 0 \implies f(ac'b') = f(ac b)$ because $su \in ST$.
+	As $b,b'\in S,c,c'\in T $, we have that $f(a)f(bc)^{-1} = f(a')f(b'c')^{-1}$.
+
+	The commuting diagram is then satisfied as $h: A\to U^{-1}(S^{-1}A)$ takes $a \to ((a:1):(1:1))$ and $f\circ h = f(a)$.
+	It is unique because where the elements of $A$ and $ST$ get sent uniquely determine where the rest of the elements in $U^{-1}(S^{-1}A)$ get sent (by well-defineness and all elements of $U^{-1}(S^{-1}A)$ being equivalent to something in the form $((a:1):(st:1))$ for $a\in A, s\in S, t\in T $).
+
+	Thus by the universal property, they are isomorphic.
+\end{solution}
+
+\question Let $f: A\to B$ be a homomorphism of rings and let $S$ be a multplicatively closed subset of $A$. Let $T = f(S)$. Show that $S^{-1}B$ and $T^{-1}B$ are isomorphic as $S^{-1}A$-modules.
+\begin{solution}
+	We define the map $g: S^{-1}B\to T^{-1}B$ by taking $(b:s) \to (b:f(s))$.
+	This is obviously bijective because $S\cong T$.
+	This is well-defined because if $(b:s) \equiv (b':s') $, then $\exists s''\in S, s''(bs'-sb') = 0 \implies f(s'')(bf(s')-f(s)b') = 0\implies (b:f(s)) \equiv (b:f(s'))$ (note that this is how $A$ acts on $B$ as an $A$-module.
+	Then this is a homomorphism because $f((b:s)+(b':s')) = f((f(s')b+f(s)b':ss')) = (f(s')b+f(s)b':f(s)f(s')) = f((b:s)) + f((b':s'))$ and $f((a:s')(b:s)) = f(f(a)b:s's) = (f(a)b:f(s)f(s')) = (a:s')f((b:s)) $ (i.e. the way $S^{-1}A $ acts on $B $ is preserved).
+
+	As this is a bijective module homomorphism, it is an isomorphism and we are done.
+\end{solution}
+
+\question Let $A $ be a ring. Suppose that for each prime ideal $\mathfrak{p} $, the local ring $A_{\mathfrak{p}} $ has no nilpotent elements $\ne 0 $. Show that $A $ ha sno nilpotent element $\ne 0 $. If each $A_{\mathfrak{p}} $ is an integral domain, is $A $ necessarily an integral domain?
+\begin{solution}
+	Suppose FTSOC that $A $ had a non-trivial nilpotent $a $.
+	Then for some prime ideal $\mathfrak{p} $ (which exists because the case in which $A $ is a field is trivial, and all non-trivial, non-field rings have a maximal ideal by Zorn's Lemma), we can inject $a $ to $A_{\mathfrak{p}} $ with a homomorphism.
+	But if $a^n = 0 $, then $(a:1)^n = 0 $, giving $A_{\mathfrak{p}} $ a non-trivial nilpotent and giving us a contradiction.
+	Hence $A $ has no non-trivial nilpotents.
+\end{solution}
+
+\question Let $A $ be a ring $\ne 0 $ and let $\Sigma  $ be the set of all multiplicatively closed subsets $S $ of $A $ s.t. $0\not\in S $. Show that $\Sigma  $ has maximal elements, and tha $S \in \Sigma $ is maximal iff $A - S $ is a minimal prime ideal of $A $.
+\begin{solution}
+	Given an ascending chain of elements of $\Sigma $, $S_{1}\subseteq S_{2} \subseteq \cdots $, we can find an upper bound for it by taking the set of finite products across all the $S_i $.
+	This is closed because a finite product times a finite product is still a finite product, and for any overlapping multiplications of elements in one $S_i $, that can be replaced by one element of $S_i $ due to $S_i $ being multiplicatively closed.
+	Thus by Zorn's lemma we have a maximal element.
+
+	Then $S $ is maximal in $\Sigma $ implies $A \setminus S $ is a minimal prime ideal because if $A \setminus S  $ contained another prime ideal $\mathfrak{p} $, then $A\setminus S \supset \mathfrak{p} \implies A \setminus (A-S) \subseteq A \setminus \mathfrak{p} $.
+	But the LHS is $S $, a maximal multiplicatively closed subset of $A $ and the RHS is another multiplicatively closed subset of $A $ (that doesn't contain $0 $) that is in $\Sigma $.
+	This is a contradiction, so $S $ contains no other prime ideals.
+\end{solution}
+
+\question A multiplicatively closed subset $S $ of a ring $A $ is said to be saturated if
+\[
+	xy \in S \iff x \in S \text{ and } y \in S
+.\] 
+Prove that
+\begin{enumerate}
+	\item $S $ is saturated $\iff A - S $ is a union of prime ideals.
+	\begin{solution}
+		$\implies) $ Suppose $x\in A$ was a unit.
+		Then $x \cdot x^{-1}s = s \implies x \in S$ for $s\in S $.
+		Thus $A\setminus S $ has no units.
+
+		Then every prime ideal of $S^{-1}A $ is in one-to-one correspondence with prime ideals of $A $ that don't meet $S $ by Proposition 3.11.
+		We can then see that for all non-unit $x\in S^{-1}A$, $x $ isn't a unit and thus is contained in a maximal ideal.
+		This is prime, so there is a prime ideal that contains $x $ that doesn't meet $S $.
+		Therefore we can write $A \setminus S $ as a union of prime ideals, namely those above.
+
+		If $S \setminus A $ is a union of prime ideals, then $S $ is saturated because $\implies) $ if $xy\in S $ then if $x $ or $y  $ wasn't in $S $, then $xy \in S \setminus A $ by properties of ideals.
+		$\Leftarrow) $ If $x,y \in S $, then if $xy \in S \setminus A$, then $xy \in $ some prime ideal contained in $S \setminus A $, which implies that one of $x,y $ is in $S \setminus A $, a contradiction.
+	\end{solution}
+	\item If $S$ is any multiplicative closed subset of $A $, there is a unique smallest saturated multiplicatively closed subset $\overline{S}  $ containing $S $, and that $\overline{S}  $ is the complement in $A$ of the union of the prime ideals which do not meet $S$. ($\overline{S}  $ is called the saturation of $S $.) 
+	\begin{solution}
+		Suppose there are two distinct minimal saturated multiplicated closed subsets $\overline{S}  $ and $\overline{S}'  $ that contain $S $.
+		Then $\overline{S}\cap \overline{S}'   $ is also saturated ($(\overline{S}\cap \overline{S}')^C = \overline{S}^C \cup \overline{S}^C =    $ a union of prime ideals by the exercise just above).
+		But this is contained in both, so must be equal to both.
+		Hence they are equal and there is a unique one.
+
+		For existence, we can show that the complement in $A $ of the union of the prime ideals which don't meet $S $ is a minimal saturated set.
+		It is saturated by part $i) $.
+		It is minimal because if there was a saturated set contained in it, say $S' $, then $A\setminus S' $ would be the union of prime ideals.
+		As $A\setminus S $ is already the union of prime ideals that don't meet $S $, $A \setminus S' $ must have a prime ideal that meets $S $, say at $x $.
+		But if $x\in S $, then $x \in S' $ as $S \subseteq S' $ and $S' $ is saturated.
+		This is a contradiction.
+	\end{solution}
+\end{enumerate}
+If $S = 1 + \mathfrak{a} $, where $\mathfrak{a} $ is an ideal of $A $, find $\overline{S}  $.
+\begin{solution}
+	Solution due to \url{https://math.sci.uwo.ca/~jcarlso6/intro_comm_alg(2019).pdf}
+
+	It is $A $.
+	By the above part, $A \setminus \overline{S}  $ is the union of prime ideals that don't meet $S $.
+	If $x\in $ a prime ideal is in $S $ (i.e. meets $S $), then $1 +a = x $ for some $a \in \mathfrak{a} $.
+	Hence $1 = x-a $ and thus $A \setminus \overline{S}$ is the union of prime ideals not coprime to $\mathfrak{a} $.
+
+	As any such prime ideal $\mathfrak{p} $ that is coprime to $\mathfrak{a}$ is contained in a maximal ideal ($\mathfrak{a} + \mathfrak{p} \subsetneq (1) $), it suffices to take the union of the set of maximal ideals that contain $\mathfrak{a} $ ($\mathfrak{a}+\mathfrak{p}\subseteq \mathfrak{m} \implies \mathfrak{p} \subseteq \mathfrak{m} $).
+	This works because , maximal ideals that contain $\mathfrak{a} $ don't meet $1 + \mathfrak{a} $.
+	Hence $\overline{S} = A \setminus \cup \{\mathfrak{m}\in \operatorname{Max}(A): \mathfrak{a} \subseteq \mathfrak{m}\} $.
+\end{solution}
+
+\question Let $S,T $ be multiplicatively closed subsets of $A $ s.t. $S\subseteq T $. Let $\phi : S^{-1}A \to T^{-1}A $ be the homomorphism which maps each $a / s \in S^{-1}A $ to $a/s$ considered as an element of $T^{-1}A $. Show that the following statements are equivalent:
+\begin{enumerate}
+	\item $\phi  $ is bijective.
+	\item For each $t\in T $, $t / 1 $ is a unit in $S^{-1}A $.
+	\item For each $t \in T $, there exists $x\in A $ s.t. $xt \in S $.
+	\item $T $ is contained in the saturation of $S $ (Exercise 7).
+	\item Every prime ideal which meets $T $ also meets $S $.
+\end{enumerate}
+\begin{solution}
+	$i) \implies ii) $ If $\phi  $ is bijective, then because $\phi  $ is a homomorphism, $\phi ^{-1}(t t^{-1}) = \phi ^{-1}(t)\phi ^{-1}(t^{-1}) = 1 \implies t $ is a unit in $S^{-1}A $.
+
+	$ii)\implies iii) $ As $t / 1 $ is a unit in $S^{-1}A $, there is some $(a:s) $ s.t. $(ta:s) = 1 \implies \exists s' \in S $ s.t. $s'(ta-s) = 0 \implies tas' = ss' \in S $, so $x = as' $.
+
+	$iii)\implies iv) $ The saturation of $S $ is $A \setminus \cup  $ prime ideals that don't meet $S $.
+	Hence it suffices to show that $T $ doesn't meet prime ideals that don't meet $S $ ($T\subseteq A \setminus \cup $ prime ideals that don't meet $S $ $\iff $ no element of $T $ is in such prime ideals).
+	But if $T $ meets one of these prime ideals, then this prime ideal is still prime in $S^{-1}A $ (by Proposition 3.11), say at $t $.
+	Then by assumption, there is an $x \in A$ s.t. $xt \in S \implies xt \in$ the prime ideal is a unit in $S^{-1}A $, a contradiction.
+
+	$iv) \implies v) $
+	Now suppose FTSOC that there was a prime ideal that meets $T $ that doesn't meet $S $, say $\mathfrak{p} $ at $t $.
+	As $T \subseteq \overline{S}  $, $T $ doesn't meet any prime ideal that doesn't meet $S $.
+	This is a blatant contradiction, as $\mathfrak{p} $ is a prime ideal that doesn't meet $S $ (recall that $S \subseteq T $), so $T $ doesn't meet it.
+	Hence $\mathfrak{p} $ does meet $S $.
+
+	$v) \implies i) $ Obviously $\phi  $ is injective, so all we need to show is surjectivity.
+	By assumption and $S\subseteq T $, every prime ideal of $T^{-1}A $ corresponds one-to-one to prime ideals of $S^{-1}A $ by using Proposition 3.11 (by passing through prime ideals that don't meet $S $) through inclusion.
+	As every non-unit in $T^{-1}A $ is contained in a maximal ideal, which is prime, this corresponds to a prime ideal in $S^{-1}A $, which implies that non-units are 
+	Every unit in $T^{-1}A $ is the image of an element of $S^{-1}A $ because 
+\end{solution}
+
+\question The set $S_{0} $ of all non-zero divisors in $A $ is a saturated multiplicatively closed subset of $A $. Hence the set $D $ of zero-divisors in $A $ is a union of prime ideals (see Chapter 1, Exercise 14). Show that every minimal prime ideal of $A $ is contained in $D $.
+\ifhint
+	Use Exercise 6
+\fi
+\begin{solution}
+	Take a minimal prime ideal $\mathfrak{p} $.
+	Then $A \setminus \mathfrak{p} $ is multiplicatively closed, so if we let $S = A \setminus \mathfrak{p} $, we can apply Exercise 6 to get that $A\setminus \mathfrak{p} $ is maximal in $\Sigma $.
+	We can then see that 
+\end{solution}
+The ring $S_{0}^{-1}A $ is call the total ring of fractions of $A $. Prove that
+\begin{enumerate}
+\item $S_{0} $ is the largest multiplicatively closed subset of $A $ for which the homomorphism $A\to S_{0}^{-1}A $ is injective.
+	\begin{solution}
+		Suppose we had a larger subset with this property, say $S' $.
+		Then $S' $ contains a zero-divisor, say $ss' = 0 $.
+		Hence $f:A\to S'^{-1}A $ maps $s $ and $s' $ to $0 $, a contradiction.
+	\end{solution}
+\item Every element in $S_{0}^{-1}A $ is either a zero-divisor or a unit.
+	\begin{solution}
+		Every element in $S_{0}^{-1}A $ is of the form $(a:s), a\in A, s\in S_{0}$ by definition.
+		If $a\in S_{0} $, then it is obviously invertible with inverse $(s:a) $.
+		If $a\not\in S_{0} $, then by definition it is a zero divisor in $A $ and thus a zero-divisor in $S_{0}^{-1}A $
+	\end{solution}
+\item Every ring in which every non-unit is a zero-divisor is equal to its total ring of fractions (i.e. $A\to S_{0}^{-1}A $ is bijective).
+	\begin{solution}
+		As every non-unit is a zero-divisor, $D $ is the set of non-units.
+		Thus $S_{0} $ is the set of units, and we have the homomorphism $S_{0}^{-1}A \to A $ that sends $(a:s) \to as^{-1} $ which is then the inverse of $A\to S_{0}^{-1}A $ because $a \to (a:1) \to a $.
+		This gives us an isomorphism.
+	\end{solution}
+\end{enumerate}
+\question Let $A $ be a ring.
+\begin{enumerate}
+	\item If $A $ is absolutely flat (Chapter 2, Exercise 27) and $S $ is any multiplicatively closed subset of $A $, then $S^{-1}A $ is absolutely flat.
+	\begin{solution}
+		Every $S^{-1}A $ module is also an $A $-module, so they are flat.
+		Thus $S^{-1}A $ is absolutely flat.
+	\end{solution}
+	\item $A $ is absolutely flat $\iff $ $A_ \mathfrak{m}$ is a field for each maximal ideal $\mathfrak{m} $.
+	\begin{solution}
+		As $A_ \mathfrak{m} $ is $(A \setminus \mathfrak{m})^{-1}A $, it is absolutely flat is $A $ is absolutely flat.
+		As it is local, by Exercise 28, it is a field.
+
+		$\Leftarrow) $ Because $A_{ \mathfrak{m}} $ is a field for each maximal ideal and we have the correspondence in Proposition 3.11, there are no prime ideals in $A $ that don't meet $A \setminus \mathfrak{m} $ except for the one corresponding to $(0) $.
+		There are no prime ideals other than the one corresponding to $(0) $ because other prime ideal are contained in a non-zero maximal ideal $\mathfrak{m} $, which also doesn't meet $A\setminus \mathfrak{m} $ and thus should correspond to a prime ideal in $A_{\mathfrak{m}} $.
+
+		So the only prime ideal of $A $ is one s.t. $\mathfrak{p}_{\mathfrak{p}} = (0) $ in $A_{(0)} $.
+		Because $\mathfrak{p} $ is the only maximal ideal and $\mathfrak{p} $ is an $A $-module, by Proposition 3.8, $\mathfrak{p} = 0 $.
+		Hence $A $ is a field.
+		Trivially, all principal ideals are idempotent in a field, so by Exercise 27 $A $ is absolutely flat.
+
+		Alternatively, \url{https://math.sci.uwo.ca/~jcarlso6/intro_comm_alg(2019).pdf} has a cool solution too!
+	\end{solution}
+\end{enumerate}
+\question Let $A $ be a ring. Prove that the following are equivalent:
+\begin{enumerate}
+	\item $A / \mathfrak{R} $ is absolutely flat ($\mathfrak{R} $ being the nilradical of $A $).
+	\item Every prime ideal of $A $ is maximal.
+	\item $\Spec(A) $ is a $T_{1} $-space (i.e., every subset consisting of a single point is closed).
+	\item $\Spec(A) $ is Hausdorff
+\end{enumerate}
+\begin{solution}
+	$i)\iff ii) $ 
+	Taken from \url{https://math.sci.uwo.ca/~jcarlso6/intro_comm_alg(2019).pdf}.
+	All prime ideals of $A $ are maximal iff there are no prime ideals between arbitrary maximal ideal $\mathfrak{m} $ and $\mathfrak{R} $ by definition.
+	By Proposition 1.1, this is in iff with there being no prime ideals between $\mathfrak{m} / \mathfrak{a} $ and $0 $ in $A / \mathfrak{R} $.
+	Then by Proposition 3.11, this is in iff with there being no non-zero prime ideals in $(A / \mathfrak{R})_{\mathfrak{m}} $.
+	This is true iff $(A / \mathfrak{R})_{\mathfrak{m}} $ is a field, which by Exercise 10 is iff with $A / \mathfrak{R}$ being absolutely flat.
+
+	$ii)\iff iii) $ Forward: If every prime ideal $\mathfrak{p} $ of $A $ is maximal, then the set of prime ideals that contain $\mathfrak{p} $ is just $\mathfrak{p} $, and by definition these are the closed sets.
+	Thus $\{\mathfrak{p}\}   $ is closed.
+
+	Then because ${\mathfrak{p}} $ is closed, it is the set of prime ideals that contain an ideal, which has to be $\mathfrak{p}$ because this set is a singleton, hence it is maximal (gives us reverse direction)
+
+	$iii) \iff iv) $ Forward: Fix two distinct points $\mathfrak{p},\mathfrak{q} \in \Spec A $.
+	By $T_{1} $ hypothesis, $\exists U_ \mathfrak{p}, U_{\mathfrak{q}}$ neighborhoods that separate them.
+	Suppose FTSOC that they had an intersection point $\mathfrak{r} $.
+	Because $U_{\mathfrak{p}} $ is open in the Zariski topology, it is the complement of $V(I) $ for some $I $, and similarly for $U_{\mathfrak{q}} $ for $V(J) $.
+	Then $ (U_{\mathfrak{p}} \cap U_{\mathfrak{q}})^C = V(IJ)$.
+	As $\mathfrak{r} $ is in $U_{\mathfrak{p}} \cap U_{\mathfrak{q}}$, it isn't in $V(IJ) $.
+	Thus it is contained in $IJ$.
+
+	Then $\mathfrak{r} $ is maximal by $ii) $.
+	So $IJ = \mathfrak{r} $.
+	Because $IJ \subseteq I $, this implies that $J = I = \mathfrak{r}$.
+	Hence $U_{\mathfrak{p}} = U_{\mathfrak{q}} = V(\mathfrak{r})$, a contradiction.
+
+	For reverse, Hausdorff is stronger than $T_{1} $.
+\end{solution}
+If these conditions are satisfied, show that $\Spec(A) $ is compact and totally disconnected (i.e. the only connected subsets of $\Spec(A) $ are those consisting of a single point.
+\begin{solution}
+	Because every prime ideal is maximal, the basis generating the Zariski topology is just singletons.
+	As intersections only decrease set size and only finite unions are closed, this topology is the cofinite topology on $\Spec A $.
+
+	For point set reasons, this space is then compact (open sets contain all but finitely many points, take the subcover of one open set and finitely many to fill in the gaps).
+
+	Fix a subset $S $ of $\Spec(A) $.
+	If $S $ is finite, then take two disjoint finite subsets of it.
+	These are closed in $\Spec(A) $, so they are a closed partition of $S $, disconnecting it.
+
+	If $S $ is infinite, then take an infinite disjoint partition of it (exists by taking an infinite sequence of distinct points $(x_i) $ and then taking alternating points).
+	These two sets will be open in $\Spec(A) $, so they are open in $S $, disconnecting it.
+\end{solution}
+
+\question Let $A$ be an integral domain and $M$ an $A$-module. An element $x \in M$ is a torsion element of $M$ if $\operatorname{Ann} (x) \ne 0$, that is if $x$ is killed by some non-zero element of $A$. Show that the torsion elements of $M$ form a submodule of $M$. This submodule is called the torsion submodule of $M$ and is denoted by $T(M)$. If $T(M) = 0$, the module $M$ is said to be torsion-free. Show that 
+\begin{proof}
+	$T(M) $ inherits an abelian group operation from $M $.
+	For closure, if $a,b \in T(M) $ and $x,y $ annihilate them, then $xy(a+b) = xya + xyb = 0$.
+	It is an $A $-module with the operation inherit from $M $, and for $a\in A $ and $b \in T(M) $ annihilated by $x $, $x(ab) = a(xb) = 0$.
+\end{proof}
+\begin{enumerate}
+	\item If $M $ is any $A $-module, then $M / T(M) $ is torsion-free.
+	\begin{solution}
+		Take an element $x \in M $.
+		For an element $a \in A$ s.t. $ax = 0\pmod {T(M)} $, then either $ax = 0 $ in $M $ or $ax \in T(M) $.
+		If $ax = 0 $, then $x \in T(M) $ and it isn't a non-trivial torsion element.
+
+		If $ax\in T(M) $, then it is annihilated by some element $b\in A $ so that $bax = 0 $ in $M $.
+		Then $x $ is annihilated by $ab $, so $x\in T(M) $ and it isn't a non-trivial torsion element.
+
+		Thus $T(M / T(M)) = 0 $.
+	\end{solution}
+	\item If $f: M\to N $ is a module homomorphism, then $f(T(M)) \subseteq T(N) $.
+	\begin{solution}
+		Take an element $m \in T(M) $ annihilated by $a\in A$.
+		Then $am = 0 \implies f(am) = 0 = af(m) \implies f(m) \in T(N)$.
+	\end{solution}
+	\item If $0\to M' \to M \to M'' $ is an exact sequence, then the sequence $0 \to T(M') \to T(M) \to T(M'')$ is exact.
+	\begin{solution}
+		Name the maps $m': M'\to M, m: M\to M''$ and let $m'_T,m_T $ be their respective maps in $T(M_{\ast}) $.
+		Because $m' $ was already injective, $T(M') \to T(M) $ is also injective.
+		
+		$\Im m'_T\subseteq \ker m_T: $ $m_T \circ m'_T = m\circ m'|_{T(M')} \subseteq m\circ m' = 0 $.
+
+		$\Im m'_T \subseteq \ker m_T $: For any element in $x \in \ker m_T $, $x \in \Im m'$ by exactness.
+		Since $x\in T(M) $, there is an $a $ s.t. $ax = 0 $.
+		Let $x = m'(y) $.
+		Then by injectivity of $m' $, $ax = m'(ay) = 0 \implies ay = 0 \implies y \in M(T') \implies x \in \Im m'_T $.
+	\end{solution}
+	\item If $M $ is any $A $-module, then $T(M) $ is the kernel of the mapping $x\mapsto 1 \otimes x $ of $M $ into $K \otimes _A M $, where $K $ is the field of fractions of $A $.
+	\begin{solution}
+		Name the map $t $.
+
+		$T(M) \subseteq \ker t) $ Take $m \in T(M) $, annihilated by $a\in A$.
+		Then $m\mapsto 1 \otimes m $.
+		We can then see that $1 \otimes m = 0$ because $1 \otimes m = a / a \otimes m = 1 / a \otimes am = \frac{1}{a} \otimes am = \frac{1}{a} \otimes 0 = 0$.
+
+		$T(M) \supseteq \ker t) $ By Proposition 3.5, $A_{(0)} \otimes_A M \cong M_{(0)} $ with a map that sends $\frac{a}{b} \otimes m \mapsto \frac{am}{b} $.
+		So if $1 \otimes_A m = 0 $, then $\frac{m}{1} = 0 \iff ms = 0 $ for $s\in A\setminus (0) $.
+		This is a non-trivially annihilator.
+	\end{solution}
+\end{enumerate}
+\ifhint
+	For $iv) $, show that $K $ may be regarded as the direct limit of its submodules $A\xi(\xi \in K) $; using Chapter 1, Exercise 15 and Exercise 20, show that if $1 \otimes x = 0 $ in $K \otimes M $ then $1 \otimes x = 0 $ in $A\xi \otimes M $ for some $\xi \ne 0 $ Deduce that $\xi ^{-1} x = 0 $
+\fi
+
+\question Let $S $ be a multiplicatively closed subset of an integral domain $A $. In the notation of Exercise 12, show that $T(S^{-1}M)= S^{-1}(TM) $. Deduce that the following are equivalent:
+\begin{solution}
+	Map $\frac{m}{s} \in T(S^{-1}M) $ to $\frac{m}{s} $ in $S^{-1}(T(M)) $.
+	This maps into the right place because $\frac{m}{s} \in T(S^{-1}M) \implies \exists \frac{a}{s'}\in S^{-1}A$ s.t. $\frac{am}{ss'} = 0 \implies \frac{am}{1} = 0 \implies m \in T(M) \implies \frac{m}{s} \in S^{-1}(T(M))$.
+	This is obviously injective since $A $ is a domain.
+
+	For surjectivity, for any element $\frac{m}{s} \in S^{-1}(T(M)) $, map it to $\frac{m}{s} \in T(S^{-1}(M)) $.
+	This maps into the right place because if $\frac{m}{s} \in S^{-1}(T(M)), m \in T(M) $.
+	Thus there is an $a \in A $ s.t. $am = 0 \implies \frac{a}{1}\cdot \frac{m}{s} = 0 \implies \frac{m}{s} \in T(S^{-1}(M))$.
+\end{solution}
+\begin{enumerate}
+	\item $M $ is torsion-free.
+	\item $M_{\mathfrak{p}} $ is torsion-free for all prime ideals $\mathfrak{p} $.
+	\item $M_{\mathfrak{m}} $ is torsion-free for all maximal ideals $\mathfrak{m} $.
+\end{enumerate}
+\begin{solution}
+	If $M $ is torsion free, then $T(M) = 0 $.
+	Since $T(S^{-1}M) = S^{-1}(T(M)) $ by Exercise 12, $S^{-1}(T(M)) = 0 = T(S^{-1}(M)) \implies $ $S^{-1}M $ is torsion free for all $S $.
+	This gives us $ii),ii) $.
+
+	$iii) \implies i) $ By Exercise 12, $T(M_{\mathfrak{m}}) = 0 = T(M)_{\mathfrak{m}} $.
+	Then by Proposition 3.8, $T(M) = 0 $.
+\end{solution}
+
+\question Let $M $ be an $A $-module and $\mathfrak{a} $ an ideal of $A $. Suppose that $M_{\mathfrak{m}} = 0 $ for all maximal ideals $\mathfrak{m} \supseteq \mathfrak{a} $. Prove that $M = \mathfrak{a}M $.
+\ifhint
+	Pass to the $A / \mathfrak{a} $-module $M / \mathfrak{a}M $ and use (3.8).
+\fi
+\begin{solution}
+	By Proposition 1.1, $\mathfrak{m} / \mathfrak{a} $ is a maximal ideal in $A / \mathfrak{a} $.
+	As $M_{\mathfrak{m}} = 0, (M_{\mathfrak{m}}) / \mathfrak{a}_{\mathfrak{m}} = 0 = (M / \mathfrak{a})_{\mathfrak{m}} $ by Corollary 3.4.
+	As this is true for all maximal ideals of $A / \mathfrak{a} $, by Proposition 3.8 $M / \mathfrak{a} = 0 $.
+	Hence $M = \mathfrak{a}M $.
+\end{solution}
+
+\question Let $A$ be a ring, and let $F$ be the $A$-module $A^n$. Show that every set of $n$ generators of $F$ is a basis of $F$.
+\ifhint 
+	Let $x_{1}, \cdots, x_n$ be a set of generators and $e_{1}, \cdots, e_n$ the canonical basis of $F$. Define $\phi: F \to F$ by $\phi(e_i) = x_i$. Then $\phi$ is surjective and we have to prove that it is an isomorphism. By (3.9) we may assume that $A$ is a local ring. Let $N$ be the kernel of $\phi$ and let $k = A /\mathfrak{m}$ be the residue field of $A$. Since $F$ is a flat $A$-module, the exact sequence $0 \to N \to F \to F \to 0 $ gives an exact sequence $0 \to k \otimes N \to k \otimes F \to k \otimes F \xrightarrow{1 \otimes \phi } 0$. Now $k \otimes F= k^n$ is an $n$-dimensional vector space over $k$; $1 \otimes \phi$ is surjective, hence bijective, hence $k \otimes N = 0$. \\
+Also $N$ is finitely generated, by Chapter 2, Exercise 12, hence $N$ = 0 by Nakayama's lemma. Hence $\phi $ is an isomorphism.
+\fi
+\begin{solution}
+	Take a set of generators $x_1,\cdots, x_n $ of $A^n $ and let $e_{1},\cdots, e_n $ be the canonical basis.
+	Then let $x_{i} = x_{i1}e_{1} + x_{i2}e_{2} + \cdots + x_{in} $.
+	Let $\phi(e_i) = x_i $.
+	As $x_i $ are generators, $\phi  $ is automatically surjective.
+	By Proposition 3.9, we localize $A $ at an arbitrary maximal ideal and then show that $\phi_M$ is injective there.
+
+	Fix an arbitrary $\mathfrak{m} $.
+	If $\phi _M $ isn't injective, there is a relation $a_1x_1 + \cdots + a_nx_n =0 $.
+	This lifts to a relation in $A^n_{\mathfrak{m}} $.
+	This also gives a relation in $\mathfrak{A}_{\mathfrak{m}} / \mathfrak{m}\mathfrak{A}_{\mathfrak{m}} \otimes_{\mathfrak{A}_{\mathfrak{m}}} F_{\mathfrak{m}}$.
+	Let $k = \mathfrak{A}_{\mathfrak{m}} / \mathfrak{m}$.
+	Then this equals $k^n $.
+	As this is a vector space, the image of the generators $x_1,\cdots,x_n $ become a basis and we then get a contradiction.
+\end{solution}
+Deduce that every set of generators of $F$ has at least $n$ elements. 
+\begin{solution}
+	Say there was a list of $a<n $ generators.
+	This generates $A^a $ as a submodule of $A^n $, which then means they form a basis of $A^a$.
+	But $A^a \ne A_n $.
+\end{solution}
+
+\question Let $B $ be a flat $A $-algebra. Then the following conditions are equivalent:
+\begin{enumerate}
+	\item $\mathfrak{a}^{ec} = \mathfrak{a}  $ for all ideals $\mathfrak{a} $ of $A $.
+	\item $\Spec(B) \to \Spec(A) $ is surjective.
+	\item For every maximal ideal $\mathfrak{m} $ of $A $ we have $\mathfrak{m}^e \ne (1) $.
+	\item If $M $ is any non-zero $A $-module, then $M_{B} \ne 0 $.
+	\item For every $A $-module $M $, the mapping $x\mapsto 1 \otimes x $ of $M $ into $M_{B} $ is injective.
+\end{enumerate}
+\begin{solution}
+	$i) \iff ii) $ Just Proposition 3.16.
+
+	$ii) \implies iii) $ $\implies) $Because $\Spec(B)\to \Spec(A) $ is surjective, $\exists \mathfrak{b} $ s.t. $\mathfrak{b}^c = \mathfrak{m} $.
+	Since $\mathbb{b}^{cec} = \mathfrak{b}^c = \mathfrak{m}  $, $\mathfrak{m}^e = \mathfrak{b}^{cece} = \mathfrak{b}^c  $ since $\mathfrak{b}^C $ is a prime ideal in $A $ (Proposition 1.17 used many times).
+	Hence $\mathfrak{m}^e \ne (1) $.
+
+	$iii) \implies iv) $
+	Fix a non-zero element $x \in M $ and define $M' = Ax $.
+	Since $B $ is flat, it suffices to show that $B \otimes M' \ne 0 $ (because we have the exact sequence $0 \to M' \to M \to M / M' \to 0 $ with the first map being an inclusion).
+
+	Then we have that $Ax \cong A / \mathfrak{a} $ for some ideal because we can let the ideal be the relations of $x $ to 0.
+	Thus $B \otimes M' = B / \mathfrak{a}^e $ by Exercise 2, Chapter 2.
+	As $\mathfrak{a}\subseteq \mathfrak{m} $, a maximal ideal, we have that $\mathfrak{a}^e \subseteq \mathfrak{m}^e \ne (1) $ by assumption.
+	Hence $B / \mathfrak{a}^e \ne 0 \implies M_B \ne 0$.
+
+	$iv) \implies v) $ Let $M' $ be the kernel of $M \to M_B $.
+	Then by flatness of $B $, $0\to M'_B \to M_B \to ((M)_B)_B \to 0 $ is exact.
+	Then by Chapter 2 Exercise 13 with $N = M_B $, the last map is injective.
+	Thus $M'_B = 0 \implies M' = 0 $ by assumption.
+	Hence $\ker (M\to M_B) = 0 $, making the map injective.
+
+	$v)\implies i) $ Let $M = A / \mathfrak{a} $.
+	Then $M \to B \otimes M = B / \mathfrak{a}B $, by Chapter 2 Exercise 2, is injective.
+	By definition, $B / \mathfrak{a}B = B / f(\mathfrak{a})B $, so this map being injective implies that if an element is in $\mathfrak{a}^e $, then it's preimage, which forms $\mathfrak{a}^{ec} $, is in $\mathfrak{a} $.
+	As $\mathfrak{a}^{ec} \supseteq \mathfrak{a} $, $\mathfrak{a} = \mathfrak{a}^{ec} $.
+\end{solution}
+$B $ is said to be faithfully flat over $A $.
+
+\question Let $A\xrightarrow{f} B \xrightarrow{g} C $ be ring homomorphisms. If $g\circ f $ is flat and $g $ is faithfully flat, then $f $ is flat.
+\begin{solution}
+	It suffices to show that if $f: M'\to M$ is injective as $A $-modules, then $f \otimes 1: M' \otimes B\to M \otimes B $ is injective by Proposition 2.19.
+	Then by flatness of $g\circ f $, $M'_C \to M_C$ is injective, which then gives injectivity of $C \otimes _B B \otimes _A M' \to C \otimes _B B \otimes_A M$ by Proposition 2.14 and Exercise 2.15 in the reading.
+	By the faithful flatness of $g $, $(M')_B \to (M')_C $, $M_B\to (M_B)_C $ are injective.
+	Thus we have this diagram
+	\[
+	\begin{tikzcd}
+	 M'_B & M_B\\
+	 (M'_B)_C & (M_B)_C
+	\arrow[from=1-1,to=1-2]
+	\arrow[from=1-1,to=2-1]
+	\arrow[from=2-1,to=2-2]
+	\arrow[from=1-2,to=2-2]
+	\end{tikzcd}
+	\]
+	The three edge route from $M'_B\to M_B $ are all injective, so $M'_B\to M_B $ is injective too, proving flatness.
+\end{solution}
+
+\question Let $f: A\to B $ be a flat homomorphism of rings, let $\mathfrak{q} $ be a prime ideal of $B $ and let $\mathfrak{p} = \mathfrak{q}^c $. Then $f^\ast: \Spec(B_{\mathfrak{q}}) \to \Spec(A_{\mathfrak{p}}) $ is surjective.
+\ifhint
+	For $B_{\mathfrak{p}} $ is flat over $A_{\mathfrak{p}} $ by (3.10), and $B_{\mathfrak{q}} $ is a local ring of $B_{\mathfrak{p}} $, hence is flat over $B_{\mathfrak{p}} $. Hence $B_{\mathfrak{q}} $ is flat over $A_{\mathfrak{p}} $ and satisfies condition (3) of Exercise 16.
+\fi
+\begin{solution}
+	By Proposition 3.11, $\Spec(A_{\mathfrak{p}}) = $ set of prime ideals that are contained in $\mathfrak{p} $.
+	Then by 
+\end{solution}
+
+\question Let $A $ be a ring, $M $ an $A $-module. The support of $M $ is defined to be the set $\Supp(M)$ of prime ideals $\mathfrak{p} $ of $A $ such that $M_{\mathfrak{p}}\ne 0 $. Prove the following results:
+\begin{enumerate}
+	\item $M\ne 0 \iff \Supp(M) \ne \emptyset $
+	\begin{solution}
+		Instead we prove that $M = 0 \iff \Supp(M) = \emptyset $.
+		By Proposition 3.8, $M = 0 \iff M_{\mathfrak{p}} = 0 $ for all prime ideals of $A $, so $\Supp(M) = \emptyset $.
+	\end{solution}
+	\item $V(\mathfrak{a}) = \Supp(A / \mathfrak{a}) $
+	\begin{solution}
+		$\supseteq) $ All the prime ideals in $A / \mathfrak{a} $ are those that contain $\mathfrak{a} $ by Proposition 1.1.
+
+		$\subseteq) $ Take some prime ideal $\mathfrak{p} $ in $V(\mathfrak{a}) = \Spec(A / \mathfrak{a}) $.
+		Since $\Spec((A / \mathfrak{a})_{\mathfrak{p}}) = $ the set of prime ideals contained in $\mathfrak{p} $ and containing $\mathfrak{a} $ by Proposition 3.11 and 1.1, and $\mathfrak{a} $ satisfies that, $(A / \mathfrak{a})_{\mathfrak{p}}\ne 0 $.
+	\end{solution}
+	\item If $0 \to M' \to M \to M'' \to 0 $ is an exact sequence, then $\Supp(M) = \Supp(M') \cup \Supp(M'') $.
+	\begin{solution}
+		$\subseteq) $ We do contrapositive.
+		Take some prime ideal $\mathfrak{p} \not\in \Supp(M') \cup \Supp(M'') $.
+		Then by Proposition 3.3,
+		\[
+			0 \to M'_{\mathfrak{p}} \to M_{\mathfrak{p}} \to M''_{\mathfrak{p}} \to 0
+		\] 
+		is exact.
+		This then equals
+		\[
+			0 \to 0 \to M_{\mathfrak{p}} \to 0 \to 0
+		\] 
+		because $\mathfrak{p}\not\in \Supp(M') \cup \Supp(M'') $.
+		By exactness, $M_{\mathfrak{p}} =0 $, so $\mathfrak{p} \not\in \Supp(M)$.
+
+		$\supseteq) $ Take some prime $\mathfrak{p} \in \Supp(M') \cup \Supp(M'')$.
+		Then by Proposition 3.3,
+		\[
+			0 \to M'_{\mathfrak{p}} \to M_{\mathfrak{p}} \to M''_{\mathfrak{p}} \to 0
+		\] 
+		is exact.
+		If $\mathfrak{p} \not\in\Supp(M)$, then the middle would be 0, forcing the other modules to be 0.
+		This would contradict $\mathfrak{p} $'s presence in at least one of $\Supp(M'),\Supp(M'') $.
+	\end{solution}
+	\item If $M = \sum M_i $, then $\Supp(M) = \cup\Supp(M_i) $.
+	\begin{solution}
+		We do induction.
+		This is true for the base case by part $iii) $.
+		Then consider we the exact sequence
+		\[
+			0 \to M_{n} \to M \to \sum^{n-1} M_i \to 0
+		.\] 
+		By part $iii) $, $\Supp(M) = \Supp M_n \cup \Supp \sum^{n-1} M_i $.
+		By inductive hypothesis, $\Supp \sum^{n-1} M_i = \bigcup^{n-1} \Supp M_i$.
+		Hence $\Supp M = \bigcup^n \Supp M_i $.
+	\end{solution}
+	\item If $M $ is finitely generated, then $\Supp(M) = V(\Ann(M)) $ (and is therefore a closed subset of $\Spec(A) $).
+	\begin{solution}
+		% $\subseteq) $ Suppose FTSOC that we have a prime ideal $\mathfrak{p} \in \Supp(M) $ s.t. $\exists x \in \Ann(M), x\not\in \mathfrak{p}$.
+		% Then $M_{\mathfrak{p}} = 0 $ because $\forall m \in M, p\not\in \mathfrak{p}, (m:p) = 0$ because $xm = 0 $ as $x\not\in \mathfrak{p} $.
+		%
+		% $\supseteq ) $ Suppose FTSOC that $M_{\mathfrak{p}} = 0 $ for $\mathfrak{p} \in V(\Ann(M)) $.
+		% By Exercise 1, there is $s \in A \setminus \mathfrak{p} \cap \Ann(M)$.
+		% But $\mathfrak{p} \in V(\Ann(M)) $, so $s \in \mathfrak{p} $, giving us a contradiction.
+		By Exercise 1, $M_{\mathfrak{p}} = 0 \iff \exists x \in (A \setminus \mathfrak{p}) \cap \Ann(M) $.
+		This is $\iff \mathfrak{p} \not \in V(\Ann(M)) $ (because $\mathfrak{p} \in V(\Ann(M)) \implies (A\setminus \mathfrak{p}) \cap \Ann(M) = 0 $).
+	\end{solution}
+	\item If $M,N $ are finitely generated, then $\Supp(M \otimes _A N) = \Supp(M) \cap \Supp(N)$.
+		\ifhint
+			Use Chapter 2, Exercise 3
+		\fi
+	\begin{solution}
+		$0\ne (M \otimes_A N)_{\mathfrak{p}} = M_{\mathfrak{p}} \otimes_{A_{\mathfrak{p}}} N_{\mathfrak{p}} \iff M_{\mathfrak{p}} \ne 0$ and $N_{\mathfrak{p}} \ne 0 $ by Chapter 2, Exercise 3.
+	\end{solution}
+	\item If $M $ is finitely generated and $\mathfrak{a} $ is an ideal of $A $, then $\Supp(M / \mathfrak{a}M) = V(\mathfrak{a} + \Ann(M)) $.
+	\begin{solution}
+		$\Supp(M / \mathfrak{a}M) = \Supp(A / \mathfrak{a} \otimes_A M) $ by Exercise 2, Chapter 2.
+		By the above exercise, this equals $\Supp(A / \mathfrak{a}) \cap \Supp(M) $.
+		By exercise $v) $ and assumption, $\Supp(M) = V(\Ann(M)) $.
+		Then $V(\mathfrak{a}) = \Supp(A / \mathfrak{a}) $ by exercise $ii) $, so $\Supp(M / \mathfrak{a}M) = V(\mathfrak{a}) \cap V(\Ann(M)) = V(\mathfrak{a} + \Ann(M)) $.
+	\end{solution}
+	\item If $f: A\to B $ is a ring homomorphism and $M $ is a finitely generated $A $-module, then $\Supp(B \otimes _A M) = f^\ast\ ^{-1}(\Supp(M))$.
+	\begin{solution}
+		Because $M $ is finitely generated, it is $A^n / \mathfrak{a} $ for some ideal $\mathfrak{a} $ of $A^n $.
+		Then $B \otimes _A M = B \otimes _A A^n / \mathfrak{a} = B / \mathfrak{a}' $ by using Exercise 2, Chapter 2 ($A^n / \mathfrak{a} = A / \mathfrak{a}_1 \oplus A / \mathfrak{a}_2 \oplus \cdots \oplus A / \mathfrak{a}_n$).
+		As such, by $ii) $, $\Supp(B / \mathfrak{a}') = V(f(\mathfrak{a}'))$.
+
+		Finally, note that $f^\ast\ ^{-1}(\Supp(M)) $ is the set of prime ideals in $B $ that contain $f(\Ann(M)) $ ($f^\ast\ ^{-1} $ is the preimage of contraction, so elements in it must contract to a prime ideal containing $\Ann(M) $.
+		As such they contain $f(\Ann(M)) $, and if a prime ideal in $B $ contains $f(\Ann(M)) $ then the contraction is a prime ideal in $A $ containing $\Ann(M) $).
+		% We have, by assorted exercises, $\Supp(B \otimes _A M) = \Supp(B) \cap V(\Ann(M)) $ and $f^\ast ^{-1}(\Supp(M)) = f^\ast ^{-1}(V(\Ann(M))) $.
+		% Then the RHS is the set of prime ideals in $B $ that contain $f(\Ann(M)) $ ($f^\ast ^{-1} $ is the preimage of contraction, so elements in it must contract to a prime ideal containing $\Ann(M) $ so they contain $f(\Ann(M)) $, and if a prime ideal in $B $ contains $f(\Ann(M)) $ then the contraction is a prime ideal in $A $ containing $\Ann(M) $).
+	\end{solution}
+\end{enumerate}
+
+\question Let $f: A\to B $ be a ring homomorphism, $f^{\ast}: \Spec(B) \to \Spec(A) $ the associated mapping. Show that
+\begin{enumerate}
+\item Every prime ideal of $A $ is a contracted ideal $\iff f^\ast $ is surjective.
+\begin{solution}
+	Definition of comtracting, surjectivity, and the map $f^\ast $.
+\end{solution}
+\item Every prime ideal of $B $ is an extended ideal $\implies f^\ast $ is injective.
+\begin{solution}
+	Suppose FTSOC that we had two prime ideas $\mathfrak{p} = p^e,\mathfrak{q} = q^e$ s.t. $\mathfrak{p}^c = \mathfrak{q}^c $.
+	Then $p^{ec} = q^{ec} \in \Spec(A)$.
+	But then $p = p^{ece} = q^{ece} = q $ by Proposition 1.17, so $\mathfrak{p} = \mathfrak{q} $, which is the statement for injectivity.
+\end{solution}
+Is the converse of $ii) $ true?
+\begin{solution}
+	No it isn't. Consider $A = \Z / 4\Z, B = (\Z / 4 \Z)[i] $.
+	The only prime ideal in $B $ is $(2,i) $ because we need to eliminate 2 to make it an integral domain, and allowing $i $ means allowing $(1+i)^2 = 0 $, a zero-divisor.
+	The only prime ideal in $A $ is $(2)$.
+	So $f^\ast $ is injective, but $(2,i) $ is not an extension of $(2) $.
+\end{solution}
+\end{enumerate}
+
+\question 
+\begin{enumerate}
+\item Let $A $ be a ring, $S $ a multiplicatively closed subset of $A $, and $\phi : A \to S^{-1}A $ the canonical homomorphism. Show that $\phi^\ast: \Spec(S^{-1}A) \to \Spec(A) $ is a homeomorphism of $\Spec(S^{-1}A) $ onto its image in $X = \Spec(A) $. Let this image be denoted by $S^{-1}X $.\\
+\begin{solution}
+	By Proposition 3.11, this is injective.
+	Then for continuity, we can note that localization is is an order preserving functor because of exactness of localization (injections become injections) and if $\mathfrak{a}_{\mathfrak{p}} \subseteq \mathfrak{b}_{\mathfrak{p}} $, then $\mathfrak{a} = \mathfrak{a}_{\mathfrak{p}}^c = (\mathfrak{a}_{\mathfrak{p}}\cap \mathfrak{b}_{\mathfrak{p}})^c = \mathfrak{a}_{\mathfrak{p}}^c \cap \mathfrak{b}_{\mathfrak{p}}^c = \mathfrak{a} \cap \mathfrak{b}$ by Exercise 1.18 in the reading.
+	Hence $\mathfrak{a} \subseteq \mathfrak{b} $.
+	Thus closed basis sets become and are from closed basis sets, making this a homeomorphism.
+\end{solution}
+In particular, if $f\in A $, the image of $\Spec(A_f) $ in $X $ is the basic open set $X_f $ (Chapter 1, Exercise 17).
+\begin{solution}
+	The prime ideals in $A_f $ are those that don't contain $f $.
+	By Proposition 3.11, these correspond to prime ideals that don't meet $f,f^2,\cdots $.
+	This is just $V(f) $, as any prime ideal that meets $f,f^2\cdots $ contains $f $ by primeness and any ideal that doesn't meet any of $f,f^2,\cdots $ clearly doesn't contain the ideal $(f) $ (as these contain $f,f^2,\cdots $).
+\end{solution}
+
+\item Let $f:A\to B $ be a ring homomorphism. Let $X = \Spec(A) $ and $Y = \Spec(B) $, and let $f^\ast:Y \to X $ be the mapping associate with $f $. Identifying $\Spec(S^{-1}A) $ with its canonical image $S^{-1}X $ in $X $, and $\Spec(S^{-1}B) $ ($= \Spec(f(S)^{-1}B) $) with its canonical image $S^{-1}Y $ in $Y$, show that $S^{-1}f^\ast: \Spec(S^{-1}B) \to \Spec(S^{-1}A) $ is the restriction of $f^\ast $ to $S^{-1}Y $, and that $S^{-1}Y = f^\ast\ ^{-1}(S^{-1}X)$.
+\begin{solution}
+	Let $\phi_{A}: A\to S^{-1}A, \phi_{B}: B\to S^{-1}B $.
+	Then take $\mathfrak{q} \in \phi_B^\ast(\Spec(S^{-1}B))$.
+	Let $\mathfrak{q}'\in \Spec(S^{-1}B)$ be s.t. $\phi_B^{-1}(\mathfrak{q}') = \mathfrak{q}$.
+
+	Thus $f^\ast(\mathfrak{q}) = f^{-1}(\mathfrak{q}) = f^{-1}(\phi _B^{-1}(\mathfrak{q}')) = (\phi_B \circ f)^{-1}(\mathfrak{q}') $.
+	By diagram chasing ($S^{-1} f$ makes this diagram commute by definition
+	\[
+	\left.
+		\begin{tikzcd}
+			A & B\\
+			S^{-1}A & S^{-1}B
+			\arrow[from=1-1,to=1-2]
+			\arrow[from=1-1,to=2-1]
+			\arrow[from=2-1,to=2-2]
+			\arrow[from=1-2,to=2-2]
+		\end{tikzcd}
+	\right)\]
+	this equals $(S^{-1}f\circ \phi_A)^{-1}(\mathfrak{q}') = \phi_A^{-1} S^{-1}f^{-1}(\mathfrak{q}') = \phi_A^\ast S^{-1}f^\ast(\mathfrak{q}')$, which is in $\phi_A^\ast(\Spec(S^{-1}A)) = S^{-1}X$.
+
+	What the second part is asking is that $f^\ast $ doesn't map anything else into $S^{-1}X $.
+	Suppose that there was an ideal $I $ s.t. $f^\ast(I) = f^{-1}(I) \in \phi_A^{-1}(\Spec(S^{-1}A))$.
+	Then by Proposition 3.11, $f^{-1}(I) $ is a prime ideal that doesn't meet $S $.
+	If $I $ met $f(S) $, then $f^{-1}(I) $ would meet $S $, a contradiction.
+	Thus $I $ doesn't meet $f(S) $, and hence is in $\phi_B^{-1}(\Spec(S^{-1}B)) $.
+	% By definition, $\forall \mathfrak{a} \in S^{-1}X = \phi_A^\ast(\Spec S^{-1}A) $, $\exists \mathfrak{a}'\in \Spec S^{-1}A $ s.t. $\phi_A^{-1}(\mathfrak{a}') = \mathfrak{a} $.
+	% Then $f^\ast\ ^{-1}(\mathfrak{a}) = (f^\ast)^{-1}\phi _A^{-1}(\mathfrak{a}') =  $
+\end{solution}
+
+\item Let $\mathfrak{a} $ be an ideal of $A $ and let $\mathfrak{b} = \mathfrak{a}^e $ be its extension in $B $.
+	Let $\overline{f}:A / \mathfrak{a} \to B / \mathfrak{b}  $ be the homomorphism induced by $f $.
+	If $\Spec(A / \mathfrak{a}) $ is identified with its canonical image $V(\mathfrak{a}) $ in $X $, and $\Spec(B / \mathfrak{b}) $ with its image $V(\mathfrak{b}) $ in $Y $, show that $\overline{f}^\ast  $ is the restriction of $f^\ast $ to $V(\mathfrak{b}) $.
+\begin{solution}
+	The map $\overline{f}^\ast(b') = \overline{f}^{-1}(b')$.
+	% contracts prime ideals in $B / \overline{\mathfrak{b}}  $ to $A / \mathfrak{a} $.
+	Let $\phi : B \to B / \mathfrak{b} $.
+	Then by definition, $\overline{f}^{-1}(b') = f^{-1}(b)  $ for $b \in \Spec B $, but only for $b \in V(\mathfrak{b})$.
+	% As $\mathfrak{b}' \in \Spec(B / \mathfrak{b}) $, $\overline{f}^{-1}(\mathfrak{b}) = f^{-1}(\phi ^{-1}(\mathfrak{b}))$.
+	Thus $\overline{f}^\ast  $ is the restriction of $f^\ast $ to $V(\mathfrak{b}) $.
+\end{solution}
+
+\item Let $\mathfrak{p} $ be a prime ideal of $A $. Take $S = A - \mathfrak{p} $ in $ii) $ and then reduce mod $S^{-1}\mathfrak{p} $ as in $iii) $. Deduce that the subspace $f^\ast\ ^{-1}(\mathfrak{p}) $ of $Y $ is naturally homeomorphic to $\Spec(B_{\mathfrak{p}} / \mathfrak{p}B_{\mathfrak{p}}) = \Spec(k(\mathfrak{p}) \otimes_A B) $, where $k(\mathfrak{p}) $ is the residue field of the local ring $A_{\mathfrak{p}} $.\\
+\begin{solution}
+	Let $\phi _A,\phi _B $ be the localization maps.
+	Using $ii) $, we get \\$\phi_B^\ast(\Spec B_{\mathfrak{p}}) = f^\ast\ ^{-1}(\phi_A^\ast(\Spec A_{\mathfrak{p}})) $.
+	Then using $iii) $, we set $A' = A_{\mathfrak{p}} $, $\mathfrak{a} = \mathfrak{p}_{\mathfrak{p}} $, $B' = B_{\mathfrak{p}} $, to conclude that $\overline{f}^\ast$ is the restriction of $f^\ast $ to $\Spec(B_{\mathfrak{p} / \mathfrak{p}B_{\mathfrak{p}}})$.
+	Note that $\Spec A_{\mathfrak{p}} = $ the set of prime ideals contained in $\mathfrak{p} $ by Proposition 3.12.
+	% Doing this computation, we see that they are $f^{-1}(\mathfrak{p}) $ because $(0) \in \Spec(k(\mathfrak{p})) $ corresponds to prime ideals in $A_{\mathfrak{p}} $ that contain $\mathfrak{p} $, which correspond to prime ideals in $A $ that are contained in $\mathfrak{p} $, i.e. only $\mathfrak{p} $.
+	Then the inclusion diagram below commutes by $ii),iii) $
+
+	\[\begin{tikzcd}
+		{\Spec B_{\mathfrak{p}} / \mathfrak{p}} & {\Spec A_{\mathfrak{p}} / \mathfrak{p}} \\
+		{\Spec B_\mathfrak{p}} & {\Spec A_{\mathfrak{p}}} \\
+		{\Spec B} & {\Spec A}
+		\arrow["{(\overline{f}_\mathfrak{p})^\ast}", from=1-1, to=1-2]
+		\arrow[hook, from=1-1, to=2-1]
+		\arrow[hook, from=1-2, to=2-2]
+		\arrow["{f_\mathfrak{p}^\ast}", from=2-1, to=2-2]
+		\arrow[hook, from=2-1, to=3-1]
+		\arrow[hook, from=2-2, to=3-2]
+		\arrow["{f^\ast}", from=3-1, to=3-2]
+	\end{tikzcd}\]
+
+	This then gives us that $\Spec(B_{\mathfrak{p}} / \mathfrak{p}) = f^{-1}(\mathfrak{p}) $ by commuting down in the right column and seeing that $(0) $ in $k(\mathfrak{p}) $ corresponds to prime ideal in $A_{\mathfrak{p}} $ that contain $\mathfrak{p} $, which correspond to prime ideals in $A $ that are contained in $\mathfrak{p} $, i.e. only $\mathfrak{p} $.
+
+	Then $B_{\mathfrak{p}} / \mathfrak{p} = (A / \mathfrak{p} \otimes_{A} B)_{\mathfrak{p}}$ by exercise 2, Chapter 2 and commutativity of localization and tensor.
+	Finally, $k(\mathfrak{p}) \otimes _A B = B_{\mathfrak{p}} / \mathfrak{p} B_{\mathfrak{p}} $ because (thanks \url{https://math.sci.uwo.ca/~jcarlso6/intro_comm_alg(2019).pdf} for this)
+	\begin{align*}
+		k(\mathfrak{p}) \otimes _A B = (A / \mathfrak{p})_{(0)} \otimes_A B &= (A / \mathfrak{p})_{(0)} \otimes _{A / \mathfrak{p}} A / \mathfrak{p} \otimes _A B \tag{Proposition 3.5}\\
+		&= (A / \mathfrak{p})_{(0)} \otimes _{A / \mathfrak{p}} B / \mathfrak{p} \tag{Exercise 2, Chapter 2}\\
+		&= (B / \mathfrak{p})_{(0)} \tag{Proposition 3.5}\\
+		&= B_{\mathfrak{p}} / \mathfrak{p}B_{\mathfrak{p}}
+	.\end{align*}
+
+	% If we apply $f^\ast $ to them, we contract them to ideals that 
+	% The LHS is in $\Spec(\mathfrak{B}_{\mathfrak{p}} / \mathfrak{b}) $ because $\phi_{B_{\mathfrak{p}}}^\ast $ maps the prime ideals of $B_{\mathfrak{p}} $ into the prime ideals of $B$ that contain the extension of elements in $\Spec A_{\mathfrak{p}} $ ($f^\ast ^{-1} $ is a restriction of the extension).
+	% Yet they are contained in $\mathfrak{p}^e $, which is exactly $\Spec(\mathfrak{B}_{\mathfrak{p}} / \mathfrak{b}) $.
+	%
+	% Thus
+	% \[
+	% 	\Spec(B_{\mathfrak{p}} / \mathfrak{p}^e) = f^\ast\ ^{-1}(\mathfrak{p})
+	% .\] 
+\end{solution}
+$\Spec(k(\mathfrak{p}) \otimes_A B) $ is called the fiber of $f^\ast $ over $\mathfrak{p} $.
+\end{enumerate}
+
+\question Let $A $ be a ring and $\mathfrak{p} $ a prime ideal of $A $. Then the canonical image of $\Spec(A_{\mathfrak{p}}) $ in $\Spec(A) $ is equal to the intersection of all the open neighborhoods of $\mathfrak{p} $ in $\Spec(A) $.
+\begin{solution}
+	$\Spec(A_{\mathfrak{p}}) = $ set of prime ideals contained in $\mathfrak{p} $ by Proposition 3.11.
+	Every open neighborhood of $\mathfrak{p} $ in $\Spec(A) $ is the complement of $V(\cdot) $ that doesn't contain $\mathfrak{p} $.
+	Thus $\cdot $ can't contain any prime ideal contained in $\mathfrak{p} $, as otherwise $V(\cdot) $ would contain $\mathfrak{p} $.
+	Let $\{N_i\}$ be the open neighborhoods of $\mathfrak{p} $.
+	Then $\cap N_i = (\cup N_i^C)^C $.
+	As none of the $N_i^C$ contain prime ideals contained in $\mathfrak{p} $ by above, their union doesn't either.
+	Hence the complement does.
+	So $\Spec(A_{\mathfrak{p}}) \subseteq \cap N_i $.
+
+	Now suppose we had some element in $\mathfrak{a} \in \cap N_i $ that wasn't in $\Spec(A_{\mathfrak{p}}) $.
+	Then $\mathfrak{a} $ isn't contained in $\mathfrak{p} $
+	As such, $\mathfrak{a} $ then meets $A \setminus \mathfrak{p} $, so $\exists \ell \in \mathfrak{a} \setminus \mathfrak{p} $.
+	But then $\mathfrak{p} \in X_{\ell} $ and $\mathfrak{a} $ is not.
+	Thus we can cut out out non-elements of $\Spec(A_{\mathfrak{p}})) $.
+\end{solution}
+
+\question Let $A $ be a ring, let $X = \Spec(A) $ and let $U$ be a basic open set in $X $ (i.e., $U = X_f $ for some $f \in A $: Chapter 1, Exercise 17).
+\begin{enumerate}
+\item If $U' = X_g $ be another basic open set such that $U' \subseteq U $. Show that there is an equation of the form $g^n = uf $ for some integer $n>0 $ and some $u \in A $, and use this to define a homomorphism $\rho: A(U) \to A(U') $ (i.e., $A_f \to A_g $) by mapping $a / f^m $ to $au^m / g^{mn}  $. Show that $\rho $ depends only on $U $ and $U' $. This homomorphism is called the restriction homomorphism.
+\begin{solution}
+	Let $U = X_g $.
+	Then Because $V(g) = X_g^C = X_f^C = V(f) $, $f $ and $g $ generate the same ideal.
+	Hence there is $a\in A $ s.t. $g = fa $ and $a' \in A $ s.t. $f = a'g $.
+	So
+	\[
+		A_{f} \cong A_{g}
+	\] 
+	because $A_f \subseteq A_g $ by canceling out the $a $ term in elements of $A_g $ and vice versa.
+\end{solution}
+\item Let $U' = X_g $ be another basic open set such that $U' \subseteq U $. Show that there is an equation of the form $g^n = uf $ for some integer $n > 0 $ and some $u\in A $, and use this to define a homomorphism $\rho: A(U) \to A(U') $ (i.e. $A_f \to A_g $) by mapping $\frac{a}{f^m} $ to $\frac{au^m}{g^{mn} } $. Show that $\rho $ depends only on $U $ and $U' $. This homomorphism is called the restriction homomorphism.
+\begin{solution}
+	To show the existence of an $n $, we have
+	\begin{align*}
+		X_g \subseteq X_f &\iff V(g)^C \subseteq V(f)^C\\
+				  &\iff V(g) \supseteq V(f)\\
+				  &\iff I(V(g)) \subseteq I(V(f))\\
+				  &\iff \sqrt{g}  \subseteq \sqrt{f}  \tag{Nullstellensatz}\\
+				  &\implies (g) \subseteq \sqrt{f} 
+	.\end{align*}
+	Hence $g\in \sqrt{f}  \implies \exists n$ s.t. $g^n \in (f) \implies g^n = fu $.
+
+	This is a homomorphism because $\rho((1:1)) = (1 u^0: g^0) = (1:1) $, $(au^m:g^{mn})(bu^{n'}:g^{n'n}) = g^\rho((a:f^m)(b:f^{n'})) = \rho((ab:f^{m+n'})) = (abu^{m+n'}:g^{mn+nn'}) = (au^m:g^{mn})(bu^{n'}:g^{nn'})$, and $\rho((a:f^m)+(b:f^{n'})) = \rho((af^{n'}+bf^m:f^{m+n'}) = ((af^{n'}+bf^m)u^{m+n'}:g^{(m+n')n}) = (af^{n'}u^{m+n'}:g^{mn+nn'}) + (bf^{m} ^{m+n'}:g^{mn+nn'}) = (ag^{n'n}u^m:g^{mn+nn'}) + (bg^{mn}u^{n'}:g^{mn+nn'}) = (au^m:g^{mn}) + (bu^{n'}:g^{nn'}) = \rho(a:f^m) + \rho(b:f^{n'})$.
+
+	Suppose we had other choices of $f,g $ being $f',g' $ respectively.
+	Then we have $a,b $ s.t. $f = f'b $ and $gc = g' $.
+	As $g^n = uf $, $(g')^n = g^nc^n = ufbc^n = uf'c^n$.
+	Then $\rho': (a:(f')^m) = (a(uc^n)^m:(g')^{mn}) = (a(uc^n)^m:(gc)^{mn}) = (au:g^{mn})$.
+	This is the same as $\rho $.
+\end{solution}
+\item If $U = U' $, then $\rho $ is the identity map.
+\begin{solution}
+	If $U=U' $, then we can WLOG let $U = X_f = U' $.
+	Hence $n =1,u=1 \rightarrow \rho(\frac{a}{f^m}) = \frac{a}{f^m}$, which induces the identity map.
+\end{solution}
+\item If $U \supseteq U' \supseteq U'' $ are basic open sets in $X $, show that the diagram
+	\[
+		\begin{tikzcd}
+			A(U) & & A(U'')\\
+			     & A(U') &
+			     \arrow[from=1-1,to=1-3]
+			     \arrow[from=1-1,to=2-2]
+			     \arrow[from=2-2,to=1-3]
+		\end{tikzcd}
+	\] 
+	(in which the arrows are restriction homomorphisms) is commutative.
+\begin{solution}
+	By composing $\rho_{U U'} $ and $\rho_{U'U''} $, we get that $\frac{a}{f} $ gets mapped to $\frac{a(u_{U U'}u_{U' U''})^m}{(g_{U U'}g_{U' U''})^m} $.
+	Since the subscript doesn't depend on choice, we can let $g_{U U''} = g_{U U'}g_{U' U''}$ and $u_{U U''} = u_{U U'}u_{U' U''} $.
+	This obviously commutes.
+\end{solution}
+\item Let $x $ ($= \mathfrak{p} $) be a point of $X $. Show that
+	\[
+		\varinjlim_{U\ni x} A(U) \cong A_{\mathfrak{p}}
+	.\] 
+\begin{solution}
+	For a $U$ with $x\in U $, $A(U) \subseteq A_{\mathfrak{p}} $ because $V(f) = U^C $ implies that $(f) \not\subseteq \mathfrak{p}$.
+	As such, we have the map $A(U) \to A_{\mathfrak{p}} $ defined by $(a:f^m) \mapsto (a:f^m) $ ($f^m $ is in $A \setminus \mathfrak{p}$).
+	Then if we have a collection of maps $\{f_U: A(U) \to P\}   $, we can show that this induces a unique homomorphism $A_{\mathfrak{p}} \to P$ that makes the diagram commute.
+
+	If we have a map as such, then we can define a map $A_{\mathfrak{p}} \to P $ by taking an element $(a:b) \in A_{\mathfrak{p}} $ and mapping it to the image of $(a:b) $ of a map $f_{X_b} $.
+	This is well-defined because there were no choices.
+	It commutes properly because given $\rho: A(U) \to A(U') $, an element $(a:u) \in A(U) $ gets mapped to $\rho_{U, X_u}$ and then to $f_{X_u}(a:u) $.
+	Because the family $\{f_U\}   $ commuted a priori, $f_{X_u}(a:u) = f_u(a:u) = f_{U'}\rho(a:u)$.
+	So we have the diagram
+	\[
+		\begin{tikzcd}
+			& & &A(X_u)\\
+			A(U) & & A(U')&\\
+			     & A_{\mathfrak{p}} &&\\
+			     &P&&
+		\arrow[from=2-1,to=1-4]
+		\arrow[from=2-1,to=2-3]
+		\arrow[from=2-1,to=3-2]
+		\arrow[from=2-1,to=4-2]
+		\arrow[from=1-4,to=4-2]
+		\arrow[from=3-2,to=4-2]
+		\arrow[from=2-3,to=4-2]
+		\end{tikzcd}
+	\] 
+	commutes.
+	Finally, to show that $A(U') \to A_{\mathfrak{p}} \to P $ commutes as well, draw this diagram (let $b' $ be the denominator of $\rho(a:u) $)
+	\[
+		\begin{tikzcd}
+			& & &A(X_{b'})\\
+			A(U) & & A(U')&\\
+			     & A_{\mathfrak{p}} &&\\
+			     &P&&
+		\arrow[from=2-1,to=1-4]
+		\arrow[from=2-1,to=2-3]
+		\arrow[from=2-1,to=4-2]
+		\arrow[from=1-4,to=4-2]
+		\arrow[from=3-2,to=4-2]
+		\arrow[from=2-3,to=4-2]
+		\arrow[from=2-3,to=3-2]
+		\end{tikzcd}
+	\] 
+	that commutes for similar reason to above.
+	Combine the two to get what is needed.
+\end{solution}
+The assignment of the ring $A(U) $ to each basic open set $U $ of $X $ and the restriction homomorphisms $\rho $, satisfying the conditions $iii) $ and $iv) $ above, constitutes a presheaf or rings on the basis of open sets $(X_f)_{f\in A} $. $v) $ says that the stalk of this presheaf at $x\in X $ is the corresponding local ring $A_{\mathfrak{p}} $.
+\end{enumerate}
+
+\question Show that the presheaf of Exercise 23 has the following property. Let $(U_i)_{i\in I} $ be a covering of $X $ by basic open sets. For each $i\in I $, let $s_i \in A(U_i) $ be such that, for each pair of indices $i,j $, the images of $s_i $ and $s_j $ in $A(U_i \cap U_j) $ are equal. Then there exists a unique $s\in A $ ($= A(X) $) whose image in $A(U_i) $ is $s_i $, for all $i\in I $. (This essentially implies that the presheaf is a sheaf).
+\begin{solution}
+	Suppose that $s_i $ and $s_j $ have equal images in $A(U_i \cap U_j) $ for a fixed pair.
+\end{solution}
+
+\question Let $f:A\to B $, $g:A\to C $ be ring homomorphisms and let $h: A \to B \otimes _A C $ be defined by $h(x) = f(x) \otimes g(x) $. Let $X,Y,Z,T $ be the prime spectra of $A,B,C,B \otimes _A C $ respectively. Then $h^\ast(T) = f^\ast Y \cap g^\ast(Z) $.
+
+\question Let $(B_{\alpha }, g_{\alpha \beta}) $ be a direct system of rings and $B $ the direct limit. For each $\alpha $, let $f_{\alpha}: A\to B_{\alpha} $ be a ring homomorphism such that $g_{\alpha \beta} \circ f_{\alpha} = f_{\beta}$ whenever $\alpha\le \beta $ (i.e. the $B_{\alpha} $ form a direct system of $A $-algebras). The $f_{\alpha} $ induce $f:A\to B $. Show that
+\[
+	f^\ast(\Spec(B)) = \bigcap_{\alpha} f^\ast_ \alpha (\Spec(B_ \alpha))
+.\] 
+\end{questions}
 \end{document}
