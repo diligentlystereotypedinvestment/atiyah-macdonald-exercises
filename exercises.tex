@@ -473,7 +473,7 @@ In Chapter Exercises:
 		Ring homomorphisms that preserve $A$-module structure are $A$-algebra homomorphisms.
 	\end{solution}
 
-	\question In these Exercises it will be assumed that the reader is familiar with the definitio nand basic properties of the Tor functor.
+	\question In these Exercises it will be assumed that the reader is familiar with the definition and basic properties of the Tor functor.
 
 	If $M$ is an $A$-module, the following are equivalent:
 	\begin{enumerate}
@@ -629,6 +629,10 @@ In Chapter Exercises:
 \end{questions}
 
 \section{Chapter 3}
+
+\begin{questions}
+\question Verify that these definitions are independent of the choices of representatives $(a,s) $ and $(b,t) $, and that $S^{-1}A $ satisfies the axioms of a commutative ring with identity.
+\end{questions}
 
 \begin{questions}
 \question Let $S$ be a multiplicatively closed subset of a ring $A $, and let $M$ be a finitely generated $A$-module. Prove that $S^{-1} M = 0$ if and only if there exists $s \in S$ such that $sM = 0$.
@@ -1061,8 +1065,9 @@ $B $ is said to be faithfully flat over $A $.
 	For $B_{\mathfrak{p}} $ is flat over $A_{\mathfrak{p}} $ by (3.10), and $B_{\mathfrak{q}} $ is a local ring of $B_{\mathfrak{p}} $, hence is flat over $B_{\mathfrak{p}} $. Hence $B_{\mathfrak{q}} $ is flat over $A_{\mathfrak{p}} $ and satisfies condition (3) of Exercise 16.
 \fi
 \begin{solution}
-	By Proposition 3.11, $\Spec(A_{\mathfrak{p}}) = $ set of prime ideals that are contained in $\mathfrak{p} $.
-	Then by 
+	We have that $B_{\mathfrak{p}} $ is flat over $A_{\mathfrak{p}} $ by Proposition 3.10.
+	Then by Corollary 3.6, we have that the following is flat $B_{\mathfrak{q}} = (B_{\mathfrak{p}})_{\mathfrak{q}} = (B \setminus \mathfrak{q})^{-1} (f(A\setminus \mathfrak{p}))^{-1} B = (B \setminus \mathfrak{q})^{-1} B$ by Exercise 3 (and noting that $(B \setminus \mathfrak{q})(f(A \setminus \mathfrak{p})) = B\setminus \mathfrak{q}$ because one is in $f(A \setminus \mathfrak{p}) $ and everything else is already in $B \setminus \mathfrak{q} $).
+	As $\mathfrak{p} $ is the only maximal ideal of $A_{\mathfrak{p}} $, $\mathfrak{p}^e \subseteq \mathfrak{q} \ne (1) \implies $ $\Spec(B_{\mathfrak{q}}) \to \Spec(A_{\mathfrak{p}}) $ is surjective by Exercise 16.
 \end{solution}
 
 \question Let $A $ be a ring, $M $ an $A $-module. The support of $M $ is defined to be the set $\Supp(M)$ of prime ideals $\mathfrak{p} $ of $A $ such that $M_{\mathfrak{p}}\ne 0 $. Prove the following results:
@@ -1404,7 +1409,76 @@ The assignment of the ring $A(U) $ to each basic open set $U $ of $X $ and the r
 
 \question Show that the presheaf of Exercise 23 has the following property. Let $(U_i)_{i\in I} $ be a covering of $X $ by basic open sets. For each $i\in I $, let $s_i \in A(U_i) $ be such that, for each pair of indices $i,j $, the images of $s_i $ and $s_j $ in $A(U_i \cap U_j) $ are equal. Then there exists a unique $s\in A $ ($= A(X) $) whose image in $A(U_i) $ is $s_i $, for all $i\in I $. (This essentially implies that the presheaf is a sheaf).
 \begin{solution}
-	Suppose that $s_i $ and $s_j $ have equal images in $A(U_i \cap U_j) $ for a fixed pair.
+	I tried a really long proof and I don't think it works at the last step.
+	I'm too depressed right now to finish the proof, so just look at \url{https://math.sci.uwo.ca/~jcarlso6/intro_comm_alg(2019).pdf}.
+	% Let $U_i = X_{f_i} $.
+	% By Chapter 1 Exercise 17, we have that there is a finite sum $\sum_I c_if_i = 1$.
+	% Let $s_i = \frac{a_i}{f_i^{m_i} } $.
+	% Then let $p = \prod f_i $.
+	% We therefore have that, by finiteness and assumption, the image of $s_{i}, i\in I $ in $U_p$ are all equal.
+	% The images are $(a_i(\prod_{j\ne i} f_j)^{m_i}:p^{m_i})$.
+	% We can then see that this is equal to $(a_i: f_i^{m_i})$ because $a_ip^{m_i} - a_if_i^{m_i} (\prod_{j\ne i} f_j)^{m_i} = 0$.
+	% Hence for $i\ne 1 $,
+	% \begin{equation}\label{eqn:3.24.1}
+	% 	p{x_i}(a_i f_1^{m_1} - a_1 f_i^{m_i}) = 0 \iff p^{x_i}a_if_1^{m_1} = p^{x_i}a_1f_i^{m_i}
+	% \end{equation}
+	% .
+	% Then
+	% \begin{align}\label{eqn:3.24}
+	% 	\left(\sum_I c_if_i\right)^{\sum_I m_i} &= 1 \\
+	% 	a_{1} p^{\sum_I x_i} \left(\sum_I c_if_i\right)^{\sum_I m_i} &= a_{1} p^{\sum_I x_i}
+	% .\end{align}
+	%
+	% Finally, we can notice that $a_{1}p^{\sum_I x_i} \left(\sum_I c_if_i\right)^{\sum_I m_i} $ is a constant multiple of $p^{\sum_I x_i} $ with induction.
+	% Suppose it is true up to $n = |I| - 1 $.
+	% Let $M = \sum_I m_i $, $x = \sum_I x_i $, $I' = I \setminus \{n\}$, and $\Omega$ be some generic (variable) constant.
+	% Then we have that
+	% \begin{align}\label{eqn:3.24.2}
+	% 	a_{1}p^{x}\left(\sum_I c_if_i\right)^{\sum_I m_i} &= a_{1}p^x\left(\sum_{I'} c_if_i + c_nf_n\right)^{M}\\
+	% 				     &= a_{1}p^x\left(\sum_{I'} c_if_i\right)^{M} + \Omega a_{1}p^x\left(\sum_{I'} c_if_i\right)^{M-1}c_nf_n + \cdots \\
+	% 				     &+ \Omega a_{1}p^x\left(\sum_{I'} c_if_i\right)^{M-m_n}(c_nf_n)^{m_n} %+ \Omega a_{1}p^x\left(\sum_{I'} c_if_i\right)^{\sum_{I'} m_i}(c_nf_n)^{m_n} \\
+	% 				     + \Omega a_{1}p^x (c_nf_n)^{m_n}(\cdots)
+	% \end{align}
+	% Because of \Cref{eqn:3.24.1}, $a_{1}p^x(c_nf_n)^{m_n} = p^xa_nf_{1}^{m_{1}}   $.
+	%
+	% We can factor and substitute in \Cref{eqn:3.24.2} to get
+	% \[
+	% 	a_{1}p^x\left(\sum_{I'} c_if_i\right)^{\sum_{I'} m_i}\left(\cdots \right) + \Omega a_{n}p^x f_{1}^{m_1}(\cdots)
+	% .\] 
+	% By inductive hypothesis, this equals
+	% \[
+	% 	\Omega p^xf_{1}^{m_{1}}(\cdots) + \Omega a_{n}p^x f_{1}^{m_1}(\cdots)
+	% .\] 
+	% Hence
+	% \[
+	% 	a_{1}p^x\left( \sum_I c_if_i \right) ^M = \Omega p^x f_{1}^{m_{1}} 
+	% .\] 
+	%
+	% Finally (for real this time), we have that (from \Cref{eqn:3.24})
+	% \[
+	% 	a_{1} p^{\sum_I x_i} \left(\sum_I c_if_i\right)^{\sum_I m_i} = \Omega p^x f_{1}^{m_{1}} =  a_{1} p^{x}
+	% .\] 
+	% Hence
+	% \[
+	% 	p^x(a_{1}-f_{1}^{m_{1}}\Omega) = 0 
+	% .\] 
+	% Thus the image of $\Omega $ of the map $A\to A_p $ is $\frac{a_{1}}{f_{1}} $, which equals all the other $s_i $.
+	%
+	% For uniqueness I couldn't figure something out so just use \url{https://math.sci.uwo.ca/~jcarlso6/intro_comm_alg(2019).pdf}
+	% Then the argument above with the cover $U_i, X_1 $ gives us a unique element of $A $ that works.
+	% % Then
+	% % \[
+	% % 	p_{1}^x(a_{1} - \Omega f_{1}^{m_{1}}) = 0 
+	% % \] 
+	% % because if it wasn't, then
+	% % \[
+	% % 	\left(\prod_{i\ne 1} p_i\right)^{x} p_{1}^x(a_{1} - \Omega f_{1}^{m_{1}})
+	% % \]
+	% % wouldn't be 0, because $(\prod_{i\ne 1} p_i)^{x}\ne 0 $ as $X_{\prod_{i\ne 1} p_i} $ is non-empty (if it was 0, then it would be empty and thus not part of the open cover).
+	% % In addition, $ \left(\prod_{i\ne 1} p_i\right)^{x}(a_{1}- \Omega f_{1}^{m_{1}}) \ne 0 $ because j
+	% % Therefore $p_{1}^x(a_{1}-\Omega f_{1}^{m_{1}}) = 0 \implies$ the image of $\Omega $ in $X_{f_{1}} $ is $\frac{a_{1}}{f_{1}^{m_{1}} } $.
+	% % Then do the same for all (finitely many) $i \in I$.
+	% % The $\Omega $ are the same because the maps $A \to A(U) $ is just inclusions, implying injectivity.
 \end{solution}
 
 \question Let $f:A\to B $, $g:A\to C $ be ring homomorphisms and let $h: A \to B \otimes _A C $ be defined by $h(x) = f(x) \otimes g(x) $. Let $X,Y,Z,T $ be the prime spectra of $A,B,C,B \otimes _A C $ respectively. Then $h^\ast(T) = f^\ast Y \cap g^\ast(Z) $.
@@ -1476,8 +1550,19 @@ The assignment of the ring $A(U) $ to each basic open set $U $ of $X $ and the r
 \item Let $X_C $ denote the set $X $ endowed with the constructible topology. Show that $X_C $ is quasi-compact.
 \begin{solution}
 	Take an open cover of $X_C $ $\mathcal{U} = \{U_k\}$ with $U_k^C = f_k^\ast(\Spec B_k) $.
-	The ideal ideal formed by the union of all ideals in $U_k^C $, call it $I $.
-	If $1 \not\in I$, then $I\subseteq M $ a prime ideal and this prime ideal is not in $\bigcup U_k $ because it contains 
+	Take the tensor product over $f_k: A\to B_k $.
+	Then by Exercise 27, with $B$ the limit,
+	\[
+		f^\ast(\Spec(B)) = \bigcap_{\alpha} f^\ast_{k}(\Spec(B_k)) = \emptyset
+	.\] 
+	Thus $\Spec(B) = \emptyset$, and hence $B $ is 0.
+	By Chapter 2 Exercise 21, one of $\bigotimes_I B_i = 0 $ where $I $ is finite.
+
+	Finally, take the subsystem of $\bigotimes_{I' \subseteq I}B_i $.
+	The direct limit of this is $\bigotimes_I B_i $ because this equals the limit (which is 0 by Chapter 2 Exercise 21).
+	Let $g: A\to \bigotimes_I B_i $.
+	By Exercise 27, $g^\ast (\Spec(B)) = \cap_{\alpha} f^\ast_ \alpha(\Spec(B_ \alpha))$ with $\{alpha\}\subseteq I $.
+	As $g^\ast(\Spec(B)) = \emptyset = \cap_{\alpha} f^\ast_ \alpha(\Spec(B_ \alpha))$, so $f_ \alpha^\ast(\Spec(B_{ \alpha}))^C $ forms an open cover of $X $.
 \end{solution}
 \end{enumerate}
 
@@ -1495,7 +1580,15 @@ The assignment of the ring $A(U) $ to each basic open set $U $ of $X $ and the r
 \end{solution}
 \item Deduce that the identity mapping $X_C \to X_{C'} $ is homeomorphism. Hence a subset $E $ of $X $ is of the form $f^\ast(\Spec(B)) $ for some $f: A\to B $ if and only if it is closed in the topology $C' $.
 \begin{solution}
-	
+	Proof from \url{https://math.sci.uwo.ca/~jcarlso6/intro_comm_alg(2019).pdf}
+
+	By 28i), and definition of $C' $, $C \supseteq C' $.
+	So $\Id:X_C\to X_{C'} $ is continuous.
+	Obviously the identity is bijective.
+	Then because any continuous bijection between Hausdorff, compact spaces are homeos, we are done.
+
+	The image of an open set $U $ has a closed complement, which is then compact by compactness of $C $.
+	It thus has compact image, which is then closed by Hausdorffness, which is then the complement of $\Id(U) $, showing that $\Id(U) $ is closed in $X_{C'} $.
 \end{solution}
 \item The topological space $X_C $ is compact, Hausdorff and totally disconnected.
 \begin{solution}
