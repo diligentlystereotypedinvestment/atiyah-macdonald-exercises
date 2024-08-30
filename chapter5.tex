@@ -1,0 +1,184 @@
+% root = exercises.tex
+\section{Integral Dependence and Valuations}
+
+\begin{exercise}
+	Let $f \colon A \to B$ be an integral homomorphism of rings. Show that $f^\ast\colon \Spec(B) \to \Spec(A)$ is a \textit{closed} mapping, i.e. that it maps closed sets to closed sets. (This is a geometrical equivalent of (5.10).)
+\end{exercise}
+\begin{proof}
+	We want to show that for all ideals $\mathfrak{a} \subseteq B $, $f^\ast(V(\mathfrak{a})) = V(\mathfrak{b}) $ for some ideal $\mathfrak{b} \subseteq A $.
+	I propose that we let $\mathfrak{b} = f^{-1}(\mathfrak{a}) $ (which is an ideal because preimages take ideals to ideals).
+	
+	$\subseteq  $: For $\mathfrak{p} \in V(\mathfrak{a}) $, $\mathfrak{a} \subseteq \mathfrak{p} $.
+	Thus $\mathfrak{b} = f^{-1}(\mathfrak{a}) \subseteq f^{-1}(\mathfrak{p}) = f^\ast(\mathfrak{p}) \implies f^\ast(\mathfrak{p}) \in V(\mathfrak{b})$.
+
+	$\supseteq  $: Take some $\mathfrak{p} \in V(\mathfrak{b}) $.
+	We can first note that because $\mathfrak{b} = f^{-1}(\mathfrak{a}) $ and $0\in \mathfrak{a} $, $\ker f \subseteq \mathfrak{b} \subseteq \mathfrak{p} $.
+	Then $f(\mathfrak{p}) $ is prime as an ideal of $f(A) $, because if $f(a)f(b) \in f(\mathfrak{p}) $, then $f(ab) \in f(\mathfrak{p})$ implies that there is some $c \in \ker f $ such that $ab - c \in \mathfrak{p} $.
+	Because $\ker f \subseteq \mathfrak{p} $, $ab \in \mathfrak{p}\implies $ either $a $ or $b $ is in $\mathfrak{p} $, showing that $f(\mathfrak{p}) $ is prie.
+
+	Then by Theorem 5.10, as $B $ is integral over $f(A) $, $\exists \mathfrak{q} \in \Spec B $ such that $\mathfrak{q}\cap f(A) = f(\mathfrak{p})$.
+	Finally, $f^{-1}(\mathfrak{q}) = \mathfrak{p}$ shows that this map is surjective.
+\end{proof}
+
+\begin{exercise}
+	Let $A$ be a subring of a ring $B$ such that $B$ is integral over $A$, and let $f \colon A \to \Omega$ be a homomorphism of $A$ into an algebraically closed field $\Omega$. Show that $f\!$ can be extended to a homomorphism of $B$ into $\Omega$.
+\end{exercise}
+\begin{proof}
+	We can extend $f $ by mapping $x\in B $ as follows.
+	Suppose $x $ satisfies the minimal monic $A $ relation
+	\[
+		x^n + a_{1} x^{n-1} + \cdots + a_n = 0 
+	.\] 
+\end{proof}
+
+\begin{exercise}
+	Let $f \colon B \to B'$ be a homomorphism of $A$-algebras, and let $C$ be an $A$-algebra. If $f$ is integral, prove that $f \otimes 1\colon B \otimes_A C \to B' \otimes_A C$ is integral. (This includes (5.6) ii) as a special case.)
+\end{exercise}
+\begin{proof}
+	It suffices to show that pure tensors are integral over $\im(f \otimes 1) $ because they generate $B' \otimes _A C $ and sums and products of integral elements are integral (i.e. Corollary 5.3).
+	Now suppose we have $b' \otimes c $ and
+	\[
+		(b')^n + a_1 (b')^{n-1} + \cdots + a_n = 0 \qquad a_i \in f(A)
+	\] 
+	because $f $ is integral.
+
+	Then we will show that
+	\[
+		(b' \otimes c)^n + a_1(1 \otimes c) (b' \otimes c)^{n-1} + \cdots + a_n(1 \otimes c^n)(1 \otimes 1)
+	\] 
+	will be an integral equation for $b' \otimes c $ over $f(B \otimes_A C) $.
+	First, each $a_i(1 \otimes c^i) $ is in $f(B \otimes_A C) $ as $a_i \in f(B) $.
+	Then we expand:
+	\begin{align*}
+		(b' \otimes c)^n &+ a_1(1 \otimes c) (b' \otimes c)^{n-1} + \cdots + a_n(1 \otimes c^n)(1 \otimes 1)\\
+		&= ((b')^n \otimes c^n) + (a_{1} (b')^{n-1}  \otimes c^{n-1} ) + \cdots + (a_n \otimes c^n)\\
+		&= ((b')^n + a_1 (b')^{n-1} + \cdots + a_n) \otimes c^n\\
+		&= 0 \otimes c^n = 0
+	\end{align*}
+\end{proof}
+
+\begin{exercise}
+	Let $A$ be a subring of $B$ such that $B$ is integral over $A$. Let $\mathfrak{n}$ be a maximal ideal of $B$ and let $\mathfrak{m} = \mathfrak{n} \cap A$ be the corresponding maximal ideal of $A$ (see (5.8)). Is $B_{\mathfrak{n}}$ necessarily integral over $A_\mathfrak{m}$?
+\end{exercise}
+\begin{proof}
+	% First note that because $A\subseteq A_{\mathfrak{m}} $, $B $ is integral in $B_{\mathfrak{n}} $ over $A_{\mathfrak{m}} $.
+	% Next, it suffices to show that $\frac{1}{n} \in B_{\mathfrak{n}} $ is integral over $A_{\mathfrak{m}} $, since the product of integral elements is integral.
+	% Let $n $ satisfy
+	% \[
+	% 	n^\ell + a_1 n^{\ell-1} + \cdots + a_\ell = 0
+	% .\] 
+	% Then $\frac{1}{n} $ satisfies
+	% \[
+	% 	a_{\ell}\left(\frac{1}{n}\right)^{\ell} + a_{1} \left(\frac{1}{n}\right)^{\ell-1}+\cdots + 1 = 0  
+	% .\] 
+	% Thus if we show that $a_{\ell} $ is in $A\setminus \mathfrak{m} $, then we are done, as dividing by $a_\ell $ would then give us an integral relation over $A_{\mathfrak{m}} $.
+\end{proof}
+
+\begin{exercise}
+	Let $A \subseteq B$ be rings, $B$ integral over $A$.
+	\begin{enumerate}
+		\item If $x \in A$ is a unit in $B$ then it is a unit of $A$.
+		\item The Jacobson radical of $A$ is the contraction of the Jacobson radical of $B$.
+\end{enumerate}
+\end{exercise}
+\begin{proof}
+	i) Suppose we have $xb = 1 $ with $b \in B $.
+	Then we have some integral relation of lowest degree
+	\[
+		b^n + a_1 b^{n-1} + \cdots + a_n = 0
+	\] 
+	with $a_i \in A $.
+	By multiplying it by $x $, we get
+	\[
+		b^{n-1} + a_1 b^{n-2} + \cdots + a_{n-1} + a_nx = 0
+	\] 
+	But this is an integral relation of lower degree, implying that $b $ is the root of a polynomial over $A $ with degree 1.
+	But this just implies that $b \in A $.
+
+	ii) The contraction of the Jacobson radical of $B $ is $(\bigcap_{\mathfrak{m}\in\Specm B} \mathfrak{m}) \cap A $.
+	By Corollary 5.8, $\mathfrak{m} \in \Specm B \iff \mathfrak{m}\cap A $ is Maximal.
+	Thus $(\bigcap_{\mathfrak{m}\in \Specm B} \mathfrak{m})\cap A = \bigcap_{\mathfrak{n}\in\Specm A} \mathfrak{n}$, which is the Jacobson radical of $A $.
+\end{proof}
+
+\begin{exercise}
+	Let $B_1,\,\ldots,\,B_n$ be integral $A$-algebras. Show that $\prod_{i=1}^n B_i$ is an integral $A$-algebra.
+\end{exercise}
+\begin{proof}
+	Suppose we have $(b_{1},b_{2},b_n) \in \prod B_i $ with
+	\[
+		f_{i}(b_{i}) = b_{i}^{n_i} + a_{1i}^{n_i-i} + \cdots + a_{n_ii} = 0.
+	\]
+	Then let $f(x) = \prod f_i(x)$.
+	This is a polynomial over $A $, and by considering it as a polynomial in $\prod B_i$, we can see that $(b_{1},b_{2}, \ldots, b_n) $ is a root of it: the ring operation is done coordinate wise, so $f((b_{1},b_{2},\ldots,b_n)) = (f(b_{1}),f(b_{2}),\ldots,f(b_n)) = (0,0,\ldots,0) $.
+\end{proof}
+
+\begin{exercise}
+	Let $A$ be a subring of a ring $B$, such that the set $B \setminus A$ is closed under multiplication. Show that $A$ is integrally closed in $B$.
+\end{exercise}
+\begin{proof}
+	Suppose we have an integral relation for $b \in B \setminus A$ of least degree,
+	\[
+		b^n + a_1 b^{n-1} + \cdots + a_n = 0
+	.\] 
+	Then I claim that we get a contradiction from this:
+	\[
+		b(b^{n-1} + a_1 b^{n-2} + \cdots + a_{n-1}) + a_n = 0
+	.\] 
+	Suppose that $b^{n-1} + a_1 b^{n-2} + \cdots + a_{n-1} \in A$.
+	Then by subtracting the element of $A $, we get a lower degree integral relation, a contradiction.
+	Thus $b^{n-1} + a_1 b^{n-2} + \cdots + a_{n-1} \in B \setminus A$.
+	Because $B\setminus A $ is multiplicatively closed, $b(b^{n-1} + a_1 b^{n-2} + \cdots + a_{n-1}) \in B \setminus A $.
+	But $-a_n $ is in $A $, a contradiction.
+\end{proof}
+
+\begin{exercise}
+	~
+	\begin{enumerate}
+		\item Let $A$ be a subring of an integral domain $B$, and let $C$ be the integral closure of $A$ in $B$. Let $f,\,g$ be monic polynomials in $B[x]$ such that $fg \in C[x]$. Then $f,\, g$ are in $C[x]$.
+		\item Prove the same result without assuming that $B$ (or $A$) is an integral domain.
+	\end{enumerate}
+\end{exercise}
+\begin{proof}
+	ii)
+	We use induction on the degree of $fg $.
+
+	First we show it for $fg $ of degree $2$.
+	Then $f(x) = x+a $ and $g(x) = x+b $ for some $a,b \in B $.
+	If $fg \in C $, then $f(x)g(x) = x^2+(a+b)x+ab $.
+
+	Using the quadratic formula shows us that $-a,-b $ are roots of this polynomial, so $-a,-b $ are integral over $A[a+b,ab]$.
+	Because $a+b,ab \in C $, $A[a+b,ab] $ is finitely generated as an $A $-module.
+	As $-a,-b $ are integral over $A[a+b,ab] $, $A[a+b,ab,-a,-b] $ is finitely generated as an $A$-module.
+	Hence $-a,-b \in C $.
+	Thus $f,g \in C[x] $.
+
+	Finally, assume it is true up to $fg $ of degree $n-1 $.
+	Let $f(x) = f_{1}(x)x + b_{1} $ and $g(x) = g_{1}(x)x + b_{2} $.
+	Note that if $fg \in C[x] $, $(b_{1}g_{1}(x)+b_{2}f_{1}(x))x + b_{1}b_{2} \in C[x] $, being the last two terms of $fg $.
+	Thus by subtracting off $(b_{1}g_{1}(x)+b_{2}f_{1}(x))x + b_{1}b_{2} $, the result is also in $C[x] $.
+	Thus $f_{1}(x)g_{1}(x)x^2 \in C[x] $, so $f_{1}(x)g_{1}(x) \in C[x] $.
+	By our induction hypothesis, $f_{1},g_{1} \in C[x] $.
+	Thus $f_{1}(x)x+b_{1}, g_{1}(x)x+b_{2} $ are in $C[x] $.
+\end{proof}
+
+\begin{exercise}
+	Let $A$ be a subring of a ring $B$ and let $C$ be the integral closure of $A$ in $B$. Prove that $C[x]$ is the integral closure of $A[x]$ in $B[x]$.
+\end{exercise}
+\begin{proof}
+	We use induction on the degree to first show that $C[x] $ is integral over $A[x] $.
+	Obviously degree 0 terms of $C[x] $ are integral over $A[x] $.
+	We can also show that $x $ is integral over $A[x] $, since it is the root of $y - x $.
+
+	Now assume that all terms of $C[x] $ up to degree $n-1 $ are integral over $A[x] $.
+	Say we have $f = c_{0}x^n + \cdots + c_n $.
+	By induction hypothesis, $c_{1}x^{n-1} + \cdots + c_n $ is integral over $A[x] $.
+	Thus if we show that $f - (c_{1}x^{n-1} + \cdots + c_n) = c_{0}x^n $ is integral over $A[x]$, we are done.
+	Finally, because $x $ and $c_{0} $ are integral over $A[x] $ and products of integral elements are integral, $c_{0}x^n $ is integral.
+
+	Now FTSOC suppose we have $f = b_{0}x^n + \cdots + b_n \in B[x] \setminus C[x]$ integral over $A[x] $.
+	We can pick one with the least number of non-zero coefficients.
+	Then any integral relation of $f $ will produce an integral relation for $b_n $ by focusing on the degree 0 component.
+	Thus $b_n \in C $.
+	Hence $f-b_n $ is also integral over $A[x] $ and in $B[x] \setminus C[x] $.
+	But $f-b_n $ has fewer non-zero coefficients than $f $, contradicting our assumption, allowing us to conclude that $C[x] $ is the integral closure of $A[x] $.
+\end{proof}

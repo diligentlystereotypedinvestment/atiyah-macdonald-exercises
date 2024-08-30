@@ -1,0 +1,404 @@
+% root = exercises.tex
+\newif\ifhint
+\hinttrue
+\section{Primary Decomposition}
+
+\begin{exercise}
+	If an ideal $\mathfrak{a}$ has a primary decomposition, then $\Spec(A/\mathfrak{a})$ has only finitely many irreducible components.
+\end{exercise}
+\begin{proof}
+	By the First Uniqueness Theorem, the associated primes to $\mathfrak{a} $ is independent on the decomposition.
+	As $\mathfrak{a} $ being decomposable implies that $\mathfrak{a} $ is a finite intersection, the number of associated primes must be finite.
+	Finally, because irreducible components of $\Spec(A / \mathfrak{a}) $ correspond to minimal primes belonging to $\mathfrak{a} $ by the remark after Prop 4.6, this implies that there are a finite number of irreducible components.
+\end{proof}
+
+\begin{exercise}
+	If $\mathfrak{a} = r(\mathfrak{a})$, then $\mathfrak{a}$ has no embedded prime ideals. 
+\end{exercise}
+\begin{proof}
+	I'm going to assume that $\mathfrak{a} $ is decomposable, because otherwise the definition in the chapter doesn't make sense.
+	Thus decompose $\mathfrak{a} $ as a minimal primary decomposition $\cap^n \mathfrak{q}_i $ and let $r(\mathfrak{q}_i) = \mathfrak{p}_i $.
+	Then $\mathfrak{a} = r(\mathfrak{a}) = r(\cap^n \mathfrak{q}_i) = \cap^n r(\mathfrak{q}_i) = \cap^n \mathfrak{p}_i$.
+	If there were any embedded prime ideals among the $\mathfrak{p}_i $, then we could eliminate the term and see that $\cap^n r(\mathfrak{q}_i) $ is not minimal, a contradiction.
+	Thus there are no embedded primes.
+\end{proof}
+
+\begin{exercise}
+	If $A$ is absolutely flat, every primary ideal is maximal. 
+\end{exercise}
+\begin{proof}
+	Let $\mathfrak{q} $ be a primary ideal.
+	Our strategy will be to show that $A / \mathfrak{q} $ is a field.
+	Then $A / \mathfrak{q} $ is absolutely flat by Exercise 2.28 (homomorphic image).
+
+	By Exercise 2.28, all non-units are zero divisors, and because $\mathfrak{q} $ is primary, all zero-divisors are nilpotents.
+	By Exercise 1.10, a ring where every element is either nilpotent or a unit is local.
+	By Exercise 2.28, this implies that $A / \mathfrak{q} $ is a field.
+\end{proof}
+
+\begin{exercise}
+	In the polynomial ring $\Z[t] $, the ideal $\mathfrak{m}= (2,t) $ is maximal and the ideal $\mathfrak{q} = (4,t) $ is $\mathfrak{m} $-primary, but is not a power of $\mathfrak{m} $.
+\end{exercise}
+\begin{proof}
+	First we can see that $\mathfrak{m} $ is maximal because $\Z[t] / \mathfrak{m} \cong \Z_2 $, which is a field.
+	Then, $\mathfrak{q} $ is $\mathfrak{m} $-primary because 
+
+	(1) it is a primary ideal for if $ab = 0 \in \Z[t] / \mathfrak{q} $, then because $\Z[t] / \mathfrak{q} \cong \Z_4 $, we either have one of the terms equivalent to $4 $ in $\Z_4 $ or both terms are equivalent to $2 $.
+	The former case is $ab \in \mathfrak{q} \implies a \in \mathfrak{q} $ and the latter is when $a\notin \mathfrak{q} \implies b^n \in \mathfrak{q} $, with $n=2 $ here.
+
+	(2) to check that $\sqrt{\mathfrak{q}}  = \mathfrak{m}$, it suffices to show that $(\Z[t] / \mathfrak{q}) / \mathfrak{N} \cong \Z[t] / \mathfrak{m} $ with $\mathfrak{N} $ the nilradical of $\Z[t] / \mathfrak{q} $.
+	We can see that the nilradical of $\Z[t] / \mathfrak{q} \cong \Z_4 $ is isomorphic to the ideal $(2) $ in $\Z_4 $, and $(\Z[t] / \mathfrak{q}) / \mathfrak{N} \cong \Z_4 / (2) \cong \Z_2 \cong \Z[t] / \mathfrak{m}$.
+
+	Finally, suppose FTSOC that $(4,t) = (2,t)^n $.
+	If $n>2 $, $4 \notin (2,t) $.
+	Thus $n=2 $ as $n=1 $ is obviously eliminated.
+	But $(2,t)^2 = (4,2t,t^2) $, which doesn't contain $t $.
+\end{proof}
+
+\begin{exercise}
+	In the polynomial ring $K[x,y,z]$ where $K$ is a field and $x, y,z$ are independent indeterminates, let $\mathfrak{p}_1 = (x,y)$, $\mathfrak{p}_2 = (x,z)$, $\mathfrak{m} = (x,y,z)$; $\mathfrak{p}_1$ and $\mathfrak{p}_2$ are prime, and $\mathfrak{m}$ is maximal. Let $\mathfrak{a} = \mathfrak{p}_1\mathfrak{p}_2$. Show that $\mathfrak{a} = \mathfrak{p}_1 \cap \mathfrak{p}_2 \cap \mathfrak{m}^2$ is a reduced primary decomposition of $\mathfrak{a}$. Which components are isolated and which are embedded? 
+\end{exercise}
+\begin{proof}
+	Obviously $\mathfrak{a} \subseteq \mathfrak{p}_1 \cap \mathfrak{p}_2 \cap \mathfrak{m}^2 $ as $\mathfrak{a} = (x^2,xz,yx,yz) $.
+	Now suppose we have $a \in \mathfrak{p}_1 \cap \mathfrak{p}_2 \cap \mathfrak{m}^2 $.
+	Then because $a \in \mathfrak{p}_1 $, $a = xp(x,y,z)+yq(x,y,z) $.
+	Because $a \in \mathfrak{p}_2 $ and $xp(x,y,z) \in \mathfrak{p}_2 $ and $y$ is prime in $K[x,y,z] $, we must have that either $x| q(x,y,z) $ or $z | q(x,y,z) $.
+	In either case, $x^2 $ or $yz | yq(x,y,z) $, so that term is in $\mathfrak{p}_1 \mathfrak{p}_2$.
+
+	Thus all we need to show now is that $xp(x,y,z) \in \mathfrak{p}_1 \mathfrak{p}_2 $.
+	From the above, we can also conclude that $yq(x,y,z) \in \mathfrak{m}^2 $.
+	Thus we know that $xp(x,y,z) \in \mathfrak{m}^2 $, hence either $x,y,z $ divides $p $.
+	In all three cases, this puts $xp $ in $\mathfrak{p}_1 \mathfrak{p}_2 $.
+	Hence $a \in \mathfrak{a} $.
+
+	Because $\sqrt{m^2}  = \mathfrak{m} $ as $\mathfrak{m} $ is prime, $\mathfrak{m} $ is an associated prime.
+	As $\mathfrak{p}_1, \mathfrak{p}_2 $ are prime, they are associated primes.
+	Clearly $\mathfrak{p}_1,\mathfrak{p}_2 $ are minimal and contain $\mathfrak{m} $, so $\mathfrak{p}_i $ are isolated and $\mathfrak{m} $ is embedded.
+\end{proof}
+
+\begin{exercise}
+	Let $X\!$ be an infinite compact Hausdorff space, $C(X)$ the ring of real-valued continuous functions on $X\!$ (Chapter 1, Exercise 26). Is the zero ideal decomposable in this ring? 
+\end{exercise}
+\begin{proof}
+	No.
+	Recall that by Exercise 1.16 that every maximal ideal is of the form $\mathfrak{m}_x = \{f \in C(X) | f(x) = 0\}   $.
+	First we show that every primary ideal is contained in exactly one maximal ideal.
+	Suppose we have primary $\mathfrak{p} \subseteq \mathfrak{m}_x \cap \mathfrak{m}_y$.
+
+	Because $X $ is Hausdorff, there is open disjoint neighborhoods $U,V $ such that $x \in U $ and $y \in V $.
+	By Urysohn's Lemma, we have $f_x, f_y \in C(X)$ such that $f_x(x) = 1, f_x(U^c) = 0, f_y(y) = 1, f_y(V^c) = 0$.
+	Then $f_xf_y = 0 $ because $f_x $ is non-zero on $U $ and $f_y $ is non-zero on $V $, so their product is non-zero on $U\cap V = \emptyset$.
+	Because $f_x(x) = 1 $ and $f_y(y) = 1 $, neither are in $\mathfrak{p} $.
+	But this contradicts $\mathfrak{p} $ being primary.
+
+	Now suppose FTSOC that $(0) = \cap^n \mathfrak{q}_i $.
+	Let $\mathfrak{q}_i \subseteq \mathfrak{m}_{x_i} $.
+	Now take a point $x \notin \{x_i\}   $.
+	By Urysohn's Lemma, there is $\delta_i$ that vanishes on $x_i $ and not $x $.
+	Let $f_i $ be the product of an element in $\mathfrak{q}_i $ that doesn't vanish on $x $ (because $\mathfrak{q}_i \not \subseteq \mathfrak{m}_x $) with $\delta_i $.
+	Then $\prod f_i \in \cap \mathfrak{q}_i $ but isn't $0 $ as it doesn't vanish on $x $.
+	This contradicts $(0) = \cap^n \mathfrak{q}_i $.
+\end{proof}
+
+\begin{exercise}
+	Let $A$ be a ring an let $A[x] $ denote the ring of polynomials in one indeterminate over $A $. For each ideal $\mathfrak{a} $ of $A $, let $\mathfrak{a}[x] $ denote the set of all polynomials in $A[x] $ with coefficients in $\mathfrak{a} $.
+	\begin{enumerate}
+		\item $\mathfrak{a}[x]$ is the extension of $\mathfrak{a}$ to $A[x]$.
+		\item If $\mathfrak{p}$ is a prime ideal in $A$, then $\mathfrak{p}[x]$ is a prime ideal in $A[x]$.
+		\item If $\mathfrak{q}$ is a $\mathfrak{p}$-primary ideal in $A$, then $\mathfrak{q}[x]$ is a $\mathfrak{p}[x]$-primary ideal in $A[x]$.
+		\item If $\mathfrak{a} = \cap_{i=1}^n \mathfrak{q}_i$ is a minimal primary decomposition in $A$, then $\mathfrak{a}[x] = \cap_{i=1}^n \mathfrak{q}_i[x]$ is a minimal primary decomposition in $A[x]$.
+		\item If $\mathfrak{p}$ is a minimal prime ideal of $\mathfrak{a}$, then $\mathfrak{p}[x]$ is a minimal prime ideal of $\mathfrak{a}[x]$.
+	\end{enumerate}
+\end{exercise}
+\begin{proof}
+	i) The image of $\mathfrak{a} $ in $A[x] $ is $\mathfrak{a} $.
+	The ideal generated by it includes $ax^n $ for $a\in \mathfrak{a} $ and natural $n $.
+	Thus all polynomials with coefficients in $\mathfrak{a} $ are in the ideal.
+	Finally, all elements of the ideal generated by $\mathfrak{a} $ in $A[x] $ have coefficients in $\mathfrak{a} $ by definition (finite sums of products of elements of $A[x] $ with elements of $\mathfrak{a} $).
+
+	ii) We have that $A[x] / \mathfrak{p}[x] \cong (A / \mathfrak{p})[x] $ because each element of $A[x] / \mathfrak{p}[x] $ is a polynomial with coefficients in $A / \mathfrak{p} $.
+	A polynomial ring over an integral domain $(A / \mathfrak{p})[x] $ is an integral domain.
+
+	iii) Consider $A[x] / \mathfrak{q}[x] $.
+	By the above, this is isomorphic to $(A / \mathfrak{q})[x] $.
+	Now suppose we have a zero divisor in this ring, say $fg=0 $.
+	Then by chapter 1 exercise 2, we have $a \in A / \mathfrak{q} $ such that $af = 0 $.
+	Thus every coefficient of $f $ is a zero divisor in $A / \mathfrak{q} $.
+	Therefore every coefficient is nilpotent, as $\mathfrak{q} $ is primary.
+	By Chapter 1 Exercise 2 again, this makes $f $ nilpotent.
+
+	Next we can see that $\mathfrak{p}[x] \subseteq r(\mathfrak{q}[x])$ because $\mathfrak{q}\subseteq \mathfrak{q}[x] $ and $r(\mathfrak{q}[x]) $ is an ideal in $A[x] $.
+	Finally, we can note that $\mathfrak{q}[x] \subseteq \mathfrak{p}[x] $ because $\mathfrak{q} \subseteq \mathfrak{p} $, and as $r(\mathfrak{q}[x]) $ is the smallest prime ideal containing $\mathfrak{q}[x] $, it must equal $\mathfrak{p}[x] $.
+
+	\begin{lem}
+		$\mathfrak{p} \subseteq \mathfrak{q} \iff \mathfrak{p}[x] \subseteq \mathfrak{q}[x] $
+	\end{lem}
+	\begin{proof}
+		If $\mathfrak{p} \subseteq \mathfrak{q} $, any polynomial with coefficients in $\mathfrak{p} $ have coefficients in $\mathfrak{q} $.
+
+		If $\mathfrak{p}[x] \subseteq \mathfrak{q}[x] $, then $\mathfrak{p} \subseteq \mathfrak{p}[x]$ gives us that $\mathfrak{p}\subseteq \mathfrak{q} $ ($\mathfrak{q} $ is the degree zero component).
+	\end{proof}
+
+	iv) We can see that $\cap \mathfrak{q}_i[x] = (\cap \mathfrak{q}_i)[x] $ because a polynomial in all $\mathfrak{q}_i[x] $ has coefficients in all $\mathfrak{q}_i $.
+	By iii), all we need to show is that $\cap \mathfrak{q}_i[x] $ is a minimal primary decomposition.
+	Condition i) is clearly met because the degree $0$ components are distinct.
+	The conditions for ii) are satisfied because of the above lemma and the fact that $(\mathfrak{q}_i)[x] = \cap \mathfrak{q}_i[x]$.
+
+	v) This is because of iv) and the lemma above.
+\end{proof}
+
+\begin{exercise}
+	Let $k$ be a field. Show that in the polynomial ring $k[x_1,\ldots,x_n]$ the ideals $\mathfrak{p}_i = (x_1,\ldots,x_i)$ $(1 \leq i \leq n)$ are prime and all their powers are primary. \ifhint Use Exercise 7.
+\fi
+\end{exercise}
+\begin{proof}
+	Clearly $k[x_{1}, \ldots ,x_n] / \mathfrak{p}_i $ is prime because this is isomorphic to $k[x_{i+1}, \ldots, x_n] $, an integral domain.
+	Let $\mathfrak{q}_i^m = \mathfrak{p}_i^m \cap k[x_{1}, \ldots ,x_i] $.
+	Then $\mathfrak{p}_i^m = (\mathfrak{q}_i^m)^e = \mathfrak{q}_i^m[x_{i+1}, \ldots , x_n]$.
+	By 7iii), it then suffices to show that $\mathfrak{q}_i^m$ is $\mathfrak{q}_i$ primary (as this will then make $\mathfrak{q}_i^m[x_{i+1}, \ldots ,x_n]$ primary).
+	By discussion in the chapter, $r(\mathfrak{q}_i^m) = \mathfrak{q}_i $.
+	So all we need to do is to show that $\mathfrak{q}_i^m $ is primary in $k[x_{1}, \ldots ,x_i] $.
+
+	Suppose we have $ab = 0 $ in $k[x_{1}, \ldots ,x_i] / \mathfrak{q}_i^m$.
+	We can see that $a $ or $b $ has no degree 0 component, because otherwise we would have a degree $0 $ element that can't be cancelled out ($\mathfrak{q}_i^m $ is a homogenous ideal, so we still get a direct sum decomposition of $k[x_{1}, \ldots ,x_i] / \mathfrak{q}_i^m $).
+	Finally, because all monomials are nilpotent in this ring, this implies that $a $ or $b $ is in the ideal of nilpotents, showing that all non-units are nilpotent.
+	Hence $\mathfrak{q}_i^m $ is primary.
+\end{proof}
+
+\begin{exercise}
+	In a ring $A$, let $D(A)$ denote the set of prime ideals $\mathfrak{p}$ which satisfy the following condition: there exists $a \in A$ such that $\mathfrak{p}$ is minimal in the set of prime ideals containing $(0:a)$. Show that $x \in A$ is a zero divisor $\iff$ $x \in \mathfrak{p}$ for some $\mathfrak{p} \in D(A)$. \\
+	Let $S$ be a multiplicatively closed subset of $A$, and identify $\Spec(S^{-1}A)$ with its image in $\Spec(A)$ (Chapter 3, Exercise 21). Show that
+	\[
+	D(S^{-1}A) = D(A) \cap \Spec(S^{-1}A).
+	\]
+	If the zero ideal has a primary decomposition, show that $D(A)$ is the set of associated prime ideals of $0$.
+\end{exercise}
+\begin{proof}
+	Suppose that $x\in \mathfrak{p} $ for some $\mathfrak{p}\in D(A) $.
+	Then because $a \mathfrak{p} \subseteq (0) $, $ax = 0 $ and $x $ is a zero divisor.
+	
+	If $x $ is a zero divisor: 
+	Suppose $ax = 0 $.
+	Then $x \in (0:a) $, and $(0:a) \ne (1) $ because $A $ can be assumed to be non-zero.
+	Thus there is $\mathfrak{p} \supseteq (0:a) $.
+	Because the intersection of a descending chain of prime ideals is prime, we can find a minimal such prime among those containing $(0:a) $.
+
+	$D(S^{-1}A) = D(A) \cap \Spec(S^{-1}A)$:
+
+	$\subseteq  $: The left hand side is the set of minimal prime ideals that contain some $(0:\frac{a}{b}) $.
+	By the inclusion respecting bijection from Proposition 3.11, these correspond to minimal prime ideals in $A $ that don't meet $S $.
+	Because each $S^{-1}\mathfrak{p} $ contains $(0:\frac{a}{b}) $, the contraction contains $(0:a) $ for if $ac = 0 $ for $c\in A $, then $\frac{a}{b}\cdot \frac{c}{1} = 0$ in $S^{-1}A $.
+
+	$\supseteq  $: The right hand side is the set of minimal prime ideal that doesn't contain $S $ by Proposition 3.11 yet contain $(0:a) $ for some $a $ (it is minimal among these primes because the bijection $\Spec S^{-1}A $ to a subset of $\Spec A $ respects inclusions).
+	Thus these biject to minimal prime ideals of $S^{-1} $, and they contain $(0:\frac{a}{1}) $ because $\forall \frac{p}{q} \in S^{-1}\mathfrak{p}, \frac{a}{1}\frac{p}{q} = \frac{ap}{q} = 0$ because $p\in \mathfrak{p} $ and $ap = 0 $.
+
+	Finally, assume that there is a primary decomposition, say $0 = \cap \mathfrak{q}_i $ with associated primes $\mathfrak{p}_i = r(0:a_i)$.
+	Take $\mathfrak{p} \in D(A) $ and let $\mathfrak{p}$ be minimal among prime ideals containing $(0:a)$.
+	Then $\mathfrak{p} \supseteq r(0:a) $ because $r(0:a) $ is the intersection of prime ideals containing $(0:a) $.
+	Thus
+	\[
+		\mathfrak{p} \supseteq r(\cap \mathfrak{q}_i:a) = \cap r(\mathfrak{q}_i:a) \supseteq r(0:a) \supseteq (0:a)
+	.\]
+	The latter containment is due to $0 $ being in all the $\mathfrak{q}_i $ so that $(\mathfrak{q}_i:a) \supseteq (0:a) $.
+
+	We can see that $\cap r(\mathfrak{q}_i:a) = \cap_{\mathfrak{n}_i \in S \subseteq \{\mathfrak{p}_i\}  } \mathfrak{n}_i$ where $S $ is some subset of the associated primes.
+	This is because for each $i $, $a \in \mathfrak{q}_i $ implies that $(\mathfrak{q}_i:a) =A$, allowing us to remove it from the intersection, and if $a\notin \mathfrak{q}_i $, then because $\mathfrak{q}_i $ is primary, $x\in (\mathfrak{q}_i:a) \implies ax \in \mathfrak{q}_i \implies x^a \in \mathfrak{q}_i $ for some $a $.
+	Thus by taking the radical of $(\mathfrak{q}_i:a) $, we see that $x\in \mathfrak{p}_i $.
+
+	Next, by Proposition 1.11, $\mathfrak{p} \supseteq \mathfrak{p}_i $ for some $i $.
+	The minimality of $\mathfrak{p} $ then implies that $\mathfrak{p} = \mathfrak{p}_i $, an associated prime.
+
+	Now conversely, an associated prime $\mathfrak{p}_i = r(0:a_i) $ is minimal among primes containing $(0:a_i) $ by definition of the radical.
+\end{proof}
+
+\begin{exercise}
+	For any prime ideal $\mathfrak{p}$ in a ring $A$, let $S_\mathfrak{p}(0)$ denote the kernel of the homomorphism $A \to A_\mathfrak{p}$. Prove that 
+	\begin{enumerate}
+		\item $S_\mathfrak{p}(0) \subseteq \mathfrak{p}$.
+		\item $r\big(S_\mathfrak{p}(0)\big) = \mathfrak{p} \iff \mathfrak{p}$ is a minimal prime ideal of $A$.
+		\item If $\mathfrak{p} \supseteq \mathfrak{p}'$, then $S_\mathfrak{p}(0) \subseteq S_{\mathfrak{p} '}(0)$.
+		\item $\cap_{\mathfrak{p} \in D(A)} S_\mathfrak{p}(0) = 0$, where $D(A)$ is defined in Exercise 9.
+	\end{enumerate}
+\end{exercise}
+\begin{proof}
+	i) Any $a \in S_ \mathfrak{p}(0) $ has the property that $\frac{a}{1} = 0 $, i.e. $\exists s\in A \setminus \mathfrak{p} $ such that $as = 0$ in $A $.
+	Mapping this into $A / \mathfrak{p} $, we have that $as \equiv 0 $.
+	Because $A / \mathfrak{p} $ is an integral domain and $s \notin \mathfrak{p} $, $a\equiv 0 \implies a \in \mathfrak{p}$.
+
+	iii) Let $a \in S_ \mathfrak{p}(0) $.
+	Then there is $s \in A \setminus \mathfrak{p} \subseteq A \setminus \mathfrak{p}' $ such that $as = 0 $ in $A $.
+	But then $\frac{a}{1} = 0 \in A_{\mathfrak{p}'} $ because $A \setminus \mathfrak{p} \subseteq A \setminus \mathfrak{p}' $, so we can use the same element to prove that it vanishes.
+
+	ii)
+
+	$\implies) $ Suppose we have $\mathfrak{q} \subseteq \mathfrak{p} $.
+	Then by iii) $S_{\mathfrak{p}}(0) \subseteq S_{\mathfrak{q}}(0)$.
+	So we then have
+	\[
+		S_{\mathfrak{p}}(0) \subseteq S_{\mathfrak{q}}(0) \subseteq \mathfrak{q} \subseteq \mathfrak{p}
+	.\] 
+	But because $r(S_{\mathfrak{p}}(0)) = \mathfrak{p} $ and the radical is the intersection of the prime ideals containing it, this implies that $\mathfrak{p}\subseteq \mathfrak{q} $.
+	Thus $\mathfrak{p} = \mathfrak{q} $ and $\mathfrak{p} $ is minimal.
+
+	$\Leftarrow $)
+	Because $\mathfrak{p} $ is minimal, $S \setminus \mathfrak{p} $ is maximal among multiplicatively closed subsets of $A $ that don't contain $0 $.
+	Thus for any $x \in \mathfrak{p} $, $0 \in $ the multiplicatively closed subset spanned by $S \cup \{x\}   $.
+	Hence there is $s\in S $ and $n $ such that $sx^n = 0 $.
+	Thus $x \in r(0:s) $.
+	But $S_{\mathfrak{p}}(0) = \cup_{s \in A \setminus \mathfrak{p}} (0:s) $ by Proposition 3.11.
+	So by the remark on page 9, $r(S_{\mathfrak{p}}(0)) = \cup r(0:s) \implies x \in r(S_{\mathfrak{p}}(0)) $.
+	As $x $ was arbitrary, $\mathfrak{p}\subseteq r(S_{\mathfrak{p}}(0)) $, which by exercise i) gives us that $\mathfrak{p} \subseteq r(S_{\mathfrak{p}}(0)) \subseteq r(\mathfrak{p}) = \mathfrak{p} $.
+	Thus $r(S_{\mathfrak{p}}(0)) = \mathfrak{p} $.
+
+	iv) Obviously $0 $ is in the intersection.
+	Now suppose we have $x \ne 0$.
+	Then $(0:x) \ne (1) $, so we can take a minimal prime ideal $\mathfrak{q} $ containing $(0:x) $.
+	This is in $D(A) $ by definition.
+	Because $(0:x) \subseteq \mathfrak{q} $, there is no $s \in A \setminus \mathfrak{q} $ such that $xs = 0 $ by definition of $(0:x) $.
+	Thus $x \notin S_{\mathfrak{q}}(0) $.
+	Hence $x\notin \cap S_{\mathfrak{p}}(0)$.
+\end{proof}
+
+\begin{exercise}
+	If $\mathfrak{p}$ is a minimal prime ideal of a ring $A$, show that $S_\mathfrak{p}(0)$ (Exercise 10) is the smallest $\mathfrak{p}$-primary ideal. \\
+	Let $\mathfrak{a}$ be the intersection of the ideals $S_\mathfrak{p}(0)$ as $\mathfrak{p}$ runs through the minimal prime ideals of $A$. Show that $\mathfrak{a}$ is contained in the nilradical of $A$.\\
+	Suppose that the zero ideal is decomposable. Prove that $\mathfrak{a} = 0$ if and only if every prime ideal of $0$ is isolated.
+\end{exercise}
+\begin{proof}
+	If $\mathfrak{p} $ is a minimal prime, then $r(S_ \mathfrak{p}(0)) = \mathfrak{p} $ by Exercise 4.10ii.
+	Further, $S_{\mathfrak{p}}(0) $ is a primary ideal for if we have $ab \in S_{\mathfrak{p}}(0) $, then there is $c \in A \setminus \mathfrak{p} $ such that $abc = 0 $.
+	As $0\in \mathfrak{p} $ and $\mathfrak{p} $ is prime, $c\notin \mathfrak{p} \implies ab \in \mathfrak{p} $.
+	Thus either $a $ or $b $ are in $\mathfrak{p} = r(S_{\mathfrak{p}}(0)) $.
+	Finally, $S_{\mathfrak{p}}(0) $ is the smallest $\mathfrak{p} $-primary ideal because given a $\mathfrak{p} $-primary ideal $I $, $I \subseteq r(I) = \mathfrak{p} $.
+	Thus $A \setminus \mathfrak{p} \cap I = \emptyset $, so $I_{\mathfrak{p}} $ is $\mathfrak{p}_{\mathfrak{p}}$-primary by Proposition 4.8, and the contraction of $I_{\mathfrak{p}} $ is $I $.
+	But the contraction contains $S_{\mathfrak{p}}(0) $.
+
+	Because $S_{\mathfrak{p}}(0) \subseteq r(S_{\mathfrak{p}}(0)) $, we have that $\mathfrak{a} \subseteq r(\mathfrak{a}) = \cap r(S_{\mathfrak{p}_i}(0)) $ where the $\mathfrak{p}_i$ range over minimal prime ideals.
+	But by Exercise 4.10ii, $r(S_{\mathfrak{p}_i}(0)) = \mathfrak{p}_i $.
+	Thus $\mathfrak{a} \subseteq \cap \mathfrak{p}_i $.
+	The RHS equals the nilradical because the nilradical is the intersection of all prime ideals, and we can just remove non-minimal ones.
+
+	Assume that the zero ideal is decomposable into $\cap \mathfrak{q}_i$ with $r(\mathfrak{q}_i) = \mathfrak{p}_i $.
+
+	Assume every prime ideal of $0 $ is isolated.
+	Then no 
+	By Exercise 4.9, $D(A) $ is the set of associated primes of $0 $, which by assumption are isolated.
+	So by Exercise 4.10iv, $\cap_{\mathfrak{q}\in D(A)} S_{\mathfrak{q}}(0) = 0 $.
+
+	Suppose that $\mathfrak{a} = 0 $.
+	For each minimal prime $\mathfrak{p}^j $, let $\{\mathfrak{p}_{j,i}\}   $ meet $A \setminus \mathfrak{p}^j $.
+	Let $\mathfrak{q}_{j,i} $ be the corresponding primary components.
+	By Proposition 4.9, $\mathfrak{a} = \cap_{j} \cap_{j,i} \mathfrak{q}_{j,i} $.
+	As this contains 
+	Then because of Exercise 4.10iii), $\cap S_{\mathfrak{q}}(0) \subseteq \cap S_{\mathfrak{p}}(0) $ where $\mathfrak{q} $ range over associated primes of $0 $ as each $\mathfrak{q} $ contains a minimal prime ideal.
+	Thus $\cap S_{\mathfrak{q}}(0) = 0 $.
+\end{proof}
+
+\begin{exercise}
+	Let $A$ be a ring, $S$ a multiplicatively closed subset of $A$. For any ideal $\mathfrak{a}$, let $S(\mathfrak{a})$ denote the contraction of $S^{-1}\mathfrak{a}$ in $A$. The ideal $S(\mathfrak{a})$ is called the \textit{saturation} of $\mathfrak{a}$ with respect to $S$. Prove that 
+	\begin{enumerate}
+		\item $S(\mathfrak{a}) \cap S(\mathfrak{b}) = S(\mathfrak{a} \cap \mathfrak{b})$. 
+		\item $S\big(r(\mathfrak{a})\big) = r\big(S(\mathfrak{a})\big)$. 
+		\item $S(\mathfrak{a}) = (1) \iff \mathfrak{a}$ meets $S$.
+		\item $S_1\big(S_2(\mathfrak{a})\big) = (S_1 S_2)(\mathfrak{a})$. \\
+			If $\mathfrak{a}$ has a primary decomposition, prove that the set of ideals $S(\mathfrak{a})$ (where $S$ runs through all multiplicatively closed subsets of $A$) is finite.
+	\end{enumerate}
+\end{exercise}
+\begin{proof}
+	i) Because of Exercise 1.18, $S(\mathfrak{a})\cap S(\mathfrak{b}) = \mathfrak{a}^c \cap \mathfrak{b}^c = (\mathfrak{a} \cap \mathfrak{b})^c = S(\mathfrak{a}\cap \mathfrak{b}) $.
+
+	ii) Because of Exercise 1.18, $S(r(\mathfrak{a})) = r(\mathfrak{a})^c = r(\mathfrak{a}^c) = r(S(\mathfrak{a}))$.
+	
+	iii) Proposition 3.11.
+
+	iv) By Proposition 3.11ii), $S_{2}(\mathfrak{a}) = \mathfrak{a}^{ec} = (S_{2}^{-1}\mathfrak{a})^c = \cup_{s_{2} \in S_{2}} (\mathfrak{a}:s_{2})$..
+	Thus $S_{1}(S_{2}(\mathfrak{a})) = \cup_{s_{1}\in S_{1}} \cup_{s_{2}\in S_{2}}((\mathfrak{a}:s_{2}):s_{1})$.
+	By Exercise 1.12, this equals $\cup_{s_{1}\in S_{1}} \cup_{s_{2}\in S_{2}}(\mathfrak{a}:s_{2}s_{1}) $.
+	This then equals $\cup_{s\in S_{1} S_{2}}(\mathfrak{a}:s) = ((S_{1}S_{2})^{-1} \mathfrak{a})^c = S_{1}S_{2}(\mathfrak{a})$.
+
+	Now suppose that $\mathfrak{a} $ has a decomposition $\cap \mathfrak{q}_i $.
+	Then by Proposition 4.9, $S(\mathfrak{a}) $ is an intersection of a finite subset of the $\mathfrak{q}_i $'s.
+	There are only finitely many possibilities.
+\end{proof}
+
+\begin{exercise}
+	Let $A$ be a ring and $\mathfrak{p}$ a prime ideal of $A$. Then \textit{$n$th symbolic power of} $\mathfrak{p}$ is defined to be the ideal (in the notation of Exercise 12)
+	\[
+		\mathfrak{p}^{(n)} = S_\mathfrak{p}(\mathfrak{p}^n)
+	\]
+	where $S_\mathfrak{p} = A \setminus \mathfrak{p}$. Show that
+	\begin{enumerate}
+		\item $\mathfrak{p}^{(n)}$ is a $\mathfrak{p}$-primary ideal;
+		\item if $\mathfrak{p}^n$ has a primary decomposition, then $\mathfrak{p}^{(n)}$ is its $\mathfrak{p}$-primary component;
+		\item If $\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}$ has a primary decomposition, then $\mathfrak{p}^{(m+n)}$ is its $\mathfrak{p}$-primary component
+		\item $\mathfrak{p}^{(n)} = \mathfrak{p}^n \iff \mathfrak{p}^{(n)}$ is $\mathfrak{p}$-primary.
+	\end{enumerate}
+\end{exercise}
+\begin{proof}
+	i) Suppose we have $ab \in \mathfrak{p}^{(n)}  $ and $a\notin \mathfrak{p}^{(n)}  $.
+	Then by Proposition 3.11, $S_{\mathfrak{p}}(\mathfrak{p}^n) = \cup_{s \in A \setminus \mathfrak{p}} (\mathfrak{p}^{n} :s) $.
+	Now let $s $ be such that $ab \in (\mathfrak{p}^n:s) $.
+	Then $ab s \in \mathfrak{p}^n$.
+
+	If $bs \in \mathfrak{p} $, then because $s\notin \mathfrak{p} $, $b \in \mathfrak{p} \implies b^n \in \mathfrak{p}^{(n)}  $, the requirement for $\mathfrak{p}^{(n)}  $ to be primary.
+	If $bs \notin \mathfrak{p} $, then $a\in (\mathfrak{p}^n:bs) \subseteq \cup_{s\in A \setminus \mathfrak{p}} (\mathfrak{p}^n: s) $.
+
+	Finally, because $r((S_{\mathfrak{p}}\mathfrak{p}^n)^c) = r(S_{\mathfrak{p}}\mathfrak{p}^n)^c = (S_{\mathfrak{p}}\mathfrak{p})^c $ because of Proposition 4.8.
+	Then by Proposition 3.11 this equals $\mathfrak{p} $.
+
+	ii) 
+
+	iii) 
+\end{proof}
+
+\begin{exercise}
+	Let $\mathfrak{a}$ be a decomposable ideal in a ring $A$ and let $\mathfrak{p}$ be a maximal element of the set of ideals $(\mathfrak{a} : x)$, where $x \in A$ and $x \notin \mathfrak{a}$. Show that $\mathfrak{p}$ is a prime ideal belonging to $\mathfrak{a}$. 
+\end{exercise}
+\begin{proof}
+	First we can see that $\mathfrak{p} $ is prime: suppose we have $ab \in \mathfrak{p} = (\mathfrak{a}:x) $.
+	Because $\mathfrak{a} $ is decomposable, $(\mathfrak{a}:x) = (\cap \mathfrak{q}_i:x) = \cap (\mathfrak{q}_i:x) $.
+	If $a\notin \mathfrak{p} $, then $(\mathfrak{p}:a) \supseteq \mathfrak{p} $.
+	But then $(\mathfrak{p}:a) = (\cap (\mathfrak{q}_i:x): a) = \cap ((\mathfrak{q}_i:x):a) = \cap (\mathfrak{q}_i:ax) = (\cap \mathfrak{q}_i:ax) = (\mathfrak{a}:ax)$ by Exercise 1.12 in the chapter.
+
+	If $ax\notin \mathfrak{a} $, then because $\mathfrak{p} $ is maximal $(\mathfrak{p}:a) = \mathfrak{p} $, and $b \in (\mathfrak{p}:a) $.
+	If $ax \in \mathfrak{a} $, then by definition, $a \in (\mathfrak{a}:x) $.
+
+	Finally, $\mathfrak{p} $ is a prime ideal belonging to $\mathfrak{a} $ because it is of the right form for the Uniqueness Theorem: $\mathfrak{p} = (\mathfrak{a}:x) = r(\mathfrak{a}:x) $.
+\end{proof}
+
+\begin{exercise}
+	Let $\mathfrak{a}$ be a decomposable ideal in a ring $A$, let $\Sigma$ be an isolated set of prime ideals belonging to $\mathfrak{a}$, and let $\mathfrak{q}_\Sigma$ be the intersection of the corresponding primary components. Let $f\!$ be an element of $A$ such that, for each prime ideal $\mathfrak{p}$ belonging to $\mathfrak{a}$, we have $f \!\in \mathfrak{p} \iff \mathfrak{p} \notin \Sigma$, and let $S_f\!$ be the set of all powers of $f\!$. Show that $\mathfrak{q}_\Sigma = S_f (\mathfrak{a}) = (\mathfrak{a} : f^n)$ for all large $n$. 
+\end{exercise}
+\begin{proof}
+	First we can show that $S_f(\mathfrak{a}) = (\mathfrak{a}:f^{n})  $
+	We use Proposition 3.11 to get that $\mathfrak{a}^{ec} = \cup_{n}(\mathfrak{a}:f^n)  $.
+	Clearly $(\mathfrak{a}:f^n) \subseteq (\mathfrak{a}:f^{n+1})  $.
+	Thus if we show that $(\mathfrak{a}:f^n) $ stabilizes for some large enough $n $, we have shown this part.
+	Now 
+
+	Take some $q \in \mathfrak{q}_\Sigma $.
+	Then $q \in \mathfrak{q}_i $ for some isolated component
+\end{proof}
+
+\begin{exercise}
+	If $A$ is a ring in which every ideal has a primary decomposition, show that every ring of fractions $S^{-1}A$ has the same property. 
+\end{exercise}
+\begin{proof}
+	Just Proposition 4.9 and Proposition 3.11.
+\end{proof}
+
+\begin{exercise}
+Let $A$ be a ring with the following property.
+
+(L1) For every ideal $\mathfrak{a} \neq (1)$ in $A$ and every prime ideal $\mathfrak{p}$, there exists $x\notin \mathfrak{p}$ such that $S_\mathfrak{p}(\mathfrak{a}) = (\mathfrak{a} : x)$, where $S_\mathfrak{p} = A \setminus \mathfrak{p}$.
+
+Then every ideal in $A$ is an intersection of (possibly infinitely many) primary ideals.
+\ifhint
+	[Let $\mathfrak{a} $ be an ideal $\ne (1) $ in $A $, and let $\mathfrak{p}_1 $ be a minimal element of the set of prime ideals containing $\mathfrak{a} $. Then $\mathfrak{q}_1 = S_{\mathfrak{p}_1}(\mathfrak{a}) $ is $\mathfrak{p}_1 $-primary (by Exercise 11), and $\mathfrak{q}_1 = (\mathfrak{a}:x) $ for some $x\notin \mathfrak{p}_1 $. Show that $\mathfrak{a} = \mathfrak{q}_1 \cap (\mathfrak{a}+((x)) $.
+
+	Now let $\mathfrak{a}_1$ be a maximal element of the set of ideals $\mathfrak{b} \supseteq \mathfrak{a}$ such that $\mathfrak{q}_1 \cap \mathfrak{b} = \mathfrak{a}$, and choose $\mathfrak{a}_1$ so that $x \in \mathfrak{a}_1$, and therefore $\mathfrak{a}_1 \not\subseteq \mathfrak{p}_1$. Repeat the construction starting with $\mathfrak{a}_1$ and so on. At the $n$th stage we have $\mathfrak{a} = \mathfrak{q}_1 \cap \cdots \cap \mathfrak{q}_n \cap \mathfrak{a}_n$ where the $\mathfrak{q}_1$ are primary ideals, $\mathfrak{a}_n$ is maximal among the ideals $\mathfrak{b}$ containing $\mathfrak{a}_{n -1} = \mathfrak{a}_n \cap \mathfrak{q}_n$ such that $\mathfrak{a} = \mathfrak{q}_1 \cap \cdots \cap \mathfrak{q}_n \cap \mathfrak{b}$, and $\mathfrak{a}_n \not\subseteq \mathfrak{p}_n$. If at any stage we have $\mathfrak{a}_n = (1)$, the process stops, and $\mathfrak{a}$ is a finite intersection of primary ideals. If not, continue by transfinite induction, observing that each $\mathfrak{a}_n$ strictly contains $\mathfrak{a}_{n-1} $.]
+\fi
+\end{exercise}
+\begin{proof}
+	
+\end{proof}
