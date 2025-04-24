@@ -7,7 +7,7 @@
 	If an ideal $\mathfrak{a}$ has a primary decomposition, then $\Spec(A/\mathfrak{a})$ has only finitely many irreducible components.
 \end{exercise}
 \begin{proof}
-	By the First Uniqueness Theorem, the associated primes to $\mathfrak{a} $ is independent on the decomposition.
+	By the First Uniqueness Theorem, the associated primes to $\mathfrak{a} $ is independent of the decomposition.
 	As $\mathfrak{a} $ being decomposable implies that $\mathfrak{a} $ is a finite intersection, the number of associated primes must be finite.
 	Finally, because irreducible components of $\Spec(A / \mathfrak{a}) $ correspond to minimal primes belonging to $\mathfrak{a} $ by the remark after Prop 4.6, this implies that there are a finite number of irreducible components.
 \end{proof}
@@ -331,7 +331,7 @@
 		\item $\mathfrak{p}^{(n)}$ is a $\mathfrak{p}$-primary ideal;
 		\item if $\mathfrak{p}^n$ has a primary decomposition, then $\mathfrak{p}^{(n)}$ is its $\mathfrak{p}$-primary component;
 		\item If $\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}$ has a primary decomposition, then $\mathfrak{p}^{(m+n)}$ is its $\mathfrak{p}$-primary component
-		\item $\mathfrak{p}^{(n)} = \mathfrak{p}^n \iff \mathfrak{p}^{(n)}$ is $\mathfrak{p}$-primary.
+		\item $\mathfrak{p}^{(n)} = \mathfrak{p}^n \iff \mathfrak{p}^{n}$ is $\mathfrak{p}$-primary.
 	\end{enumerate}
 \end{exercise}
 \begin{proof}
@@ -346,9 +346,49 @@
 	Finally, because $r((S_{\mathfrak{p}}\mathfrak{p}^n)^c) = r(S_{\mathfrak{p}}\mathfrak{p}^n)^c = (S_{\mathfrak{p}}\mathfrak{p})^c $ because of Proposition 4.8.
 	Then by Proposition 3.11 this equals $\mathfrak{p} $.
 
+	Alternatively, one can observe that $\mathfrak{p} $ is minimal in $A / \mathfrak{p}^n $	 because $r(\mathfrak{p}^n) = \mathfrak{p} $ and $r(\mathfrak{p}^n)$ is contained in every prime ideal containing $\mathfrak{p}^n $ and every ideal of $A/\mathfrak{p}^n$ corresponds to an ideal of $A $ containing $\mathfrak{p}^n $.
+	Thus Exercise 1.11 applied to $A / \mathfrak{p}^n $ with the minimal prime $\mathfrak{p} $ gives us that $S_p(0) $ is the smallest $\mathfrak{p} $ primary ideal in $A / \mathfrak{p}^n $.
+	This corresponds to the smallest $\mathfrak{p} $ primary ideal in $A $ containing $\mathfrak{p}^n $.
+
 	ii) 
+	Take a minimal decomposition of $\mathfrak{p}^n $.
+	Because $r(\mathfrak{p}^n:1) = \mathfrak{p} $ and of the uniqueness theorem, there are $\mathfrak{p} $-primary ideals in the decomposition.
+	Recall that the alternate proof above tells us that $\mathfrak{p}^{(n)}$ is the smallest $\mathfrak{p} $-primary ideal containing $\mathfrak{p}^n $.
+	As any primary ideal in the decomposition must contain $\mathfrak{p}^n $, $\mathfrak{p}^{(n)}  $ must be contained in any $\mathfrak{p} $-primary associated ideal to $\mathfrak{p}^n $.
+	But this contradicts minimality unless the $\mathfrak{p} $-primary associated ideal was $\mathfrak{p}^{(n)}$. 
 
 	iii) 
+	% Take a minimal decomposition of $\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}   $.
+	% Observe that $(\mathfrak{p}^{(m)}\mathfrak{p}^{(n)})^e = (\mathfrak{p}^{(m)})^e (\mathfrak{p}^{(n)})^e $ by Exercise 1.18.
+	% Then because $\mathfrak{p}^{(n)} = \mathfrak{p}^{ec}   $ and of Proposition 1.17, $(\mathfrak{p}^{(m)}\mathfrak{p}^{(n)})^e = (\mathfrak{p}^{m})^e (\mathfrak{p}^n)^e = (\mathfrak{p}^{m+n})^e $.
+	%
+	% By applying Proposition 4.9 with $S = A \setminus \mathfrak{p} $, we get that
+	% \[
+	% 	(\mathfrak{p}^{(m)}\mathfrak{p}^{(n)})^e = \cap \mathfrak{q}_i^e
+	% \]
+	% where $\mathfrak{q}_i $ range over the primary ideals that don't meet $S $.
+	% From above we then have
+	% \[
+	% 	(\mathfrak{p}^{m+n})^e = (\mathfrak{p}^{(m)}\mathfrak{p}^{(n)})^e = \cap \mathfrak{q}_i^e
+	% \]
+	% By ii, $\mathfrak{p}^{(m+n)}  $ is the $\mathfrak{p} $-primary component of $\mathfrak{p}^{m+n}  $.
+	% Thus when we contract, we get $\mathfrak{p}^{(m+n)}  $ as the $\mathfrak{p} $-primary component on the left and the intersection of primary ideals whose radical contains $\mathfrak{p} $.
+	% By the uniqueness theorem of 
+	Because $\mathfrak{p}^{m} \subseteq \mathfrak{p}^{(m)}   $, $\mathfrak{p}^{m+n} \subseteq \mathfrak{p}^{(m)}\mathfrak{p}^{(n)}    $.
+	Thus all the $\mathfrak{p} $-primary ideals in the decomposition contain $\mathfrak{p}^{m+n}  $, and thus contain $\mathfrak{p}^{(m+n)}  $ as it is the smallest such.
+
+	Finally, we can show that $\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}\subseteq \mathfrak{p}^{(m+n)}$, which completes the problem because we can then intersect a minimal decomposition of $\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}   $ with $\mathfrak{p}^{(m+n)}  $ and collect the $\mathfrak{p}$-primary ideals together via Lemma 4.3 to get that $\mathfrak{p}^{(m+n)}  $ is the $\mathfrak{p} $-primary component.
+	Now to show this: by definition, $\mathfrak{p}^{(m)}\mathfrak{p}^{(n)} = (\mathfrak{p}^m)^{ec}(\mathfrak{p}^n)^{ec}$.
+	Thus by taking extensions and using Exercise 1.18 and Proposition 1.17, we have that $(\mathfrak{p}^{m+n})^e = (\mathfrak{p}^{(m)}\mathfrak{p}^{(n)})^e$.
+	Contracting, we get that
+	\[
+		\mathfrak{p}^{(m+n)} = ((\mathfrak{p}^{(m)})^e (\mathfrak{p}^{(n)})^e))^c \supseteq (\mathfrak{p}^{(m)})^{ec} (\mathfrak{p}^{(n)})^{ec} \supseteq \mathfrak{p}^{(m)}\mathfrak{p}^{(n)}  
+	\] 
+	via assorted uses of Proposition 1.17 and Exercise 1.18.
+
+	iv) If $\mathfrak{p}^{(n)} = \mathfrak{p}^n  $, then we are done by part i.
+	If $\mathfrak{p}^n $ is $\mathfrak{p} $-primary, then because $\mathfrak{p}^{(n)}  $ is the smallest $\mathfrak{p} $ primary ideal containing $\mathfrak{p}^n $ by the alternate proof of i) and $\mathfrak{p}^n $ is a $\mathfrak{p} $-primary ideal, $\mathfrak{p}^{(n)} \subseteq \mathfrak{p}  $.
+	But clearly $\mathfrak{p}^{(n)} \supseteq \mathfrak{p}  $.
 \end{proof}
 
 \begin{exercise}

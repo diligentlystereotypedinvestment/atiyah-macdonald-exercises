@@ -24,11 +24,20 @@
 	Let $A$ be a subring of a ring $B$ such that $B$ is integral over $A$, and let $f \colon A \to \Omega$ be a homomorphism of $A$ into an algebraically closed field $\Omega$. Show that $f\!$ can be extended to a homomorphism of $B$ into $\Omega$.
 \end{exercise}
 \begin{proof}
-	We can extend $f $ by mapping $x\in B $ as follows.
-	Suppose $x $ satisfies the minimal monic $A $ relation
+	Let $\Sigma $ be the set of all rings $R $ such that $A \subseteq R \subseteq B $ and $R $ has an extension of $f $ to $R $.
+	Give it a partial order of $R_{1} \le R_{2} $ iff $R_{1}\subseteq R_{2} $ and $f_{R_{2}}$ is an extension of $f_{R_{1}} $.
+	Every ascending chain has bounded above since given a sequence $R_{1} \subseteq \cdots \subseteq R_{2} \subseteq \cdots  $ in $\Sigma $, their union is a subring of $B $ and $f $ can be extended to the union by mapping $x \in R_i $ to $f_{R_i}(x) $.
+	This is well-defined because the partial order ensures the output doesn't depend on the choice of $i $.
+	Thus by Zorn's Lemma, we have a maximal element $R $.
+
+	This maximal element is $B $, because given an element $x \in B $, $R[x] $ a subring of $B $ and has an extension of $f $ to $R[x] $ as follows:
+	Suppose $x $ satisfies the equation
 	\[
-		x^n + a_{1} x^{n-1} + \cdots + a_n = 0 
+		x^n + a_1 x^{n-1} + \cdots + a_n = 0
 	.\] 
+	Then map $x $ to a root of this polynomial in $\Omega $ and extend $f_R $ in this way.
+	Because $R$ is maximal, $R = R[x] \implies x \in R $.
+	Thus $B \subseteq R \subseteq B \implies R = B $.
 \end{proof}
 
 \begin{exercise}
@@ -61,17 +70,30 @@
 	Let $A$ be a subring of $B$ such that $B$ is integral over $A$. Let $\mathfrak{n}$ be a maximal ideal of $B$ and let $\mathfrak{m} = \mathfrak{n} \cap A$ be the corresponding maximal ideal of $A$ (see (5.8)). Is $B_{\mathfrak{n}}$ necessarily integral over $A_\mathfrak{m}$?
 \end{exercise}
 \begin{proof}
-	% First note that because $A\subseteq A_{\mathfrak{m}} $, $B $ is integral in $B_{\mathfrak{n}} $ over $A_{\mathfrak{m}} $.
-	% Next, it suffices to show that $\frac{1}{n} \in B_{\mathfrak{n}} $ is integral over $A_{\mathfrak{m}} $, since the product of integral elements is integral.
-	% Let $n $ satisfy
-	% \[
-	% 	n^\ell + a_1 n^{\ell-1} + \cdots + a_\ell = 0
-	% .\] 
-	% Then $\frac{1}{n} $ satisfies
-	% \[
-	% 	a_{\ell}\left(\frac{1}{n}\right)^{\ell} + a_{1} \left(\frac{1}{n}\right)^{\ell-1}+\cdots + 1 = 0  
-	% .\] 
-	% Thus if we show that $a_{\ell} $ is in $A\setminus \mathfrak{m} $, then we are done, as dividing by $a_\ell $ would then give us an integral relation over $A_{\mathfrak{m}} $.
+	This is not true.
+	Fix a field $k $ and consider $B = k[x] $ and $A = k[x^2-1] $.
+	Then $x $ is a root of $y^2 - (1 - (x^2-1)) \in A[y] $, so $B $ is integral over $A $ .
+
+	Finally, let $\mathfrak{n} = (x-1) $.
+	Then $\mathfrak{m} = (x^2-1) $.
+	Now I claim that $\frac{1}{x+1} $ is not integral in $B_{\mathfrak{n}} $ over $A_{\mathfrak{m}} $.
+	Suppose FTSOC that it was.
+	Then we have $f(y) \in A_{\mathfrak{m}}[y] $ such that $f $ vanishes at $\frac{1}{x+1} $.
+	% Write $f(y) = y^n + f_1y^{n-1} + \cdots + f_n  $.
+
+	Let $F = A_{(0)} $ and $E = B_{(0)} $.
+	Then by field theory, the minimal polynomial of $\frac{1}{x+1} $ divides $f(y) $ in $F[y]$.
+	Its minimal polynomial is $y^2 + \frac{2}{x^2-1}y - \frac{1}{x^2-1} $.
+	So suppose that
+	\begin{equation}\label{eqn:5.4.1}
+		f = (y^2+\frac{2}{x^2-1}y - \frac{1}{x^2-1})g
+	\end{equation}
+	for $g \in F[y] $.
+
+	If $g $ has $x^2-1 $ terms in its (simplified) denominator, then we get an obvious contradiction with $f $ being in $A_{\mathfrak{m}}[y] $.
+	If $g $ has no $x^2-1 $	terms in its (simplified) numerator, then we also get an obvious contradiction.
+	Thus $g = (x^2-1)h$ for some $h \in F[y] $.
+	But then the leading coefficient of $f $ (in $y $) will have an $x^2-1 $ term in it, contradicting the definition of $f $ being an integral relation for $\frac{1}{x+1} $.
 \end{proof}
 
 \begin{exercise}
@@ -181,4 +203,68 @@
 	Thus $b_n \in C $.
 	Hence $f-b_n $ is also integral over $A[x] $ and in $B[x] \setminus C[x] $.
 	But $f-b_n $ has fewer non-zero coefficients than $f $, contradicting our assumption, allowing us to conclude that $C[x] $ is the integral closure of $A[x] $.
+\end{proof}
+
+\begin{exercise}
+	A ring homomorphism $f \colon A \to B$ is said to have the \textit{going-up property} (resp. the \textit{going-down property}) if the conclusion of the going-up theorem (5.11) (resp. the going-down theorem (5.16)) holds for $B$ and its subring $f(A)$.
+
+	Let $f^\ast \colon \Spec(B) \to \Spec(A)$ be the mapping associated with $f$.
+	\begin{enumerate}
+		\item Consider the following three statements:
+		\begin{enumerate}
+			\item $f^\ast$ is a closed mapping.
+			\item $f$ has the going-up property.
+			\item Let $\mathfrak{q}$ be any prime ideal of $B$ and let $\mathfrak{p} = \mathfrak{q}^c$. Then $f^\ast\colon \Spec(B/\mathfrak{q}) \to \Spec(A/\mathfrak{p})$ is surjective.
+		\end{enumerate}
+		Prove that (a) $\implies$ (b) $\iff$ (c) (See also Chapter 6, Exercise 11.)
+
+		\item Consider the following three statements:
+		\begin{enumerate}
+			\item[(a')] $f^\ast$ is an open mapping.
+			\item[(b')] $f$ has the going-down property.
+			\item[(c')] For any prime ideal $\mathfrak{q}$ of $B$, if $\mathfrak{p} = \mathfrak{q}^c$, then $f^\ast\colon \Spec(B_\mathfrak{q}) \to \Spec(A_\mathfrak{p})$ is surjective.
+		\end{enumerate}
+
+		Prove that $(a')\implies(b')\iff(c')$. (See also Chapter 7, Exercise 23).
+\end{enumerate}
+\end{exercise}
+\begin{proof}
+	$(a) \implies (b) $ 
+	By induction, it suffices to show the going up property for $n=2,m=1 $.
+	So suppose we have $\mathfrak{p}_1 \subseteq \mathfrak{p}_2$ a chain of prime ideals of $f(A) $ and $\mathfrak{q}_1$ a prime ideal in $B $ with $\mathfrak{q}_1\cap f(A) = \mathfrak{p}_1 $.
+
+	First note that $A / \ker f \cong \im f = f(A) $ by the first isomorphism theorem and $f: A\to B $ factors through $A / \ker f $.
+	This gives us that $f^\ast: \Spec B \to \Spec A $ factors through $\Spec A / \ker f $ because $\Spec$ is a functor.
+	Then because $\Spec A / \ker f $ is a closed subset of $\Spec A $ (Proposition 1.1), $f^\ast $ being a closed map gives us that the factored map $\Spec B \to \Spec A / \ker f $ is closed.
+
+	Finally, this then tells us that $f^\ast(V(\mathfrak{q}_1)) = V(\mathfrak{a}) $.
+	Because $f^\ast(\mathfrak{q}_1) = \mathfrak{p}_1 $, $\mathfrak{p}_1 \in V(\mathfrak{a}) $.
+	Because $\mathfrak{p}_2 \supseteq \mathfrak{p}_1 $, $\mathfrak{p}_2 \in V(\mathfrak{a}) $.
+	Thus there is some $\mathfrak{q}_2 \in V(\mathfrak{q}_1) $ such that $f^\ast(\mathfrak{q}_2) = \mathfrak{p}_2 $.
+	This is the condition we need to go up.
+
+	$(b) \iff (c) $ First we show the fowards direction.
+	Take some prime $\mathfrak{n}' \in \Spec(A/(\mathfrak{p}) $.
+	This corresponds to a prime ideal $\mathfrak{n} \in \Spec A $ that contains $\mathfrak{p} $.
+	Thus it suffices to show that there is a prime ideal in $B $ that contains $\mathfrak{q} $ that contracts to $\mathfrak{n} $.
+
+	Next we can see that $\mathfrak{p} $ and $\mathfrak{n} $ correspond to prime ideals $p,n $ in $f(A) $ as $\mathfrak{q}^c = \mathfrak{p} \implies \ker f \subseteq \mathfrak{p} $.
+	So we have this set up:
+	\[
+		p \subseteq n
+	\]
+	with $\mathfrak{q}\cap f(A) = p$, so by going up, we have a prime ideal $\mathfrak{t} \in \Spec B $ such that $\mathscr{t} \cap f(A) = n $.
+	Thus $\mathfrak{t} $ is a prime ideal in $B $ that contains $\mathfrak{q} $ and contracts to $\mathfrak{n} $, showing surjectivity.
+
+	Now to show the reverse direction.
+	It suffices to show the going up with $n=2,m=1$, so take $\mathfrak{p}_1 \subseteq \mathfrak{p}_2 $ prime ideals in $f(A) $ and $\mathfrak{q}_1 $ a prime ideal in $B $ with $\mathfrak{q}_1 \cap f(A) = \mathfrak{p}_1 $.
+	Then let $\mathfrak{q} = \mathfrak{q}_1 $ and $\mathfrak{p}= f^{-1}(\mathfrak{p}_1) $.
+	By hypothesis, $\Spec B / \mathfrak{q} \to \Spec A / \mathfrak{p} $ is surjective.
+
+	Because $f^{-1}(\mathfrak{p}_2) \supseteq f^{-1}(\mathfrak{p}_1)$, by Proposition 1.1, $f^{-1}(\mathfrak{p}_2)$ corresponds to a prime ideal in $A / \mathfrak{p} $, denote it be $p_{2} $.
+	Now let $q_{2} $ be the preimage of it in $\Spec B / \mathfrak{q} $.
+	This corresponds to a prime ideal $\mathfrak{q}_2 $ in $B $ containing $\mathfrak{q} $ by Proposition 1.1.
+	This is the desired extension as $\mathfrak{q}_2 \supseteq \mathfrak{q} = \mathfrak{q}_1 $ and $\mathfrak{q}_2 \cap f(A) = f(f^{-1}(\mathfrak{q}_2)) = f(f^\ast(\mathfrak{q}_2)) = f(f^{-1}(\mathfrak{p}_2)) = \mathfrak{p}_2$.
+
+	$(a') \implies (b') $ It suffices to show the going down property for $\mathfrak{p}_1 \supseteq \mathfrak{p}_2 $ and $\mathfrak{q}_1 $ prime ideals of $f(A) $ and $B $ respectively such that $\mathfrak{q}_1 \cap f(A) = \mathfrak{p}_1 $.
 \end{proof}
